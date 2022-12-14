@@ -1,0 +1,23 @@
+@import url("https://fonts.googleapis.com/css2?family=Raleway&display=swap");
+@import url("https://fonts.googleapis.com/css2?family=Poppins&family=Raleway&display=swap");
+.mainContainer {
+  margin-top: 14rem;
+}
+.mainHeading {
+  font-family: "Poppins";
+  font-size: 40px;
+  text-align: center;
+}
+.bgHeading {
+  font-size: 100px;
+  font-family: "Poppins";
+  text-align: center;
+  font-weight: 800;
+  color: #393e46;
+  position: absolute;
+  left: 32rem;
+  top: 43.5rem;
+  line-height: 150px;
+  mix-blend-mode: screen;
+  opacity: 0.5;
+}

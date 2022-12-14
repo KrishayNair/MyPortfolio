@@ -1,0 +1,100 @@
+@import url("https://fonts.googleapis.com/css2?family=Poppins&family=Raleway&display=swap");
+.bgHeader {
+  font-family: "Poppins";
+  font-style: normal;
+  font-weight: 700;
+  font-size: 283.333px;
+  line-height: 425px;
+  /* identical to box height */
+  position: absolute;
+  bottom: 2rem;
+  letter-spacing: -0.02em;
+
+  /* Gray */
+  display: inline-block;
+  color: #393e46;
+
+  mix-blend-mode: screen;
+  opacity: 0.5;
+}
+.mainHeading {
+  font-size: 64px;
+  position: relative;
+  top: 17rem;
+  left: 1rem;
+  display: inline-block;
+}
+.heroImg {
+  float: right;
+  width: 40rem;
+  position: absolute;
+  top: 5rem;
+  right: 6rem;
+}
+.surname {
+  background: linear-gradient(90deg, #8b5cf6 0%, #ec4899 43.9%);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  background-clip: text;
+  text-fill-color: transparent;
+}
+.info {
+  color: #fff;
+  font-size: 20px;
+  font-weight: 200;
+  position: relative;
+  bottom: 8rem;
+}
+.line {
+  width: 30rem;
+  position: relative;
+}
+.gradientTop {
+  position: absolute;
+  left: -400px;
+  top: -450px;
+  z-index: -1;
+}
+.pinkRing {
+  position: absolute;
+  right: 28rem;
+  top: 8rem;
+}
+.gradientBottom {
+  position: absolute;
+  left: 61.5rem;
+}
+.social {
+  position: absolute;
+  right: 1px;
+  top: 9rem;
+}
+.socialHeading {
+  font-size: 24px;
+  transform: rotate(90deg);
+
+  line-height: 36px;
+  font-family: "Poppins";
+  font-weight: 400;
+  margin-bottom: 6rem;
+}
+.socialLogo {
+  width: 2rem;
+  display: block;
+  margin-top: 1rem;
+  position: relative;
+  top: 6rem;
+  left: 2.8rem;
+}
+.socialLine {
+  width: 100px;
+  height: 0px;
+  position: relative;
+  top: 1.2rem;
+  /* Main */
+
+  border: 2px solid #ec4899;
+  background-color: #ec4899;
+  border-radius: 12px;
+  transform: rotate(90deg);
+}
