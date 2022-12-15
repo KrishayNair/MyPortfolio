@@ -8,7 +8,7 @@ function navbar() {
       <h1 className="header-logo">Krishay Nair</h1>
       <nav className={styles.navMid}>
         <ul>
-          <Link className={styles.navElement} href="/">
+          <Link className={`${styles.navElement} ${styles.onHover}`} href="/">
             Home
           </Link>
           <Link className={styles.navElement} href="/">

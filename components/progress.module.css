@@ -1,0 +1,66 @@
+@import url("https://fonts.googleapis.com/css2?family=Poppins&family=Raleway&display=swap");
+
+.mainElement {
+  display: flex;
+  flex-direction: row;
+  flex-wrap: wrap;
+  padding: 30px;
+  justify-content: space-evenly;
+}
+.element {
+  border-image: linear-gradient(#8b5cf6, #ec4899) 30;
+  border-width: 4px;
+  border-style: solid;
+  padding: 4rem;
+  margin-bottom: 4rem;
+}
+.element:hover {
+  border-image: linear-gradient(#ec4899, #8b5cf6) 30;
+  color: #ec4899;
+}
+.heading {
+  text-align: center;
+  margin-top: 4rem;
+  font-size: 40px;
+  font-family: "Poppins";
+}
+.subHeading {
+  text-align: center;
+}
+
+.number {
+  width: 10rem;
+  font-weight: 600px;
+  font-size: 30px;
+  color: #fff;
+  position: relative;
+  top: 4rem;
+  left: 11.5rem;
+}
+.circle {
+  fill: none;
+  stroke: url(#GradientColor);
+  stroke-width: 20px;
+  stroke-dasharray: 472;
+  stroke-dashoffset: 472;
+  animation: anim 2s linear forwards;
+  margin-bottom: 4rem;
+}
+.skillPercent {
+  font-weight: 600px;
+  font-size: 30px;
+  color: #fff;
+  position: relative;
+  top: 7.5rem;
+  left: 3.5rem;
+}
+.icons {
+  width: 6rem;
+  position: relative;
+  left: 2rem;
+}
+@keyframes anim {
+  100% {
+    stroke-dashoffset: 165;
+  }
+}
