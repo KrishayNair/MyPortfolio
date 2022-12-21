@@ -17,7 +17,7 @@ function navbar() {
           <Link className={styles.navElement} href="/">
             Projects
           </Link>
-          <Link className={styles.navElement} href="/">
+          <Link className={styles.navElement} href="/contactUs">
             Contact
           </Link>
         </ul>
