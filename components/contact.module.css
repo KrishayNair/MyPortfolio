@@ -22,13 +22,12 @@
   left: 0;
 }
 .contact .leftSide {
-  height: 100%;
   flex: 50%;
   background-color: black;
 }
 
 .contact .rightSide {
-  height: 100%;
+  height: 40rem;
   flex: 50%;
   display: flex;
   flex-direction: column;
