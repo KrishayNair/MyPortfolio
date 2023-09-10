@@ -3,13 +3,18 @@ import styles from "./contact.module.css";
 function contact() {
   return (
     <div>
+      <img
+        className={styles.banner}
+        src="./images/contactBanner.svg"
+        alt="banner"
+      />
       <div className={styles.contact}>
         <div className={styles.leftSide}>
-          <img
+          {/* <img
             className={styles.gradientLeft}
             src="./images/Eclipse.svg"
             alt=""
-          />
+          /> */}
           <img
             className={styles.contactImg}
             src="./images/contactUs.svg"
@@ -17,7 +22,7 @@ function contact() {
           />
         </div>
         <div className={styles.rightSide}>
-          <h1> Contact Us</h1>
+          {/* <h1> Contact Us</h1> */}
 
           <form className={styles.contactForm} method="POST">
             <label className={styles.label} htmlFor="name">
@@ -26,7 +31,7 @@ function contact() {
             <input
               className={styles.input}
               name="name"
-              placeholder="Enter full name..."
+              placeholder="   Enter full name..."
               type="text"
             />
             <label className={styles.label} htmlFor="email">
@@ -35,7 +40,7 @@ function contact() {
             <input
               className={styles.input}
               name="email"
-              placeholder="Enter email..."
+              placeholder="   Enter email..."
               type="email"
             />
             <label className={styles.label} htmlFor="message">
@@ -44,7 +49,7 @@ function contact() {
             <textarea
               className={styles.textArea}
               rows="6"
-              placeholder="Enter message..."
+              placeholder="   Enter message..."
               name="message"
               required
             ></textarea>

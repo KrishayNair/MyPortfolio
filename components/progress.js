@@ -5,7 +5,17 @@ function progress() {
     <div>
       <h1 className={styles.heading}>Skills</h1>
       {/* <h1 className={styles.bgHeading}>Skills</h1> */}
+
       <div className={styles.mainElement}>
+        <div className={styles.element}>
+          <img
+            className={styles.icons}
+            src="./images/mldl.png"
+            alt="mldlLogo"
+          />
+          <h1 className={styles.subHeading}>ML & DL</h1>
+          <hr />
+        </div>
         <div className={styles.element}>
           {/* <h1 className={styles.subHeading}>HTML</h1> */}
           <img
@@ -15,7 +25,7 @@ function progress() {
           />
           <h1 className={styles.subHeading}>HTML</h1>
           <hr />
-          <h2 className={styles.skillPercent}>90%</h2>
+          {/* <h2 className={styles.skillPercent}>90%</h2>
           <svg
             className={styles.svg}
             xmlns="http://www.w3.org/2000/svg"
@@ -36,14 +46,14 @@ function progress() {
               r="70"
               stroke-linecap="round"
             />
-          </svg>
+          </svg> */}
         </div>
         <div className={styles.element}>
           {/* <h1 className={styles.subHeading}>CSS</h1> */}
           <img className={styles.icons} src="./images/css.png" alt="cssLogo" />
           <h1 className={styles.subHeading}>CSS</h1>
           <hr />
-          <h2 className={styles.skillPercent}>90%</h2>
+          {/* <h2 className={styles.skillPercent}>90%</h2>
           <svg
             className={styles.svg}
             xmlns="http://www.w3.org/2000/svg"
@@ -64,15 +74,15 @@ function progress() {
               r="70"
               stroke-linecap="round"
             />
-          </svg>
+          </svg> */}
         </div>
         <div className={styles.element}>
           {/* <h1 className={styles.subHeading}>ReactJS</h1> */}
           <img className={styles.icons} src="./images/js.png" alt="jsLogo" />
           <h1 className={styles.subHeading}>JavaScript</h1>
           <hr />
-          <h2 className={styles.skillPercent}>65%</h2>
-          <svg
+          {/* <h2 className={styles.skillPercent}>65%</h2> */}
+          {/* <svg
             className={styles.svg}
             xmlns="http://www.w3.org/2000/svg"
             version="1.1"
@@ -92,7 +102,7 @@ function progress() {
               r="70"
               stroke-linecap="round"
             />
-          </svg>
+          </svg> */}
         </div>
         <div className={styles.element}>
           <img
@@ -102,7 +112,7 @@ function progress() {
           />
           <h1 className={styles.subHeading}>ReactJS</h1>
           <hr />
-          <h2 className={styles.skillPercent}>65%</h2>
+          {/* <h2 className={styles.skillPercent}>65%</h2>
           <svg
             className={styles.circleSixtyFive}
             xmlns="http://www.w3.org/2000/svg"
@@ -123,7 +133,7 @@ function progress() {
               r="70"
               stroke-linecap="round"
             />
-          </svg>
+          </svg> */}
         </div>
         <div className={styles.element}>
           <img
@@ -133,8 +143,8 @@ function progress() {
           />
           <h1 className={styles.subHeading}>NextJs</h1>
           <hr />
-          <h2 className={styles.skillPercent}>50%</h2>
-          <svg
+          {/* <h2 className={styles.skillPercent}>50%</h2> */}
+          {/* <svg
             className={styles.svg}
             xmlns="http://www.w3.org/2000/svg"
             version="1.1"
@@ -154,13 +164,22 @@ function progress() {
               r="70"
               stroke-linecap="round"
             />
-          </svg>
+          </svg> */}
+        </div>
+        <div className={styles.element}>
+          <img
+            className={styles.icons}
+            src="./images/mysql.png"
+            alt="mldlLogo"
+          />
+          <h1 className={styles.subHeading}>mySQL</h1>
+          <hr />
         </div>
         <div className={styles.element}>
           <img className={styles.icons} src="./images/c-.png" alt="c++Logo" />
           <h1 className={styles.subHeading}>C++</h1>
           <hr />
-          <h2 className={styles.skillPercent}>50%</h2>
+          {/* <h2 className={styles.skillPercent}>50%</h2>
           <svg
             className={styles.svg}
             xmlns="http://www.w3.org/2000/svg"
@@ -181,7 +200,7 @@ function progress() {
               r="70"
               stroke-linecap="round"
             />
-          </svg>
+          </svg> */}
         </div>
         <div className={styles.element}>
           <img
@@ -191,8 +210,8 @@ function progress() {
           />
           <h1 className={styles.subHeading}>Python</h1>
           <hr />
-          <h2 className={styles.skillPercent}>50%</h2>
-          <svg
+          {/* <h2 className={styles.skillPercent}>50%</h2> */}
+          {/* <svg
             className={styles.svg}
             xmlns="http://www.w3.org/2000/svg"
             version="1.1"
@@ -212,7 +231,7 @@ function progress() {
               r="70"
               stroke-linecap="round"
             />
-          </svg>
+          </svg> */}
         </div>
         <div className={styles.element}>
           <img
@@ -220,9 +239,9 @@ function progress() {
             src="./images/stylingWeb.jpg"
             alt="stylingWeb"
           />
-          <h1 className={styles.subHeading}>Styling Libraries</h1>
+          <h1 className={styles.subHeading}>Styling </h1>
           <hr />
-          <h2 className={styles.skillPercent}>90%</h2>
+          {/* <h2 className={styles.skillPercent}>90%</h2>
           <svg
             className={styles.svg}
             xmlns="http://www.w3.org/2000/svg"
@@ -243,7 +262,7 @@ function progress() {
               r="70"
               stroke-linecap="round"
             />
-          </svg>
+          </svg> */}
         </div>
         <div className={styles.element}>
           <img
@@ -253,7 +272,7 @@ function progress() {
           />
           <h1 className={styles.subHeading}>Wordpress</h1>
           <hr />
-          <h2 className={styles.skillPercent}>50%</h2>
+          {/* <h2 className={styles.skillPercent}>50%</h2>
           <svg
             className={styles.svg}
             xmlns="http://www.w3.org/2000/svg"
@@ -274,17 +293,17 @@ function progress() {
               r="70"
               stroke-linecap="round"
             />
-          </svg>
+          </svg> */}
         </div>
         <div className={styles.element}>
           <img
             className={styles.icons}
-            src="./images/aws.png"
+            src="./images/excel.png"
             alt="stylingWeb"
           />
-          <h1 className={styles.subHeading}>Cloud Computing</h1>
+          <h1 className={styles.subHeading}>Excel </h1>
           <hr />
-          <h2 className={styles.skillPercent}>20%</h2>
+          {/* <h2 className={styles.skillPercent}>20%</h2>
           <svg
             className={styles.svg}
             xmlns="http://www.w3.org/2000/svg"
@@ -305,7 +324,7 @@ function progress() {
               r="70"
               stroke-linecap="round"
             />
-          </svg>
+          </svg> */}
         </div>
       </div>
     </div>

@@ -38,3 +38,50 @@
   cursor: pointer;
   font-size: 16px;
 }
+@media only screen and (max-width: 768px) {
+  .headerLogo {
+    font-size: 15px;
+  }
+  .navMid {
+    width: 50vw;
+    padding-right: 5vw;
+    margin-left: 1rem;
+    margin-right: 1rem;
+  }
+  .navElement {
+    margin: 0.5vw;
+    font-size: 0.8rem;
+    margin-right: 0.8rem;
+    position: relative;
+    right: 1.4rem;
+    font-family: "Raleway", sans-serif;
+  }
+  .navElement:hover {
+    color: lightgray;
+    font-size: 20px;
+  }
+  .downloadBtn {
+    background-color: #fff;
+    width: 16vw;
+    height: 5vh;
+    border-radius: 8px;
+    color: black;
+    font-size: 0.5rem;
+    font-family: "Raleway", sans-serif;
+    z-index: 5;
+  }
+  .downloadBtn:hover {
+    cursor: pointer;
+  }
+  .download {
+    z-index: 5;
+  }
+  .headerContainer {
+    display: flex;
+    font-family: "Raleway", sans-serif;
+    justify-content: space-between;
+    align-items: center;
+    padding: 0.5rem;
+    background-color: rgba(0, 0, 0, 0);
+  }
+}

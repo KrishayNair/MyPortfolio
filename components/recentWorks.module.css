@@ -11,18 +11,26 @@
   font-family: "Poppins";
   font-size: 40px;
   text-align: center;
+  margin-bottom: 10rem;
 }
 .mainContainer {
   margin-bottom: 10rem;
+  margin-top: 5rem;
 }
 .contentDiv {
   width: 24rem;
   padding: 2rem;
   border-radius: 69px;
-  background: #6b10f8;
+  background: #6d10f800;
   -webkit-backdrop-filter: blur(10px);
   backdrop-filter: blur(10px);
-  border: 1px solid rgba(123, 61, 255, 0.25);
+  border-image: linear-gradient(#8b5cf6, #ec4899) 30;
+  border-width: 4px;
+  border-style: solid;
+  margin-bottom: 2rem;
+}
+.contentDiv:hover {
+  border-image: linear-gradient(#ec4899, #8b5cf6) 30;
 }
 .cardImg {
   width: 22rem;

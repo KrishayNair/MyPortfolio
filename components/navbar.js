@@ -5,26 +5,28 @@ import Link from "next/link";
 function navbar() {
   return (
     <div className={styles.headerContainer}>
-      <h1 className="header-logo">Krishay Nair</h1>
+      <h1 className={styles.headerLogo}>Krishay Nair</h1>
       <nav className={styles.navMid}>
         <ul>
           <Link className={`${styles.navElement} ${styles.onHover}`} href="/">
             Home
           </Link>
-          <Link className={styles.navElement} href="/">
+          <Link className={styles.navElement} href="/#about">
             About
           </Link>
-          <Link className={styles.navElement} href="/">
+          <Link className={styles.navElement} href="#projects">
             Projects
           </Link>
-          <Link className={styles.navElement} href="/contactUs">
+          {/* <Link className={styles.navElement} href="/contactus">
             Contact
-          </Link>
+          </Link> */}
         </ul>
       </nav>
-      <Button className={styles.downloadBtn} variant="light">
-        Download CV
-      </Button>
+      <a href="./pdf/resume.pdf" className={styles.download} download="resume">
+        <Button className={styles.downloadBtn} variant="light">
+          Download CV
+        </Button>
+      </a>
     </div>
   );
 }

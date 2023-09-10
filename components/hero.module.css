@@ -28,7 +28,7 @@
   float: right;
   width: 45rem;
   position: absolute;
-  top: 10px;
+  top: 60px;
   right: 4rem;
 }
 .surname {
@@ -41,7 +41,7 @@
 .info {
   color: #fff;
   font-size: 20px;
-  font-weight: 200;
+  font-weight: 600;
   position: relative;
   bottom: 8rem;
 }
@@ -155,5 +155,55 @@
   }
   100% {
     transform: translateY(0);
+  }
+}
+@media only screen and (max-width: 768px) {
+  .gradientBottom {
+    display: none;
+  }
+  .gradientTop {
+    display: none;
+  }
+  .socialLine {
+    display: none;
+  }
+  .yellowRing {
+    display: none;
+  }
+  .bluePill {
+    display: none;
+  }
+  .orangeCube {
+    display: none;
+  }
+  .whiteSphere {
+    display: none;
+  }
+  .pinkRing {
+    display: none;
+  }
+  .socialLogo {
+    display: none;
+  }
+  .socialHeading {
+    display: none;
+  }
+  .bgHeader {
+    display: none;
+  }
+  .line {
+    display: none;
+  }
+  .heroImg {
+    width: 25rem;
+    position: absolute;
+    left: 0.1rem;
+  }
+  .mainHeading {
+    font-size: 64px;
+    position: relative;
+    top: 20rem;
+    left: 1rem;
+    display: inline-block;
   }
 }

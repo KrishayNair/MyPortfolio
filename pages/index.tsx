@@ -3,6 +3,7 @@ import Image from 'next/image'
 import Navbar from "../components/navbar"
 import Hero from "../components/hero"
 import Progress from "../components/progress"
+import Experiences from "../components/Experiences"
 import WhatIdo from "../components/whatIDo"
 import RecentWorks from "../components/recentWorks"
 import Footer from "../components/footer"
@@ -12,10 +13,14 @@ import { url } from 'inspector'
 export default function Home() {
   return (
     <div className={styles.container}>
+      <div className={styles.navbar}>
       <Navbar/>
+      </div>
+     
       <Hero/>
       <WhatIdo/>
       <Progress/>
+      <Experiences/>
       <RecentWorks/>
       <script src="https://www.gstatic.com/dialogflow-console/fast/messenger/bootstrap.js?v=1"></script>
 <df-messenger

@@ -11,7 +11,9 @@ function hero() {
         <span className={styles.surname}>
           Nair <br /> <hr className={styles.line} /> <br />
         </span>
-        <span className={styles.info}>A Web Developer and a Student</span>
+        <span className={styles.info}>
+          Data Science Enthusiast | Web Developer | DSA | Student{" "}
+        </span>
       </h1>
       <div className={styles.social}>
         <h2 className={styles.socialHeading}>Follow Me</h2>

@@ -6,7 +6,7 @@ function footer() {
     <div className={styles.mainContainer}>
       <div className={styles.mainDiv}>
         <img
-          className={styles.footerImg}
+          className={styles.footerImg1}
           src="./images/footerleft.svg"
           alt=""
         />
@@ -52,7 +52,7 @@ function footer() {
           </Link>
         </div>
         <img
-          className={styles.footerImg}
+          className={styles.footerImg2}
           src="./images/footerright.svg"
           alt=""
         />
