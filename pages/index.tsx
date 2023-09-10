@@ -22,15 +22,15 @@ export default function Home() {
       <Progress/>
       <Experiences/>
       <RecentWorks/>
-      <script src="https://www.gstatic.com/dialogflow-console/fast/messenger/bootstrap.js?v=1"></script>
-<df-messenger
+      {/* <script src="https://www.gstatic.com/dialogflow-console/fast/messenger/bootstrap.js?v=1"></script>
+      <df-messenger
 
-  intent="WELCOME"
-  chat-title="Chat Bot"
-  agent-id="f733128e-e046-43a7-9c84-fc737b195e72"
-  language-code="en"
- 
-></df-messenger>
+        intent="WELCOME"
+        chat-title="Chat Bot"
+        agent-id="f733128e-e046-43a7-9c84-fc737b195e72"
+        language-code="en"
+      
+      ></df-messenger> */}
 <Footer/>
     </div>
   )
