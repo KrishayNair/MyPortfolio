@@ -1,4 +1,5 @@
 import React from "react";
+import "@fontsource/poppins";
 import styles from "./contact.module.css";
 function contact() {
   return (

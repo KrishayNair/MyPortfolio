@@ -1,4 +1,5 @@
 import React from "react";
+import "@fontsource/poppins";
 import Button from "react-bootstrap/Button";
 import styles from "./recentWorks.module.css";
 function recentWorks() {

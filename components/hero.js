@@ -1,4 +1,5 @@
 import React from "react";
+import "@fontsource/poppins";
 import styles from "./hero.module.css";
 import Link from "next/link";
 function hero() {

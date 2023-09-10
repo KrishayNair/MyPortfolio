@@ -1,5 +1,6 @@
 import React from "react";
 import styles from "./navbar.module.css";
+import "@fontsource/poppins";
 import Button from "react-bootstrap/Button";
 import Link from "next/link";
 function navbar() {

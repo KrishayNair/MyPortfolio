@@ -1,4 +1,5 @@
 import React from "react";
+import "@fontsource/poppins";
 import styles from "./whatIDo.module.css";
 function whatIDo() {
   return (
