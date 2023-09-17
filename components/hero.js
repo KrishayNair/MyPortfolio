@@ -13,7 +13,10 @@ function hero() {
           Nair <br /> <hr className={styles.line} /> <br />
         </span>
         <span className={styles.info}>
-          Data Science Enthusiast | Web Developer | DSA | Student{" "}
+          | Data Science Enthusiast <br className={styles.space} /> | Web
+          Developer
+          <br className={styles.space} /> | DSA <br className={styles.space} />{" "}
+          | Student{" "}
         </span>
       </h1>
       <div className={styles.social}>

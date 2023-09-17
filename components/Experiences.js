@@ -60,17 +60,17 @@ function Experiences() {
 
           <img
             className={styles.cardImg}
-            src="./images/intern1.jpg"
+            src="./images/communicore2.png"
             alt="img"
           />
           <img
             className={styles.cardImg}
-            src="./images/intern5.jpg"
+            src="./images/communicore1.png"
             alt="img"
           />
           <img
             className={styles.cardImg}
-            src="./images/intern2.jpg"
+            src="./images/communicore3.png"
             alt="img"
           />
           <p className={styles.contentDetails}>

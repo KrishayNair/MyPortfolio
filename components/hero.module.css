@@ -45,6 +45,9 @@
   position: relative;
   bottom: 8rem;
 }
+.space {
+  display: none;
+}
 .line {
   width: 30rem;
   position: relative;
@@ -205,5 +208,12 @@
     top: 20rem;
     left: 1rem;
     display: inline-block;
+  }
+  .info {
+    color: #fff;
+    font-size: 20px;
+    font-weight: 600;
+    position: relative;
+    bottom: 6rem;
   }
 }

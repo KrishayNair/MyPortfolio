@@ -51,3 +51,9 @@
   border-image: linear-gradient(#ec4899, #8b5cf6) 30;
   color: #8b5cf6;
 }
+@media only screen and (max-width: 768px) {
+  .icons {
+    width: 5rem;
+    margin-left: 4rem;
+  }
+}
