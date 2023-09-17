@@ -23,7 +23,11 @@ function navbar() {
           </Link> */}
         </ul>
       </nav>
-      <a href="./pdf/resume.pdf" className={styles.download} download="resume">
+      <a
+        href="./pdf/Krishay_ResumeFinal.pdf"
+        className={styles.download}
+        download="resume"
+      >
         <Button className={styles.downloadBtn} variant="light">
           Download CV
         </Button>
