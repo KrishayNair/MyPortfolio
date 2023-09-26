@@ -5,6 +5,7 @@ import Hero from "../components/hero"
 import Progress from "../components/progress"
 import Experiences from "../components/Experiences"
 import WhatIdo from "../components/whatIDo"
+import Timeline from "../components/Timeline"
 import RecentWorks from "../components/recentWorks"
 import Footer from "../components/footer"
 import styles from '../styles/Home.module.css'
@@ -20,7 +21,8 @@ export default function Home() {
       <Hero/>
       <WhatIdo/>
       <Progress/>
-      <Experiences/>
+      <Timeline/>
+      {/* <Experiences/> */}
       <RecentWorks/>
       {/* <script src="https://www.gstatic.com/dialogflow-console/fast/messenger/bootstrap.js?v=1"></script>
       <df-messenger
