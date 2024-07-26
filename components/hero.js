@@ -1,4 +1,5 @@
 import React from "react";
+import { TypeAnimation } from 'react-type-animation';
 import "@fontsource/poppins";
 import styles from "./hero.module.css";
 import Link from "next/link";
@@ -12,12 +13,29 @@ function hero() {
         <span className={styles.surname}>
           Nair <br /> <hr className={styles.line} /> <br />
         </span>
-        <span className={styles.info}>
+        {/* <span className={styles.info}>
           | Data Science Enthusiast <br className={styles.space} /> | Web
           Developer
           <br className={styles.space} /> | DSA <br className={styles.space} />{" "}
           | Student{" "}
-        </span>
+        </span> */}
+        <TypeAnimation
+      sequence={[
+        // Same substring at the start will only be typed out once, initially
+        'I am a Full Stack Web developer',
+        1000, // wait 1s before replacing "Mice" with "Hamsters"
+        'I am a Computer Engineering Student',
+        1000,
+        'I am a Data Science Enthusiast',
+        1000,
+        'I am a coding geek',
+        1000
+      ]}
+      wrapper="span"
+      speed={50}
+      style={{ fontSize: '2rem', display: 'inline-block' , position: 'relative' , bottom: '6rem' }}
+      repeat={Infinity}
+    />
       </h1>
       <div className={styles.social}>
         <h2 className={styles.socialHeading}>Follow Me</h2>

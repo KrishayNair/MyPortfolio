@@ -3,26 +3,27 @@
   font-family: "Poppins";
   font-style: normal;
   font-weight: 700;
-  font-size: 283.333px;
-  line-height: 425px;
+  font-size: 220.333px;
+  /* line-height: 425px; */
   /* identical to box height */
-  position: absolute;
-  bottom: 2rem;
-  letter-spacing: -0.02em;
+  /* position: absolute;
+  bottom: 20rem; */
+  /* letter-spacing: -0.02em; */
 
   /* Gray */
-  display: inline-block;
+  /* display: inline-block; */
   color: #393e46;
 
   mix-blend-mode: screen;
   opacity: 0.5;
 }
+
+
 .mainHeading {
   font-size: 64px;
   position: relative;
-  top: 17rem;
-  left: 1rem;
-  display: inline-block;
+  bottom: 3rem;
+  /* display: inline-block; */
 }
 .heroImg {
   float: right;
@@ -56,7 +57,7 @@
   position: absolute;
   left: -400px;
   top: -450px;
-  z-index: -1;
+  z-index: 1;
 }
 .pinkRing {
   animation: mover2 1s infinite alternate;
@@ -67,7 +68,8 @@
 }
 .gradientBottom {
   position: absolute;
-  left: 61.5rem;
+  right: 0;
+  top: 15rem;
 }
 .social {
   position: absolute;
@@ -160,18 +162,46 @@
     transform: translateY(0);
   }
 }
+@media only screen and (min-width: 768px) and (max-width:1300px){
+
+  .heroImg {
+    display:none;
+  }
+   .orangeCube {
+    display: none;
+  }
+  .whiteSphere {
+    display: none;
+  }
+  .pinkRing {
+    display: none;
+  }
+}
 @media only screen and (max-width: 768px) {
-  .gradientBottom {
+  /* .gradientBottom {
     display: none;
   }
   .gradientTop {
     display: none;
-  }
+  } */
+   .gradientTop {
+  position: absolute;
+  left: -100px;
+  top: -110px;
+  /* z-index:1; */
+}
+.gradientBottom {
+  position: absolute;
+  right: -10px;
+  top: 15rem;
+}
   .socialLine {
     display: none;
   }
   .yellowRing {
-    display: none;
+    /* width: 7rem;
+    top: 38rem; */
+     display: none;
   }
   .bluePill {
     display: none;

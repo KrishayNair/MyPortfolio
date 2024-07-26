@@ -11,8 +11,9 @@ function footer() {
           src="./images/footerleft.svg"
           alt=""
         />
-        <div className={styles.socials}>
+        <div >
           <h1 className={styles.socialHeading}>Follow Me</h1>
+          <div className={styles.socials}>
           <Link
             target="_blank"
             href="https://www.linkedin.com/in/krishay-nair-667313233/"
@@ -51,6 +52,7 @@ function footer() {
               alt="leetcode logo"
             />
           </Link>
+          </div>
         </div>
         <img
           className={styles.footerImg2}

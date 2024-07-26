@@ -12,6 +12,13 @@
   text-align: center;
   margin-bottom: 10rem;
 }
+.mainHeading2 {
+  font-family: "Poppins";
+  font-size: 50px;
+  text-align: center;
+  margin-top: 2rem;
+  margin-bottom: 3rem;
+}
 
 .contentDiv {
   width: 80vw;
@@ -64,6 +71,12 @@
   cursor: pointer;
   font-family: "Poppins";
 }
+.image{
+  width: 58.3333%;
+}
+.image2{
+  width: 41.666667%;
+}
 @media only screen and (max-width: 768px) {
   .contentDiv {
     width: 80vw;
@@ -84,5 +97,11 @@
     width: 15rem;
     position: relative;
     margin-bottom: 2.1rem;
+  }
+  .content{
+    font-size: 0.5rem;
+  }
+  .image{
+    display: none;
   }
 }

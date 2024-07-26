@@ -7,6 +7,7 @@ function navbar() {
   return (
     <div className={styles.headerContainer}>
       <h1 className={styles.headerLogo}>Krishay Nair</h1>
+      <div className={styles.navMain}>
       <nav className={styles.navMid}>
         <ul>
           <Link className={`${styles.navElement} ${styles.onHover}`} href="/">
@@ -23,6 +24,8 @@ function navbar() {
           </Link> */}
         </ul>
       </nav>
+      </div>
+     
       <a
         href="./pdf/Krishay_ResumeFinal.pdf"
         className={styles.download}

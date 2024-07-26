@@ -16,11 +16,22 @@
   padding: 0.5rem;
   background-color: rgba(0, 0, 0, 0);
 }
+.navMain{
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 0.5rem;
+  background-color: rgba(0, 0, 0, 0);
+}
 .navMid {
   background-color: #fff;
   border-radius: 12px;
   color: black;
   padding-right: 2rem;
+  padding-left: 2rem;
+  padding-top: 0.8rem;
+  padding-bottom: 0.8rem;
+ 
   z-index: 3;
 }
 
@@ -42,18 +53,20 @@
   .headerLogo {
     font-size: 15px;
   }
+  .navMain{
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+  }
   .navMid {
     width: 50vw;
-    padding-right: 5vw;
-    margin-left: 1rem;
-    margin-right: 1rem;
+
+  
   }
   .navElement {
     margin: 0.5vw;
     font-size: 0.8rem;
-    margin-right: 0.8rem;
-    position: relative;
-    right: 1.4rem;
+    padding: 1px;
     font-family: "Raleway", sans-serif;
   }
   .navElement:hover {

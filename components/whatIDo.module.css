@@ -1,7 +1,7 @@
 @import url("https://fonts.googleapis.com/css2?family=Poppins&family=Raleway&display=swap");
 
 .mainContainer {
-  margin-top: 14rem;
+  /* margin-top: 24rem; */
 }
 .mainHeading {
   font-family: "Poppins";
@@ -55,5 +55,8 @@
   .icons {
     width: 5rem;
     margin-left: 4rem;
+  }
+  .mainContainer {
+    margin-top: 24rem;
   }
 }
