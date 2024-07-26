@@ -19,6 +19,9 @@ function navbar() {
           <Link className={styles.navElement} href="#projects">
             Projects
           </Link>
+          <Link className={styles.navElement} href="#experience">
+            Experience
+          </Link>
           {/* <Link className={styles.navElement} href="/contactus">
             Contact
           </Link> */}

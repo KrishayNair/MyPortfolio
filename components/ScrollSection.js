@@ -41,7 +41,7 @@ function ScrollSection() {
 
   return (
     <div className="mb-10">
-      <h1 className={styles.mainHeading2}>Past Experiences</h1>
+      <h1 id="experience" className={styles.mainHeading2}>Past Experiences</h1>
       <section className="scroll-section-outer">
         {/* The section up act just as a wrapper. If the trigger (below) is the
       first jsx element in the component, you get an error on route change */}
@@ -51,7 +51,7 @@ function ScrollSection() {
         <div ref={triggerRef}>
           <div ref={sectionRef} className="scroll-section-inner">
             <div className="scroll-section mr-10 border-4 p-6 bg-cyan-400">
-              <h1 className="text-center text-bold text-3xl absolute mid-0 top-8">Experience Experience #1</h1>
+              <h1 className="text-center text-bold text-3xl absolute mid-0 top-8">Experience #1</h1>
               <div className="content">
                 <h1 className="text-2xl mt-12 font-extrabold">
                   IIT Bombay (Education Technology Department)
@@ -95,7 +95,7 @@ function ScrollSection() {
               {/* </div> */}
             </div>
             <div className="scroll-section mr-10 border-4 p-6 bg-sky-600">
-            <h1 className="text-center text-bold text-3xl absolute mid-0 top-8">Experience Experience #2</h1>
+            <h1 className="text-center text-bold text-3xl absolute mid-0 top-8"> Experience #2</h1>
               <div className="content">
                 <h1 className="text-2xl mb-12 font-extrabold">
                   Communicore Fiberinfra Private Limited (CFPL)
@@ -145,8 +145,8 @@ function ScrollSection() {
               />
               
             </div>
-            <div className="scroll-section border-4 p-6 bg-blue-600">
-            <h1 className="text-center text-bold text-3xl absolute mid-0 top-8">Experience Experience #3</h1>
+            <div className="scroll-section border-4 p-6 mr-8 bg-blue-600">
+            <h1 className="text-center text-bold text-3xl absolute mid-0 top-8"> Experience #3</h1>
               <div className="content">
                 <h1 className="text-2xl mb-12 font-extrabold">
                 EasyCompany

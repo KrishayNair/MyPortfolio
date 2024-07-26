@@ -35,7 +35,7 @@ export default function Home() {
       <WhatIdo/>
       <Skills/>
       <main ref={container} className={styles.main}>
-        <h1 className={styles.mainHeading}>Projects</h1>
+        <h1 id="projects" className={styles.mainHeading}>Projects</h1>
         {projects.map((project, i) => {
   const targetScale = 1 - (projects.length - i) * 0.05;
   return (
