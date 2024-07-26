@@ -36,12 +36,21 @@ export default function Home() {
       <Skills/>
       <main ref={container} className={styles.main}>
         <h1 className={styles.mainHeading}>Projects</h1>
-      {
-        projects.map( (project, i) => {
-          const targetScale = 1 - ( (projects.length - i) * 0.05);
-          return <Card key={`p_${i}`} i={i} {...project} progress={scrollYProgress} range={[i * .25, 1]} targetScale={targetScale}/>
-        })
-      }
+        {projects.map((project, i) => {
+  const targetScale = 1 - (projects.length - i) * 0.05;
+  return (
+    <Card
+      key={`p_${i}`}
+      i={i}
+      {...project}
+      progress={scrollYProgress}
+      range={[i * 0.25, 1]}
+      targetScale={targetScale}
+      url={project.link} // Rename `link` to `url`
+      tech={project.tech || 'Default Tech'} // Provide a default value for tech
+    />
+  );
+})}
     </main>
 
       <ScrollSection/>
