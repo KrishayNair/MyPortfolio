@@ -73,6 +73,11 @@
 }
 .image{
   width: 58.3333%;
+  
+}
+.image3{
+  width: 58.3333%;
+  margin-right: 3rem;
 }
 .image2{
   width: 41.666667%;
@@ -112,6 +117,12 @@
     font-size: 0.5rem;
   }
   .image{
+    display: none;
+  }
+   .image2{
+    display: none;
+  } 
+  .image3{
     display: none;
   }
   .heading{
