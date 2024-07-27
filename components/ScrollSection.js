@@ -172,7 +172,7 @@ function ScrollSection() {
                   </button>
                 </a>
                 <a
-                  href="./pdf/easycompany.pdf"
+                  href="./pdf/scopeforchange.pdf"
                   target="_blank"
                   rel="noopener noreferrer"
                 >
