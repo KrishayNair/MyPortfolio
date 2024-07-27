@@ -71,7 +71,7 @@ function ScrollSection() {
                   3. Modification of SQDL (Backend and Frontend) post beta
                   testing
                 </p>
-                <a
+                {/* <a
                   href="http://mindeate.com/"
                   target="_blank"
                   rel="noopener noreferrer"
@@ -79,7 +79,7 @@ function ScrollSection() {
                   <button className="rounded-2xl border-2 border-dashed border-black bg-white px-6 py-3 font-semibold uppercase text-black transition-all duration-300 hover:translate-x-[-4px] hover:translate-y-[-4px] hover:rounded-md hover:shadow-[4px_4px_0px_black] active:translate-x-[0px] active:translate-y-[0px] active:rounded-2xl active:shadow-none ml-10 mt-4">
                     Live Demo
                   </button>
-                </a>
+                </a> */}
                 <a
                   href="./pdf/iitbombay.pdf"
                   target="_blank"
@@ -95,7 +95,7 @@ function ScrollSection() {
               {/* </div> */}
             </div>
             <div className="scroll-section mr-10 border-4 p-6 bg-sky-600">
-            <h1 className="text-center text-bold text-3xl absolute mid-0 top-8"> Experience #2</h1>
+            <h1 className={styles.heading}> Experience #2</h1>
               <div className="content">
                 <h1 className="text-2xl mb-12 font-extrabold">
                   Communicore Fiberinfra Private Limited (CFPL)
@@ -145,8 +145,53 @@ function ScrollSection() {
               />
               
             </div>
-            <div className="scroll-section border-4 p-6 mr-8 bg-blue-600">
-            <h1 className="text-center text-bold text-3xl absolute mid-0 top-8"> Experience #3</h1>
+            <div className="scroll-section border-4 p-6 mr-8 bg-cyan-400">
+            <h1 className="text-center text-bold text-3xl absolute mid-0 top-8">Experience #3</h1>
+              <div className="content">
+                <h1 className="text-2xl mt-20 mb-12 font-extrabold">
+                Scope for Change
+                </h1>
+                <p>
+                Scope For Change is an organization committed to empowering underprivileged communities and promoting sustainability. As a LinkedIn Marketer, I had the opportunity to enhance their online presence and amplify their mission.
+                  <br />
+                  <b>Role : LinkedIn Marketer</b>
+                  <br />
+                  <b>Duration : 1 months (Aug 2023 - Sept 2023)</b>
+                  <br />
+                  <b>Some Tasks :-</b> <br /> 1.Boosted LinkedIn followers and engagement through strategic marketing. <br /> 2. Created content to highlight the organization's mission and impact.
+                  <br /> 3. Featured success stories and initiatives to empower communities. <br />
+                  4. Analyzed LinkedIn metrics to refine content and strategy. <br />
+                </p>
+                <a
+                  href="http://mindeate.com/"
+                  target="_blank"
+                  rel="noopener noreferrer"
+                >
+                  <button className="rounded-2xl border-2 border-dashed border-black bg-white px-6 py-3 font-semibold uppercase text-black transition-all duration-300 hover:translate-x-[-4px] hover:translate-y-[-4px] hover:rounded-md hover:shadow-[4px_4px_0px_black] active:translate-x-[0px] active:translate-y-[0px] active:rounded-2xl active:shadow-none ml-10 mt-4">
+                    Live Demo
+                  </button>
+                </a>
+                <a
+                  href="./pdf/easycompany.pdf"
+                  target="_blank"
+                  rel="noopener noreferrer"
+                >
+                  <button className="rounded-2xl border-2 border-dashed border-black bg-white px-6 py-3 font-semibold uppercase text-black transition-all duration-300 hover:translate-x-[-4px] hover:translate-y-[-4px] hover:rounded-md hover:shadow-[4px_4px_0px_black] active:translate-x-[0px] active:translate-y-[0px] active:rounded-2xl active:shadow-none ml-10 mt-4">
+                    Certificate
+                  </button>
+                </a>
+              </div>
+             
+              <img
+                className={styles.image2}
+                src="./images/scopeforchange.jpeg"
+                alt="img"
+              />
+
+            
+             </div>
+            <div className="scroll-section border-4 p-6  bg-blue-600">
+            <h1 className="text-center text-bold text-3xl absolute mid-0 top-8"> Experience #4</h1>
               <div className="content">
                 <h1 className="text-2xl mb-12 font-extrabold">
                 EasyCompany
@@ -195,51 +240,7 @@ function ScrollSection() {
               />
               
             </div>
-            <div className="scroll-section border-4 p-6 bg-cyan-400">
-            <h1 className="text-center text-bold text-3xl absolute mid-0 top-8">Experience #4</h1>
-              <div className="content">
-                <h1 className="text-2xl mt-20 mb-12 font-extrabold">
-                Scope for Change
-                </h1>
-                <p>
-                Scope For Change is an organization committed to empowering underprivileged communities and promoting sustainability. As a LinkedIn Marketer, I had the opportunity to enhance their online presence and amplify their mission.
-                  <br />
-                  <b>Role : LinkedIn Marketer</b>
-                  <br />
-                  <b>Duration : 1 months (Aug 2023 - Sept 2023)</b>
-                  <br />
-                  <b>Some Tasks :-</b> <br /> 1.Boosted LinkedIn followers and engagement through strategic marketing. <br /> 2. Created content to highlight the organization's mission and impact.
-                  <br /> 3. Featured success stories and initiatives to empower communities. <br />
-                  4. Analyzed LinkedIn metrics to refine content and strategy. <br />
-                </p>
-                <a
-                  href="http://mindeate.com/"
-                  target="_blank"
-                  rel="noopener noreferrer"
-                >
-                  <button className="rounded-2xl border-2 border-dashed border-black bg-white px-6 py-3 font-semibold uppercase text-black transition-all duration-300 hover:translate-x-[-4px] hover:translate-y-[-4px] hover:rounded-md hover:shadow-[4px_4px_0px_black] active:translate-x-[0px] active:translate-y-[0px] active:rounded-2xl active:shadow-none ml-10 mt-4">
-                    Live Demo
-                  </button>
-                </a>
-                <a
-                  href="./pdf/easycompany.pdf"
-                  target="_blank"
-                  rel="noopener noreferrer"
-                >
-                  <button className="rounded-2xl border-2 border-dashed border-black bg-white px-6 py-3 font-semibold uppercase text-black transition-all duration-300 hover:translate-x-[-4px] hover:translate-y-[-4px] hover:rounded-md hover:shadow-[4px_4px_0px_black] active:translate-x-[0px] active:translate-y-[0px] active:rounded-2xl active:shadow-none ml-10 mt-4">
-                    Certificate
-                  </button>
-                </a>
-              </div>
-             
-              <img
-                className={styles.image2}
-                src="./images/scopeforchange.jpeg"
-                alt="img"
-              />
-
-            
-             </div>
+           
           </div>
         </div>
       </section>

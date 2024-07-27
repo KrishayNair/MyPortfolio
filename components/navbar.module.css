@@ -59,13 +59,13 @@
     align-items: center;
   }
   .navMid {
-    width: 50vw;
+    width: 55vw;
 
   
   }
   .navElement {
     margin: 0.5vw;
-    font-size: 0.8rem;
+    font-size: 0.6rem;
     padding: 1px;
     font-family: "Raleway", sans-serif;
   }

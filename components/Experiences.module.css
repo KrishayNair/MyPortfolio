@@ -76,6 +76,16 @@
 }
 .image2{
   width: 41.666667%;
+  margin-right: 5rem;
+}
+.heading{
+  text-align: center;
+  font-weight: bold;
+  font-size: 1.875rem; /* 30px */
+  line-height: 2.25rem; /* 36px */
+  position: absolute;
+  /* left: 50%; */
+  top: 2rem; /* 32px */
 }
 @media only screen and (max-width: 768px) {
   .contentDiv {
@@ -102,6 +112,9 @@
     font-size: 0.5rem;
   }
   .image{
+    display: none;
+  }
+  .heading{
     display: none;
   }
 }
