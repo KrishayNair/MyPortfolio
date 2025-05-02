@@ -1,25 +1,30 @@
 @import url("https://fonts.googleapis.com/css2?family=Poppins&family=Raleway&display=swap");
 
 .mainContainer {
-  /* margin-top: 24rem; */
+  background: #000;
+  padding-bottom: 4rem;
 }
 .mainHeading {
   font-family: "Poppins";
-  font-size: 50px;
+  font-size: 2.8rem;
   text-align: center;
+  color: var(--accent-green);
+  margin-top: 2rem;
+  margin-bottom: 2rem;
+  letter-spacing: 0.04em;
 }
 .bgHeading {
   font-size: 100px;
   font-family: "Poppins";
   text-align: center;
   font-weight: 800;
-  color: #393e46;
+  color: #003a2d;
   position: absolute;
   left: 32rem;
   top: 43.5rem;
   line-height: 150px;
   mix-blend-mode: screen;
-  opacity: 0.5;
+  opacity: 0.18;
 }
 .mainElement {
   display: flex;
@@ -27,36 +32,62 @@
   flex-wrap: wrap;
   padding: 30px;
   justify-content: space-evenly;
-  margin-top: 6rem;
+  margin-top: 3rem;
+  gap: 2rem;
 }
 .icons {
-  width: 5rem;
-  margin-left: 6.2rem;
+  width: 4.5rem;
+  margin: 0 auto 1.2rem auto;
+  display: block;
+  filter: drop-shadow(0 0 12px #00ffb2cc);
 }
 .subHeading {
   text-align: center;
   font-family: "Poppins";
-  font-size: 20px;
+  font-size: 1.3rem;
+  color: #fff;
+  font-weight: 600;
+  margin-top: 0.5rem;
+  letter-spacing: 0.01em;
 }
 .element {
-  width: 20rem;
-  background-color: rgba(255, 255, 255, 0.085);
-  border-image: linear-gradient(#8b5cf6, #ec4899) 30;
-  border-width: 4px;
-  border-style: solid;
-  padding: 1rem;
-  margin-bottom: 4rem;
+  width: 18rem;
+  background: #0a1814;
+  border: 2.5px solid #003a2d;
+  border-radius: 1.2rem;
+  box-shadow: 0 2px 24px #003a2d33;
+  padding: 2rem 1.2rem 1.5rem 1.2rem;
+  margin-bottom: 2rem;
+  transition: border 0.2s, box-shadow 0.2s, transform 0.2s;
+  color: #fff;
+  text-align: center;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
 }
 .element:hover {
-  border-image: linear-gradient(#ec4899, #8b5cf6) 30;
-  color: #8b5cf6;
+  border: 2.5px solid var(--accent-green);
+  box-shadow: 0 0 24px #00ffb2cc, 0 2px 24px #003a2d99;
+  color: var(--accent-green);
+  transform: translateY(-6px) scale(1.03);
 }
+
 @media only screen and (max-width: 768px) {
   .icons {
-    width: 5rem;
-    margin-left: 4rem;
+    width: 3.2rem;
+    margin-left: 0;
   }
   .mainContainer {
     margin-top: 24rem;
+  }
+  .mainElement {
+    flex-direction: column;
+    align-items: center;
+    gap: 1.2rem;
+    padding: 1rem;
+  }
+  .element {
+    width: 90vw;
+    padding: 1.2rem 0.5rem 1rem 0.5rem;
   }
 }

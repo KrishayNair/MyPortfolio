@@ -1,100 +1,119 @@
 @import url("https://fonts.googleapis.com/css2?family=Raleway&display=swap");
-.navElement {
-  margin: 1rem;
-  font-family: "Raleway", sans-serif;
-}
-.navElement:hover {
-  color: lightgray;
-  font-size: 20px;
-}
 
 .headerContainer {
   display: flex;
   font-family: "Raleway", sans-serif;
   justify-content: space-between;
   align-items: center;
-  padding: 0.5rem;
-  background-color: rgba(0, 0, 0, 0);
+  padding: 0.5rem 2rem;
+  background: #000;
+  box-shadow: 0 2px 24px #003a2d33;
+  border-bottom: 1.5px solid #003a2d;
+  z-index: 10;
 }
-.navMain{
+
+.headerLogo {
+  font-size: 2rem;
+  font-weight: 700;
+  letter-spacing: 0.04em;
+  font-family: "Raleway", sans-serif;
+  background: linear-gradient(90deg, #fff 60%, var(--accent-green) 100%);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  background-clip: text;
+  text-fill-color: transparent;
+}
+
+.navMain {
   display: flex;
   justify-content: space-between;
   align-items: center;
+  background: none;
   padding: 0.5rem;
-  background-color: rgba(0, 0, 0, 0);
 }
+
 .navMid {
-  background-color: #fff;
+  background: none;
   border-radius: 12px;
-  color: black;
-  padding-right: 2rem;
-  padding-left: 2rem;
-  padding-top: 0.8rem;
-  padding-bottom: 0.8rem;
- 
+  color: #fff;
+  padding: 0.5rem 2rem;
   z-index: 3;
 }
 
-.downloadBtn {
-  background-color: #fff;
-  width: 8rem;
-  height: 3rem;
-  border-radius: 12px;
-  color: black;
+.navMid ul {
+  display: flex;
+  gap: 1.5rem;
+  list-style: none;
+  margin: 0;
+  padding: 0;
+}
+
+.navElement {
+  margin: 0;
   font-family: "Raleway", sans-serif;
+  color: #fff;
+  font-size: 1.1rem;
+  font-weight: 500;
+  text-decoration: none;
+  transition: color 0.2s, border-bottom 0.2s, font-size 0.2s;
+  border-bottom: 2px solid transparent;
+  padding-bottom: 2px;
+}
+.navElement:hover, .navElement:focus {
+  color: var(--accent-green);
+  border-bottom: 2px solid var(--accent-green);
+  font-size: 1.18rem;
+}
+
+.downloadBtn {
+  background: none;
+  border: 2px solid var(--accent-green);
+  width: 8rem;
+  height: 2.7rem;
+  border-radius: 12px;
+  color: var(--accent-green);
+  font-family: "Raleway", sans-serif;
+  font-weight: 600;
+  font-size: 1.05rem;
+  transition: background 0.2s, color 0.2s, border 0.2s, box-shadow 0.2s;
+  box-shadow: 0 2px 12px #003a2d33;
+}
+.downloadBtn:hover, .downloadBtn:focus {
+  background: var(--accent-green);
+  color: #000;
+  border: 2px solid var(--accent-green);
+  box-shadow: 0 4px 24px #00ffb299;
+  cursor: pointer;
+}
+
+.download {
   z-index: 3;
 }
-.downloadBtn:hover {
-  background-color: lightgray;
-  cursor: pointer;
-  font-size: 16px;
-}
+
 @media only screen and (max-width: 768px) {
   .headerLogo {
-    font-size: 15px;
+    font-size: 1.2rem;
   }
-  .navMain{
+  .navMain {
     display: flex;
     justify-content: space-between;
     align-items: center;
   }
   .navMid {
     width: 55vw;
-
-  
+    padding: 0.5rem 0.5rem;
+  }
+  .navMid ul {
+    gap: 0.5rem;
   }
   .navElement {
-    margin: 0.5vw;
-    font-size: 0.6rem;
+    font-size: 0.8rem;
     padding: 1px;
-    font-family: "Raleway", sans-serif;
-  }
-  .navElement:hover {
-    color: lightgray;
-    font-size: 20px;
   }
   .downloadBtn {
-    background-color: #fff;
     width: 16vw;
     height: 5vh;
     border-radius: 8px;
-    color: black;
-    font-size: 0.5rem;
-    font-family: "Raleway", sans-serif;
-    z-index: 5;
-  }
-  .downloadBtn:hover {
-    cursor: pointer;
-  }
-  .download {
-    z-index: 5;
-  }
-  .headerContainer {
-    display: flex;
-    font-family: "Raleway", sans-serif;
-    justify-content: space-between;
-    align-items: center;
-    padding: 0.5rem;
-    background-color: rgba(0, 0, 0, 0);
+    font-size: 0.7rem;
   }
 }

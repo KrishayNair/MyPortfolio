@@ -1,63 +1,107 @@
 @import url("https://fonts.googleapis.com/css2?family=Poppins&family=Raleway&display=swap");
+
 .mainDiv {
   display: flex;
   flex-direction: row;
   flex-wrap: wrap;
   padding: 30px;
   justify-content: space-evenly;
+  background: #000;
 }
 
 .mainHeading {
   font-family: "Poppins";
-  font-size: 40px;
+  font-size: 2.5rem;
   text-align: center;
-  margin-bottom: 10rem;
+  margin-bottom: 5rem;
+  color: var(--accent-green);
+  letter-spacing: 0.04em;
 }
 .mainContainer {
-  margin-bottom: 10rem;
-  margin-top: 5rem;
+  margin-bottom: 6rem;
+  margin-top: 3rem;
+  background: #000;
 }
 .contentDiv {
   width: 24rem;
   padding: 2rem;
-  border-radius: 69px;
-  background: #6d10f800;
-  -webkit-backdrop-filter: blur(10px);
-  backdrop-filter: blur(10px);
-  border-image: linear-gradient(#8b5cf6, #ec4899) 30;
-  border-width: 4px;
-  border-style: solid;
+  border-radius: 2rem;
+  background: #0a1814;
+  box-shadow: 0 2px 24px #003a2d33;
+  border: 2.5px solid #003a2d;
   margin-bottom: 2rem;
+  color: #fff;
+  transition: border 0.2s, box-shadow 0.2s, transform 0.2s;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
 }
 .contentDiv:hover {
-  border-image: linear-gradient(#ec4899, #8b5cf6) 30;
+  border: 2.5px solid var(--accent-green);
+  box-shadow: 0 0 24px #00ffb2cc, 0 2px 24px #003a2d99;
+  color: var(--accent-green);
+  transform: translateY(-6px) scale(1.03);
 }
 .cardImg {
   width: 22rem;
   position: relative;
   right: 1rem;
+  border-radius: 1.2rem;
+  border: 1.5px solid var(--accent-green);
+  box-shadow: 0 0 12px #00ffb255;
+  margin-bottom: 1.2rem;
 }
 .title {
   text-align: center;
   font-family: "Poppins";
+  font-size: 1.5rem;
+  font-weight: 700;
+  color: #fff;
+  margin-bottom: 1rem;
 }
 .detailsBtn {
-  background-color: #fff;
+  background: none;
   width: 8rem;
   height: 2.5rem;
-  color: #000;
+  color: var(--accent-green);
+  border: 2px solid var(--accent-green);
   border-radius: 12px;
   font-family: "Poppins";
+  font-weight: 600;
   position: relative;
-  left: 6rem;
+  left: 0;
   margin-top: 1rem;
+  transition: background 0.2s, color 0.2s, border 0.2s, box-shadow 0.2s;
+  box-shadow: 0 2px 12px #003a2d33;
 }
 .detailsBtn:hover {
-  background-color: #000;
-  width: 8rem;
-  height: 2.5rem;
-  color: #fff;
-  border-radius: 12px;
+  background: var(--accent-green);
+  color: #000;
+  border: 2px solid var(--accent-green);
+  box-shadow: 0 4px 24px #00ffb299;
   cursor: pointer;
+}
+
+.contentDetails {
+  color: #e0e0e0;
+  font-size: 1rem;
+  margin-bottom: 1rem;
+  text-align: center;
   font-family: "Poppins";
+}
+
+@media only screen and (max-width: 768px) {
+  .mainDiv {
+    flex-direction: column;
+    align-items: center;
+    padding: 1rem;
+  }
+  .contentDiv {
+    width: 90vw;
+    padding: 1.2rem 0.5rem 1rem 0.5rem;
+  }
+  .cardImg {
+    width: 90vw;
+    right: 0;
+  }
 }

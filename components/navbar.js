@@ -8,25 +8,15 @@ function navbar() {
     <div className={styles.headerContainer}>
       <h1 className={styles.headerLogo}>Krishay Nair</h1>
       <div className={styles.navMain}>
-      <nav className={styles.navMid}>
-        <ul>
-          <Link className={`${styles.navElement} ${styles.onHover}`} href="/">
-            Home
-          </Link>
-          <Link className={styles.navElement} href="/#about">
-            About
-          </Link>
-          <Link className={styles.navElement} href="#projects">
-            Projects
-          </Link>
-          <Link className={styles.navElement} href="#experience">
-            Experience
-          </Link>
-          {/* <Link className={styles.navElement} href="/contactus">
-            Contact
-          </Link> */}
-        </ul>
-      </nav>
+        <nav className={styles.navMid} aria-label="Main Navigation">
+          <ul>
+            <li><Link className={styles.navElement} href="/">Home</Link></li>
+            <li><Link className={styles.navElement} href="/#about">About</Link></li>
+            <li><Link className={styles.navElement} href="#projects">Projects</Link></li>
+            <li><Link className={styles.navElement} href="#experience">Experience</Link></li>
+            {/* <li><Link className={styles.navElement} href="/contactus">Contact</Link></li> */}
+          </ul>
+        </nav>
       </div>
      
       <a

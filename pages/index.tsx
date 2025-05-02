@@ -12,7 +12,7 @@ import Footer from "../components/footer"
 import styles from '../styles/Home.module.css'
 import { url } from 'inspector'
 import { projects } from '../data';
-import Card from '../components/Card';
+import BentoGrid from '../components/BentoGrid';
 import Skills from "../components/Skills/Skills"
 import { useScroll } from 'framer-motion';
 import ScrollTrigger from "gsap/dist/ScrollTrigger";
@@ -36,22 +36,8 @@ export default function Home() {
       <Skills/>
       <main ref={container} className={styles.main}>
         <h1 id="projects" className={styles.mainHeading}>Projects</h1>
-        {projects.map((project, i) => {
-  const targetScale = 1 - (projects.length - i) * 0.05;
-  return (
-    <Card
-      key={`p_${i}`}
-      i={i}
-      {...project}
-      progress={scrollYProgress}
-      range={[i * 0.25, 1]}
-      targetScale={targetScale}
-      url={project.link} // Rename `link` to `url`
-      tech={project.tech || 'Default Tech'} // Provide a default value for tech
-    />
-  );
-})}
-    </main>
+        <BentoGrid projects={projects} />
+      </main>
 
       <ScrollSection/>
       {/* <Contact/> */}

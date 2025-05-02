@@ -19,26 +19,24 @@ const Card = ({i, title, description,tech, src, url, color, progress, range, tar
     <div ref={container} className={styles.cardContainer}>
       <motion.div 
         style={{backgroundColor: color, scale, top:`calc(-5vh + ${i * 25}px)`}} 
-        className={styles.card}
+        className={styles.card + ' bg-[#0a1814] border-2 border-[#003a2d] rounded-2xl shadow-lg transition-all duration-200 hover:border-[var(--accent-green)] hover:shadow-[0_0_24px_#00ffb2cc]'}
       >
-        <h2 className='title'>{title}</h2>
+        <h2 className='title text-white font-bold text-2xl mb-2'>{title}</h2>
         <div className={styles.body}>
           <div className={styles.description}>
-            <p className='text-xs w-72 sm:mb-1'>{description}</p>
-            <p className='w-72 mb-4 font-bold text-white '>Technologies Used :{tech}</p>
+            <p className='text-xs w-72 sm:mb-1 text-gray-200'>{description}</p>
+            <p className='w-72 mb-4 font-bold text-[var(--accent-green)]'>Technologies Used :{tech}</p>
            <a href="https://github.com/KrishayNair/SecureClick" target="_blank" rel="noopener noreferrer">
-            <button   className=" relative inline-flex h-12 ml-4 mr-4 overflow-hidden rounded-full p-[1px] focus:outline-none focus:ring-2 focus:ring-slate-400 focus:ring-offset-2 focus:ring-offset-slate-50">
-        <span className="absolute inset-[-1000%] animate-[spin_2s_linear_infinite] bg-[conic-gradient(from_90deg_at_50%_50%,#E2CBFF_0%,#393BB2_50%,#E2CBFF_100%)]" />
-        <span className="inline-flex h-full w-full cursor-pointer items-center justify-center rounded-full bg-white px-3 py-1 text-sm font-medium text-black backdrop-blur-3xl">
+            <button   className="relative inline-flex h-12 ml-4 mr-4 overflow-hidden rounded-full p-[1px] focus:outline-none focus:ring-2 focus:ring-[var(--accent-green)] focus:ring-offset-2 focus:ring-offset-black bg-black border-2 border-[var(--accent-green)] transition-all duration-200 hover:bg-[var(--accent-green)] hover:text-black hover:shadow-[0_0_16px_#00ffb2cc]">
+        <span className="inline-flex h-full w-full cursor-pointer items-center justify-center rounded-full bg-black px-3 py-1 text-sm font-medium text-[var(--accent-green)] backdrop-blur-3xl transition-all duration-200 hover:bg-[var(--accent-green)] hover:text-black">
           Github Repo
         </span>
       </button>
       </a>
       
       <a href="https://devfolio.co/projects/secureclick-8dcc" target="_blank" rel="noopener noreferrer">
-            <button className=" relative inline-flex h-12 overflow-hidden rounded-full p-[1px]  focus:outline-none focus:ring-2 focus:ring-slate-400 focus:ring-offset-2 focus:ring-offset-slate-50">
-        <span className="absolute inset-[-1000%]  animate-[spin_2s_linear_infinite] bg-[conic-gradient(from_90deg_at_50%_50%,#E2CBFF_0%,#393BB2_50%,#E2CBFF_100%)]" />
-        <span className="inline-flex h-full w-full cursor-pointer items-center justify-center rounded-full bg-white px-3 py-1 text-sm font-medium text-black backdrop-blur-3xl">
+            <button className="relative inline-flex h-12 overflow-hidden rounded-full p-[1px] focus:outline-none focus:ring-2 focus:ring-[var(--accent-green)] focus:ring-offset-2 focus:ring-offset-black bg-black border-2 border-[var(--accent-green)] transition-all duration-200 hover:bg-[var(--accent-green)] hover:text-black hover:shadow-[0_0_16px_#00ffb2cc]">
+        <span className="inline-flex h-full w-full cursor-pointer items-center justify-center rounded-full bg-black px-3 py-1 text-sm font-medium text-[var(--accent-green)] backdrop-blur-3xl transition-all duration-200 hover:bg-[var(--accent-green)] hover:text-black">
           More Details
         </span>
       </button>
@@ -57,6 +55,7 @@ const Card = ({i, title, description,tech, src, url, color, progress, range, tar
                 fill
                 src={`/images/${src}`}
                 alt="image" 
+                className="rounded-xl border border-[var(--accent-green)] shadow-[0_0_12px_#00ffb255]"
               />
             </motion.div>
             

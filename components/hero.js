@@ -1,121 +1,115 @@
-import React from "react";
+import React, { useRef, useState } from "react";
 import { TypeAnimation } from 'react-type-animation';
-import "@fontsource/poppins";
 import styles from "./hero.module.css";
 import Link from "next/link";
-function hero() {
+
+function Hero() {
+  // Cursor tracker state for left intro
+  const introRef = useRef(null);
+  const [cursorPos, setCursorPos] = useState({ x: 0, y: 0, active: false });
+
+  const handleMouseMove = (e) => {
+    const rect = introRef.current.getBoundingClientRect();
+    setCursorPos({
+      x: e.clientX - rect.left,
+      y: e.clientY - rect.top,
+      active: true
+    });
+  };
+  const handleMouseLeave = () => {
+    setCursorPos((pos) => ({ ...pos, active: false }));
+  };
+
   return (
     <div className={styles.hero}>
-      <img className={styles.gradientTop} src="./images/Eclipse.svg" alt="" />
-      <h1 className={styles.bgHeader}>Hello</h1>
-      <h1 className={styles.mainHeading}>
-        I'm <br /> Krishay{" "}
-        <span className={styles.surname}>
-          Nair <br /> <hr className={styles.line} /> <br />
-        </span>
-        {/* <span className={styles.info}>
-          | Data Science Enthusiast <br className={styles.space} /> | Web
-          Developer
-          <br className={styles.space} /> | DSA <br className={styles.space} />{" "}
-          | Student{" "}
-        </span> */}
-        <TypeAnimation
-      sequence={[
-        // Same substring at the start will only be typed out once, initially
-        'I am a Full Stack Web developer',
-        1000, // wait 1s before replacing "Mice" with "Hamsters"
-        'I am a Computer Engineering Student',
-        1000,
-        'I am a Data Science Enthusiast',
-        1000,
-        'I am a coding geek',
-        1000
-      ]}
-      wrapper="span"
-      speed={50}
-      style={{ fontSize: '2rem', display: 'inline-block' , position: 'relative' , bottom: '6rem' }}
-      repeat={Infinity}
-    />
-      </h1>
-      <div className={styles.social}>
-        <h2 className={styles.socialHeading}>Follow Me</h2>
-        <hr className={styles.socialLine} />
-        <Link
-          target="_blank"
-          href="https://www.linkedin.com/in/krishay-nair-667313233/"
-        >
-          <img
-            className={styles.socialLogo}
-            src="./images/Linkedin.svg"
-            alt="linkedin logo"
+      {/* Left Side: Styled Intro */}
+      <div
+        className={styles.leftIntroSimple + ' ' + styles.leftIntroBig}
+        ref={introRef}
+        onMouseMove={handleMouseMove}
+        onMouseLeave={handleMouseLeave}
+      >
+        <div className={styles.helloBg}>Hello...</div>
+        <div className={styles.introTextBlock}>
+          <div className={styles.im}>I'm</div>
+          <div className={styles.krishayLine}>
+            <span className={styles.krishay}>Krishay</span> <span className={styles.nair}>Nair</span>
+          </div>
+          <div className={styles.separator}></div>
+          <div className={styles.iamaline}>
+            I am a{' '}
+            <span className={styles.typeAnimWrapper}>
+              <TypeAnimation
+                sequence={[
+                  "Full Stack Developer",
+                  1200,
+                  "C.S Student",
+                  1200,
+                  "UI/UX Designer",
+                  1200,
+                  "Problem Solver",
+                  1200,
+                ]}
+                speed={60}
+                repeat={Infinity}
+                style={{ display: 'inline-block' }}
+              />
+            </span>
+          </div>
+        </div>
+        {/* Cursor Tracker Dot */}
+        {cursorPos.active && (
+          <div
+            className={styles.cursorTrackerDot}
+            style={{
+              left: cursorPos.x,
+              top: cursorPos.y
+            }}
           />
-        </Link>
-        <Link target="_blank" href="https://github.com/KrishayNair">
-          <img
-            className={styles.socialLogo}
-            src="./images/GitHub.svg"
-            alt="GitHub logo"
-          />
-        </Link>
-        <Link href="mailto:krishay958@gmail.com">
-          <img
-            className={styles.socialLogo}
-            src="./images/Gmail.svg"
-            alt="Gmail logo"
-          />
-        </Link>
-        <Link target="_blank" href="https://www.instagram.com/krishay_nair/">
-          <img
-            className={styles.socialLogo}
-            src="./images/Instagram.svg"
-            alt="Instagram logo"
-          />
-        </Link>
-        <Link target="_blank" href="https://leetcode.com/KrishayNair/">
-          <img
-            className={styles.socialLogo}
-            src="./images/leetcode3.svg"
-            alt="leetcode logo"
-          />
-        </Link>
+        )}
       </div>
-      <img
-        className={styles.heroImg}
-        src="./images/heroImg1.svg"
-        alt="guy with laptop"
-      />
-      <img
-        className={styles.pinkRing}
-        src="./images/pinkRing.svg"
-        alt="pink Ring"
-      />
-      <img
-        className={styles.gradientBottom}
-        src="./images/eclipseBottom3.svg"
-        alt="gradient"
-      />
-      <img
-        className={styles.yellowRing}
-        src="./images/yellowRing2.svg"
-        alt="yellowRing"
-      />
-      <img
-        className={styles.bluePill}
-        src="./images/bluePill.svg"
-        alt="bluePill"
-      />
-      <img
-        className={styles.orangeCube}
-        src="./images/orangeCube.svg"
-        alt="orangeCube"
-      />
-      <img
-        className={styles.whiteSphere}
-        src="./images/whiteSphere.svg"
-        alt="whiteSphere"
-      />
+
+      {/* Center: Title and Desk */}
+      <div className={styles.heroContentCentered}>
+        <h1 className={styles.heroTitle}>
+          Innovate Today,<br />
+          <span className={styles.heroMove}>Inspire <em>Tomorrow.</em></span>
+        </h1>
+        <div className={styles.glowBehindDesk}></div>
+        <div className={styles.deskWrapperSimple}>
+          <img
+            src="./images/Modern Desk.png"
+            alt="Modern Desk"
+            className={styles.deskImgHero}
+          />
+          <div className={styles.deskFloorShadow}></div>
+        </div>
+      </div>
+
+      {/* Right Side: Large, Interactive Socials with Green Accent Line */}
+      <div className={styles.rightSocialsBar}>
+        <div className={styles.socialHeading}>Follow Me</div>
+        <div className={styles.socialLine}></div>
+        <div className={styles.socialLinksVertical}>
+          <a target="_blank" href="https://www.linkedin.com/in/krishay-nair-667313233/" className={styles.socialIconSquare}>
+            <img className={styles.socialIconImg} src="./images/Linkedin.svg" alt="LinkedIn" />
+          </a>
+          <a target="_blank" href="https://github.com/KrishayNair" className={styles.socialIconSquare}>
+            <img className={styles.socialIconImg} src="./images/GitHub.svg" alt="GitHub" />
+          </a>
+          <a href="mailto:krishay958@gmail.com" className={styles.socialIconSquare}>
+            <img className={styles.socialIconImg} src="./images/Gmail.svg" alt="Email" />
+          </a>
+          <a target="_blank" href="https://www.instagram.com/krishay_nair/" className={styles.socialIconSquare}>
+            <img className={styles.socialIconImg} src="./images/Instagram.svg" alt="Instagram" />
+          </a>
+          <a target="_blank" href="https://leetcode.com/KrishayNair/" className={styles.socialIconSquare}>
+            <img className={styles.socialIconImg} src="./images/leetcode3.svg" alt="LeetCode" />
+          </a>
+        </div>
+      </div>
     </div>
   );
 }
 
-export default hero;
+export default Hero;
