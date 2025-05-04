@@ -75,19 +75,28 @@
 @media only screen and (max-width: 768px) {
   .icons {
     width: 3.2rem;
-    margin-left: 0;
+    margin: 0 auto 1.2rem auto;
   }
   .mainContainer {
-    margin-top: 24rem;
+    margin-top: 0;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
   }
   .mainElement {
     flex-direction: column;
     align-items: center;
     gap: 1.2rem;
-    padding: 1rem;
+    padding: 1rem 0;
+    width: 100vw;
+    box-sizing: border-box;
   }
   .element {
     width: 90vw;
     padding: 1.2rem 0.5rem 1rem 0.5rem;
+    margin-left: 0;
+    margin-right: 0;
+    align-items: center;
   }
 }

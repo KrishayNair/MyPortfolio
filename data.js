@@ -45,11 +45,11 @@ export const projects = [
     liveUrls: [
       {
         title: "DAK for Philatelists",
-        url: "https://dak-philately.vercel.app"
+        url: "https://dak-portal.vercel.app/"
       },
       {
         title: "DAK Government Portal",
-        url: "https://dak-gov.vercel.app"
+        url: "https://dak-admin.vercel.app/"
       }
     ],
     color: "#3B82F6",
@@ -348,7 +348,7 @@ export const projects = [
     detailsUrl: "/projects/nextgen-complaint",
     "liveUrls": [
       {
-        "title": "NextGen Police complaint system on Devfolio",
+        "title": " Devfolio link",
         "url": "https://devfolio.co/projects/aptosgameverse-5c9b"
       },
       {
