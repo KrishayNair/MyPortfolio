@@ -20,7 +20,7 @@ function navbar() {
       </div>
      
       <a
-        href="./pdf/Krishay_ResumeFinal.pdf"
+        href="./pdf/krishaynairupdated.pdf"
         className={styles.download}
         download="resume"
       >
