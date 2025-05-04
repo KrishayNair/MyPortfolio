@@ -1,5 +1,5 @@
 import React, { useEffect, useState } from "react";
-import "../styles/globals.css";
+import styles from "./_GreenCursor.module.css";
 
 const GreenCursor = () => {
   const [pos, setPos] = useState({ x: -100, y: -100 });
@@ -23,7 +23,7 @@ const GreenCursor = () => {
 
   return (
     <div
-      className="globalGreenCursor"
+      className={styles.cursor}
       style={{ 
         left: pos.x, 
         top: pos.y,

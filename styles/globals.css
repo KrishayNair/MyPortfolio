@@ -25,45 +25,6 @@ html, body {
   cursor: auto !important;
 }
 
-.globalGreenCursor {
-  position: fixed;
-  left: 0;
-  top: 0;
-  width: 22px;
-  height: 22px;
-  border-radius: 50%;
-  background: radial-gradient(circle at 40% 60%, #00ffb2 0%, #003a2d 80%);
-  box-shadow: 0 0 32px 8px #00ffb2cc, 0 0 0 2px #003a2d;
-  pointer-events: none;
-  z-index: 9999;
-  transform: translate(-50%, -50%);
-  opacity: 0;
-  transition: opacity 0.2s ease;
-}
-
-/* Show cursor on interactive elements and text */
-a:hover ~ .globalGreenCursor,
-button:hover ~ .globalGreenCursor,
-input:hover ~ .globalGreenCursor,
-textarea:hover ~ .globalGreenCursor,
-select:hover ~ .globalGreenCursor,
-[role="button"]:hover ~ .globalGreenCursor,
-p:hover ~ .globalGreenCursor,
-h1:hover ~ .globalGreenCursor,
-h2:hover ~ .globalGreenCursor,
-h3:hover ~ .globalGreenCursor,
-h4:hover ~ .globalGreenCursor,
-h5:hover ~ .globalGreenCursor,
-h6:hover ~ .globalGreenCursor,
-span:hover ~ .globalGreenCursor {
-  opacity: 0.85;
-}
-
-@keyframes cursorPulse {
-  0% { opacity: 0.85; box-shadow: 0 0 32px 8px #00ffb2cc, 0 0 0 2px #003a2d; }
-  100% { opacity: 1; box-shadow: 0 0 48px 16px #00ffb2cc, 0 0 0 2px #003a2d; }
-}
-
 html {
   scroll-behavior: smooth;
 }

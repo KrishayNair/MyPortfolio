@@ -6,7 +6,6 @@ import Progress from "../components/progress"
 import Experiences from "../components/Experiences"
 import WhatIdo from "../components/whatIDo"
 import ScrollSection from "../components/ScrollSection"
-import Timeline from "../components/Timeline"
 import RecentWorks from "../components/recentWorks"
 import Footer from "../components/footer"
 import styles from '../styles/Home.module.css'

@@ -1,0 +1,20 @@
+.cursor {
+  position: fixed;
+  left: 0;
+  top: 0;
+  width: 22px;
+  height: 22px;
+  border-radius: 50%;
+  background: radial-gradient(circle at 40% 60%, #00ffb2 0%, #003a2d 80%);
+  box-shadow: 0 0 32px 8px #00ffb2cc, 0 0 0 2px #003a2d;
+  pointer-events: none;
+  z-index: 9999;
+  transform: translate(-50%, -50%);
+  opacity: 0;
+  transition: opacity 0.2s ease;
+}
+
+@keyframes cursorPulse {
+  0% { opacity: 0.85; box-shadow: 0 0 32px 8px #00ffb2cc, 0 0 0 2px #003a2d; }
+  100% { opacity: 1; box-shadow: 0 0 48px 16px #00ffb2cc, 0 0 0 2px #003a2d; }
+} 
