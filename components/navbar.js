@@ -9,21 +9,8 @@ function navbar() {
 
   const handleNavigation = (e, href) => {
     e.preventDefault();
-    // Clear any existing hash from the URL
-    const baseUrl = window.location.origin + window.location.pathname;
-    // Navigate to the base URL first, then add the hash
-    router.push(baseUrl).then(() => {
-      // Use setTimeout to ensure the navigation is complete
-      setTimeout(() => {
-        if (href.includes('#')) {
-          const hash = href.split('#')[1];
-          const element = document.getElementById(hash);
-          if (element) {
-            element.scrollIntoView({ behavior: 'smooth' });
-          }
-        }
-      }, 100);
-    });
+    // Navigate directly to the href with hash
+    router.push(href);
   };
 
   return (

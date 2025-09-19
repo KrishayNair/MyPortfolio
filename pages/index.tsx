@@ -52,6 +52,58 @@ export default function Home() {
     };
   }, []);
 
+  // Handle scrolling to projects section when page loads with #projects hash
+  useEffect(() => {
+    const handleHashNavigation = () => {
+      const hash = window.location.hash;
+      if (hash === '#projects') {
+        // Multiple attempts to ensure scrolling works
+        const scrollToProjects = () => {
+          const projectsElement = document.getElementById('projects');
+          if (projectsElement) {
+            // Get the element's position relative to the viewport
+            const elementRect = projectsElement.getBoundingClientRect();
+            const absoluteElementTop = elementRect.top + window.pageYOffset;
+            
+            // Scroll to the element with some offset for better visibility
+            window.scrollTo({
+              top: absoluteElementTop - 100, // 100px offset from top
+              behavior: 'smooth'
+            });
+            return true;
+          }
+          return false;
+        };
+
+        // Try immediately
+        if (!scrollToProjects()) {
+          // If not found, try after a short delay
+          setTimeout(() => {
+            if (!scrollToProjects()) {
+              // If still not found, try after a longer delay
+              setTimeout(scrollToProjects, 1000);
+            }
+          }, 100);
+        }
+      }
+    };
+
+    // Handle on page load with a delay to ensure all components are rendered
+    setTimeout(handleHashNavigation, 200);
+
+    // Handle hash changes
+    window.addEventListener('hashchange', handleHashNavigation);
+
+    // Also handle when the component mounts and hash is present
+    if (window.location.hash === '#projects') {
+      setTimeout(handleHashNavigation, 500);
+    }
+
+    return () => {
+      window.removeEventListener('hashchange', handleHashNavigation);
+    };
+  }, []);
+
   return (
     <div className={styles.container}>
       <div className={styles.navbar}>

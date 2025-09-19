@@ -20,14 +20,8 @@ export default function ProjectDetail() {
   }
 
   const handleBack = () => {
-    router.push('/');
-    // Scroll to projects section after navigation
-    setTimeout(() => {
-      const projectsElement = document.getElementById('projects');
-      if (projectsElement) {
-        projectsElement.scrollIntoView({ behavior: 'smooth' });
-      }
-    }, 100);
+    // Navigate to home page with projects hash
+    router.push('/#projects');
   };
 
   return (
