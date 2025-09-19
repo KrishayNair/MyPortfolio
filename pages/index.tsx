@@ -25,6 +25,33 @@ export default function Home() {
     target: container,
     offset: ['start start', 'end end']
   })
+
+  // Clean up double hashes on page load and hash changes
+  useEffect(() => {
+    const cleanUpDoubleHashes = () => {
+      const currentUrl = window.location.href;
+      if (currentUrl.includes('##')) {
+        // Replace double hash with single hash
+        const cleanUrl = currentUrl.replace(/##/g, '#');
+        window.history.replaceState(null, '', cleanUrl);
+      }
+    };
+
+    // Clean up on page load
+    cleanUpDoubleHashes();
+
+    // Listen for hash changes
+    const handleHashChange = () => {
+      cleanUpDoubleHashes();
+    };
+
+    window.addEventListener('hashchange', handleHashChange);
+
+    return () => {
+      window.removeEventListener('hashchange', handleHashChange);
+    };
+  }, []);
+
   return (
     <div className={styles.container}>
       <div className={styles.navbar}>
