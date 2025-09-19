@@ -43,11 +43,11 @@ function Hero() {
                 sequence={[
                   "Full Stack Developer",
                   1200,
-                  "C.S Student",
+                  "Bussiness Analyst",
                   1200,
-                  "UI/UX Designer",
+                  "Creating innovative solutions",
                   1200,
-                  "Problem Solver",
+                  "Software Engineer",
                   1200,
                 ]}
                 speed={60}
