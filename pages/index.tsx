@@ -16,6 +16,7 @@ import Skills from "../components/Skills/Skills"
 import { useScroll } from 'framer-motion';
 import ScrollTrigger from "gsap/dist/ScrollTrigger";
 import Contact from "../components/contact"
+import Achievements from "../components/Achievements"
 import { useEffect, useRef } from 'react';
 
 export default function Home() {
@@ -39,6 +40,7 @@ export default function Home() {
       </main>
 
       <ScrollSection/>
+      <Achievements/>
       {/* <Contact/> */}
       {/* <Progress/> */}
       {/* <Timeline/> */}

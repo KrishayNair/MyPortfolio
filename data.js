@@ -1,5 +1,121 @@
 export const projects = [
   {
+    "title": "LegAIly",
+    "slug": "legaily",
+    "description": "LegAIly is an AI-powered legal assistant platform designed for lawyers and judges, offering document translation, summarization, drafting, blockchain-based verification, and case management — streamlining legal workflows through intelligent automation.",
+    "detailedDescription": {
+      "overview": "LegAIly bridges the gap between legal practice and modern AI solutions. It enables professionals to manage documents, get instant translations, generate summaries, conduct legal research, and track court schedules, all within a secure and intuitive interface.",
+      "features": [
+        "Legal document translation across Indian languages using Llama 3",
+        "Summarization and simplified legal language generation",
+        "Case law search and legal advisory chatbot powered by RAG-based LLM",
+        "Blockchain-based document verification with judge/lawyer access portals",
+        "Advocate Diary for managing schedules, court dates, and reminders",
+        "Pre-built legal draft templates for efficiency and standardization",
+        "Secure multi-role authentication for judges, lawyers, and staff"
+      ],
+      "technicalDetails": [
+        "Frontend built with Next.js and Tailwind CSS for responsive UI",
+        "Backend powered by FastAPI for scalable and asynchronous processing",
+        "LLM-based features implemented using Llama 3.1 and 3.2 models",
+        "Realtime vector search with Pinecone for document and case retrieval",
+        "Authentication and user management using Supabase",
+        "Flutter-based mobile app and Electron-based desktop version for accessibility",
+        "Blockchain document verification integrated with Doc.ai"
+      ],
+      "impact": "LegAIly has been tested and validated by High Court and Supreme Court advocates. Its practical utility has led to requests for dedicated deployments by law firms and judiciary members."
+    },
+    "tech": "NEXT.js, FASTAPI, LLAMA 3, FLUTTER, ELECTRON, SUPABASE, PINECONE, DOC.ai, TAILWIND CSS",
+    "src": "legaily_main.png",
+    "images": [
+      "legaily_main.png",
+      "legaily_doc.png",
+      "legaily_diary.png",
+      "legaily_draft.png",
+      "legaily_architecture.png",
+      "legaily_winner.jpeg"
+    ],
+    certificates: [
+      {
+        title: "SynTechXathon Winner Certificate",
+        file: "/pdf/syntech_certificate.pdf",
+        image: "/images/legaily_winner.jpeg"
+      }
+    ],
+    "previewSrc": "legaily_main.png",
+    "githubUrl": "https://github.com/KrishayNair/LegAIly", 
+    "detailsUrl": "/projects/legaily",
+    "liveUrls": [
+      {
+        "title": "LegAIly Web Portal",
+        "url": "https://legaily.tech/"
+      }
+    ],
+    "color": "#6366F1",
+    "achievements": [
+      {
+        "title": "Adopted by Legal Professionals",
+        "icon": "⚖️",
+        "description": "Used and recommended by High Court and Supreme Court lawyers"
+      },
+      {
+        "title": "Hackathon Winner",
+        "icon": "🏆",
+        "description": "Recognized as the winning project in the Legal Tech Hackathon"
+      }
+    ]
+  },
+  {
+    title: "Campus2Career",
+    slug: "campus2career",
+    description: "Campus2Career is a smart placement preparation and learning platform designed to streamline student upskilling through AI-powered features. It offers customized learning journeys, interactive DSA practice environments, real-time AI mock interviews, and intelligent job matching based on student profiles.",
+    detailedDescription: {
+      overview: "Campus2Career bridges the gap between education and employment by offering an end-to-end platform for students preparing for placements. It combines learning, assessment, and recruitment tools into a unified experience.",
+      features: [
+        "Personalized placement preparation roadmap with progress tracking",
+        "AI Mock Interviews powered by Google Gemini for realistic interview experience",
+        "Interactive DSA practice portal with analytics and feedback",
+        "AI-driven job matching based on candidate skills and market demand",
+        "Gamified learning dashboards and performance visualizations"
+      ],
+      technicalDetails: [
+        "Frontend built with Next.js and Tailwind CSS for dynamic and responsive UI",
+        "Backend powered by FastAPI for efficient API handling",
+        "AI interview evaluation and generation using Google Gemini GenAI",
+        "Integrated with Supabase for user authentication and database",
+        "Scalable architecture with modular deployment"
+      ],
+      impact: "Winner of Quasar 2.0 in the Smart Education domain, Campus2Career is helping students across colleges enhance placement readiness with real-time feedback and AI-led personalized learning."
+    },
+    tech: "NEXT.js, DRIZZLE ORM, TAILWIND CSS, POSTGRESQL, OPENAI",
+    src: "learn.png",
+    images: ["learn.png", "learnify_dashboard.png", "learnify_mentoring.png", "learnify_feedback.png", "learnify_visualize.png"],
+    certificates: [
+      {
+        title: "Quasar 2.0 Winning Certificate",
+        file: "/images/quasar.png",
+        image: "/images/quasar_main.jpg"
+      }
+    ],
+    previewSrc: "learn.png",
+    githubUrl: "https://github.com/KrishayNair/Learnify",
+    detailsUrl: "/projects/campus2career",
+    liveUrls: [
+      {
+        title: "Campus2Career Platform",
+        url: "https://campus2career.app/"
+      }
+    ],
+    color: "#10B981",
+    achievements: [
+      {
+        title: "Quasar 2.0 Winner",
+        icon: "🎓",
+        description: "Secured 2nd place in the Smart Education domain at the Quasar 2.0 national-level competition"
+      }
+    ]
+  },
+  {
     title: "DAK",
     slug: "dak",
     description: "DAK is a nationwide unified portal for philatelists, enabling seamless purchase of postal materials released by all 24 postal circles of India. It revolutionizes the traditional offline process of opening a Philatelic Deposit Account (PDA) by fully digitizing it, featuring integrated payment gateways and a dedicated forum for collectors. The government dashboard allows postal circles to add and manage products, access real-time analytics, receive preferential notifications, and optimize supply chain logistics to reduce wastage and stamp shortages.",
@@ -63,122 +179,6 @@ export const projects = [
         title: "Government Adoption",
         icon: "🏛️",
         description: "Officially being adapted by Government of India, Department of Post for nationwide implementation"
-      }
-    ]
-  },
-  {
-    title: "Learnify",
-    slug: "learnify",
-    description: "Learnify is a smart placement preparation and learning platform designed to streamline student upskilling through AI-powered features. It offers customized learning journeys, interactive DSA practice environments, real-time AI mock interviews, and intelligent job matching based on student profiles.",
-    detailedDescription: {
-      overview: "Learnify bridges the gap between education and employment by offering an end-to-end platform for students preparing for placements. It combines learning, assessment, and recruitment tools into a unified experience.",
-      features: [
-        "Personalized placement preparation roadmap with progress tracking",
-        "AI Mock Interviews powered by Google Gemini for realistic interview experience",
-        "Interactive DSA practice portal with analytics and feedback",
-        "AI-driven job matching based on candidate skills and market demand",
-        "Gamified learning dashboards and performance visualizations"
-      ],
-      technicalDetails: [
-        "Frontend built with Next.js and Tailwind CSS for dynamic and responsive UI",
-        "Backend powered by FastAPI for efficient API handling",
-        "AI interview evaluation and generation using Google Gemini GenAI",
-        "Integrated with Supabase for user authentication and database",
-        "Scalable architecture with modular deployment"
-      ],
-      impact: "Winner of Quasar 2.0 in the Smart Education domain, Learnify is helping students across colleges enhance placement readiness with real-time feedback and AI-led personalized learning."
-    },
-    tech: "NEXT.js, DRIZZLE ORM, TAILWIND CSS, POSTGRESQL, OPENAI",
-    src: "learn.png",
-    images: ["learn.png", "learnify_dashboard.png", "learnify_mentoring.png", "learnify_feedback.png", "learnify_visualize.png"],
-    certificates: [
-      {
-        title: "Quasar 2.0 Winning Certificate",
-        file: "/images/quasar.png",
-        image: "/images/quasar_main.jpg"
-      }
-    ],
-    previewSrc: "learn.png",
-    githubUrl: "https://github.com/KrishayNair/Learnify", // Replace with actual repo link
-    detailsUrl: "/projects/learnify",
-    liveUrls: [
-      {
-        title: "Learnify Platform",
-        url: "https://learnify-placement-assist.vercel.app/" // Replace with actual link if hosted
-      }
-    ],
-    color: "#10B981",
-    achievements: [
-      {
-        title: "Quasar 2.0 Winner",
-        icon: "🎓",
-        description: "Secured 2nd place in the Smart Education domain at the Quasar 2.0 national-level competition"
-      }
-    ]
-  },
-  {
-    "title": "LegAIly",
-    "slug": "legaily",
-    "description": "LegAIly is an AI-powered legal assistant platform designed for lawyers and judges, offering document translation, summarization, drafting, blockchain-based verification, and case management — streamlining legal workflows through intelligent automation.",
-    "detailedDescription": {
-      "overview": "LegAIly bridges the gap between legal practice and modern AI solutions. It enables professionals to manage documents, get instant translations, generate summaries, conduct legal research, and track court schedules, all within a secure and intuitive interface.",
-      "features": [
-        "Legal document translation across Indian languages using Llama 3",
-        "Summarization and simplified legal language generation",
-        "Case law search and legal advisory chatbot powered by RAG-based LLM",
-        "Blockchain-based document verification with judge/lawyer access portals",
-        "Advocate Diary for managing schedules, court dates, and reminders",
-        "Pre-built legal draft templates for efficiency and standardization",
-        "Secure multi-role authentication for judges, lawyers, and staff"
-      ],
-      "technicalDetails": [
-        "Frontend built with Next.js and Tailwind CSS for responsive UI",
-        "Backend powered by FastAPI for scalable and asynchronous processing",
-        "LLM-based features implemented using Llama 3.1 and 3.2 models",
-        "Realtime vector search with Pinecone for document and case retrieval",
-        "Authentication and user management using Supabase",
-        "Flutter-based mobile app and Electron-based desktop version for accessibility",
-        "Blockchain document verification integrated with Doc.ai"
-      ],
-      "impact": "LegAIly has been tested and validated by High Court and Supreme Court advocates. Its practical utility has led to requests for dedicated deployments by law firms and judiciary members."
-    },
-    "tech": "NEXT.js, FASTAPI, LLAMA 3, FLUTTER, ELECTRON, SUPABASE, PINECONE, DOC.ai, TAILWIND CSS",
-    "src": "legaily_main.png",
-    "images": [
-      "legaily_main.png",
-      "legaily_doc.png",
-      "legaily_diary.png",
-      "legaily_draft.png",
-      "legaily_architecture.png",
-      "legaily_winner.jpeg"
-    ],
-    certificates: [
-      {
-        title: "SynTechXathon Winner Certificate",
-        file: "/pdf/syntech_certificate.pdf",
-        image: "/images/legaily_winner.jpeg"
-      }
-    ],
-    "previewSrc": "legaily_main.png",
-    "githubUrl": "https://github.com/KrishayNair/LegAIly", 
-    "detailsUrl": "/projects/legaily",
-    "liveUrls": [
-      {
-        "title": "LegAIly Web Portal",
-        "url": "https://legaily.vercel.app/"
-      }
-    ],
-    "color": "#6366F1",
-    "achievements": [
-      {
-        "title": "Adopted by Legal Professionals",
-        "icon": "⚖️",
-        "description": "Used and recommended by High Court and Supreme Court lawyers"
-      },
-      {
-        "title": "Hackathon Winner",
-        "icon": "🏆",
-        "description": "Recognized as the winning project in the Legal Tech Hackathon"
       }
     ]
   },
