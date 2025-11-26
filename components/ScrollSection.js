@@ -1,126 +1,310 @@
 "use client";
 
-import React from "react";
-import styles from "./Experiences.module.css";
+import React, { useState } from "react";
+import Image from "next/image";
+import { motion, AnimatePresence } from "framer-motion";
+import styles from "./ScrollSection.module.css";
+
+// Technology name to icon mapping
+const getTechIcon = (techName) => {
+  const techMap = {
+    'next.js': 'nextjs',
+    'nextjs': 'nextjs',
+    'react': 'react',
+    'typescript': 'typescript',
+    'javascript': 'javascript',
+    'node.js': 'nodejs',
+    'nodejs': 'nodejs',
+    'tailwind': 'tailwindcss',
+    'tailwind css': 'tailwindcss',
+    'postgresql': 'postgresql',
+    'mongodb': 'mongodb',
+    'python': 'python',
+    'fastapi': 'fastapi',
+    'django': 'django',
+    'flutter': 'flutter',
+    'electron': 'electron',
+    'supabase': 'supabase',
+    'firebase': 'firebase',
+    'aws': 'amazonaws',
+    'docker': 'docker',
+    'redis': 'redis',
+    'openai': 'openai',
+    'vercel': 'vercel',
+    'express': 'express',
+    'nestjs': 'nestjs',
+    'postman': 'postman',
+    'html': 'html',
+    'css': 'css',
+    'sass': 'sass',
+  };
+  
+  const normalized = techName.toLowerCase().trim();
+  return techMap[normalized] || null;
+};
 
 function ScrollSection() {
+  const [expandedItems, setExpandedItems] = useState({});
+
+  const toggleExpand = (index) => {
+    setExpandedItems(prev => ({
+      ...prev,
+      [index]: !prev[index]
+    }));
+  };
+
   const experiences = [
     {
-      title: "IIT Bombay (Education Technology Department)",
-      role: "Web Developer",
-      duration: "6 months (August 2023 - February 2024)",
-      description: "We built a Student Query Driven Learning under the guidance of Asst.Professor Sumitra Sadhukhan. This SQDL App has been designed to enable some degree of self-directed learning in classroom environments.",
-      tasks: [
-        "Completing the remaining work of the Backend",
-        "SQDL front-end development",
-        "Modification of SQDL (Backend and Frontend) post beta testing"
-      ],
-      image: "./images/sqdlMain.png",
-      certificate: "./pdf/iitbombay.pdf",
-      color: "bg-gradient-to-br from-cyan-400 to-cyan-600"
+      company: "Irish Student Consulting Group (ISCG)",
+      logo: "ISCG",
+      logoColor: "#10B981", // Green
+      role: "Data Analytics Intern",
+      startDate: "Sep 2025",
+      endDate: "Nov 2025",
+      location: "Dublin, Ireland",
+      locationType: "On-Site",
+      website: "",
+      twitter: "",
+      linkedin: "",
+      technologies: ["Power BI", "Tableau", "Excel", "Data Analytics", "CRM", "Market Research", "Python"],
+      description: [
+        "Engineered automated market research tools for TheCleaningCompany.ie, creating targeted sales strategies that increased sales efficiency by 25%.",
+        "Implemented advanced CRM practices that improved customer engagement metrics by 30% and drove strategic decision-making.",
+        "Developed comprehensive data visualization dashboards using Power BI and Tableau, enabling real-time insights into market trends and customer behavior patterns.",
+        "Conducted in-depth data analysis on customer demographics and purchasing patterns, identifying key market segments that led to a 20% increase in conversion rates.",
+        "Collaborated with cross-functional teams to design and execute data-driven marketing campaigns, resulting in improved ROI across multiple channels.",
+        "Created automated reporting systems using Excel and Python, reducing manual reporting time by 60% and ensuring data accuracy and consistency."
+      ]
     },
     {
-      title: "Communicore Fiberinfra Private Limited (CFPL)",
-      role: "Web Developer",
-      duration: "3 months (Feb 2023 - Aug 2023)",
-      description: "Communicore Fiberinfra Private Limited (CFPL) is a Private Limited Indian Non-Government Company incorporated in India. The company provides fiber, radio and telecommunication based solutions.",
-      tasks: [
-        "Created the whole UI/UX design of the website",
-        "Created a UI friendly interface for users",
-        "Connect the contact form to the backend for seamless interaction",
-        "Making the site fully responsive for all devices",
-        "Co-ordination and Communication with the colleagues"
-      ],
-      image: "./images/communicore2.png",
-      certificate: "./pdf/iitbombay.pdf",
-      color: "bg-gradient-to-br from-sky-500 to-sky-700"
+      company: "IIT Bombay (Education Technology Department)",
+      logo: "IIT",
+      logoColor: "#8B5CF6", // Purple
+      role: "Site Reliability & Systems Engineering Intern",
+      startDate: "Aug 2023",
+      endDate: "Feb 2024",
+      location: "Mumbai, IN",
+      locationType: "On-Site",
+      website: "",
+      twitter: "",
+      linkedin: "",
+      technologies: ["AWS", "Docker", "GitHub Actions", "React", "Postman", "CI/CD"],
+      description: [
+        "Established distributed systems infrastructure supporting 100+ simultaneous users, achieving 99.9% uptime via intelligent health checks and load balancing in the AWS Mumbai region.",
+        "Devised optimized API calls and state management strategies using React Developer Tools, Chrome Lighthouse and Web Vitals, Postman and Swagger, achieving 30% improvement in page load performance.",
+        "Initiated and implemented a CI/CD pipeline with GitHub Actions, AWS CodeDeploy, and Docker, reducing deployment time from 30-40 minutes to under 10 minutes.",
+        "Designed and deployed containerized applications using Docker, ensuring consistent environments across development, staging, and production, which eliminated 95% of environment-related issues.",
+        "Implemented comprehensive monitoring and alerting systems using AWS CloudWatch, enabling proactive issue detection and reducing mean time to resolution (MTTR) by 40%.",
+        "Optimized database queries and implemented caching strategies, resulting in a 50% reduction in database response times and improved overall system performance.",
+        "Collaborated with the development team to establish best practices for code reviews, testing, and deployment processes, improving code quality and reducing production bugs by 35%."
+      ]
     },
     {
-      title: "Scope for Change",
-      role: "LinkedIn Marketer",
-      duration: "1 month (Aug 2023 - Sept 2023)",
-      description: "Scope For Change is an organization committed to empowering underprivileged communities and promoting sustainability. As a LinkedIn Marketer, I had the opportunity to enhance their online presence and amplify their mission.",
-      tasks: [
-        "Boosted LinkedIn followers and engagement through strategic marketing",
-        "Created content to highlight the organization's mission and impact",
-        "Featured success stories and initiatives to empower communities",
-        "Analyzed LinkedIn metrics to refine content and strategy"
-      ],
-      image: "./images/scopeforchange.jpeg",
-      certificate: "./pdf/scopeforchange.pdf",
-      color: "bg-gradient-to-br from-cyan-400 to-cyan-600"
+      company: "Communicore Fiberinfra Private Limited (CFPL)",
+      logo: "CFPL",
+      logoColor: "#06B6D4", // Cyan
+      role: "Infrastructure Automation & Reliability Intern",
+      startDate: "Feb 2023",
+      endDate: "Aug 2023",
+      location: "Mumbai, IN",
+      locationType: "On-Site",
+      website: "",
+      twitter: "",
+      linkedin: "",
+      technologies: ["React", "JavaScript", "API Integration", "Automation"],
+      description: [
+        "Designed and implemented a React-based provisioning platform with client-side caching, pagination, and secure API integrations across 10+ services, cutting load times by 30% and improving performance in low-connectivity regions.",
+        "Introduced automated workflows that increased provisioning efficiency by 50%, translating infrastructure needs into automation workflows in collaboration with network engineers and field technicians.",
+        "Developed RESTful APIs and integrated them with multiple backend services, ensuring seamless data flow and real-time updates across the provisioning system.",
+        "Implemented error handling and retry mechanisms for API calls, improving system reliability and reducing failed provisioning requests by 45%.",
+        "Created comprehensive documentation and training materials for the provisioning platform, enabling smooth adoption by network engineers and reducing onboarding time by 50%.",
+        "Optimized database queries and implemented efficient data structures, reducing API response times by 40% and supporting concurrent user operations without performance degradation.",
+        "Worked closely with field technicians to gather requirements and feedback, iteratively improving the platform's usability and adding features that increased user satisfaction by 60%."
+      ]
     },
     {
-      title: "EasyCompany",
-      role: "Web Developer",
-      duration: "3 months (Nov 2022 - Feb 2023)",
-      description: "The easycompany app lets you find trusted partners for your adventures. We use your location to list trips that will start from your location and you can just get on-board by a simple swipe.",
-      tasks: [
-        "Created a Mobile Version of the Ask Page",
-        "Created Desktop and Mobile Version of Your Questions Page",
-        "Fixed Tags Functionality on Multiple Pages",
-        "Fixed Sidebar",
-        "Created a Profile Page for easycommunity"
-      ],
-      image: "./images/intern1.jpg",
-      certificate: "./pdf/easycompany certificates.pdf",
-      color: "bg-gradient-to-br from-blue-500 to-blue-700"
+      company: "EasyCompany",
+      logo: "EC",
+      logoColor: "#3B82F6", // Blue
+      role: "Software Developer (SDE) Intern",
+      startDate: "Nov 2022",
+      endDate: "Feb 2023",
+      location: "Remote",
+      locationType: "Remote",
+      website: "",
+      twitter: "",
+      linkedin: "",
+      technologies: ["Next.js", "Tailwind CSS", "React", "JavaScript"],
+      description: [
+        "Created responsive web interfaces with Next.js and Tailwind CSS, enhancing user experience and driving a 40% increase in user engagement.",
+        "Pioneered modernization of a legacy codebase using React components, improving performance and maintainability, reducing page load time by 30%.",
+        "Implemented server-side rendering (SSR) and static site generation (SSG) strategies, improving SEO rankings and initial page load performance by 35%.",
+        "Developed reusable React component library, reducing code duplication by 60% and ensuring consistent UI/UX patterns across the application.",
+        "Collaborated with the design team to implement pixel-perfect responsive designs, ensuring optimal user experience across desktop, tablet, and mobile devices.",
+        "Optimized bundle sizes and implemented code splitting techniques, reducing initial JavaScript bundle size by 45% and improving overall application performance.",
+        "Integrated third-party APIs and services, implementing error handling and loading states to ensure robust user experience even during service interruptions."
+      ]
     }
   ];
 
   return (
-    <div className="py-20 px-4 md:px-8 bg-black">
-      <h1 id="experience" className={styles.mainHeading2 + " text-[var(--accent-green)]"}>Past Experiences</h1>
-      <div className="max-w-7xl mx-auto grid grid-cols-1 md:grid-cols-2 gap-8 mt-12">
-        {experiences.map((exp, index) => (
-          <div 
-            key={index}
-            className={"rounded-2xl overflow-hidden shadow-xl transform transition-all duration-300 hover:scale-[1.02] bg-[#0a1814] border-2 border-[#003a2d] hover:border-[var(--accent-green)] hover:shadow-[0_0_24px_#00ffb2cc]"}
-          >
-            <div className="relative h-48 w-full overflow-hidden">
-              <img
-                src={exp.image}
-                alt={exp.title}
-                className="w-full h-full object-cover transform transition-transform duration-500 hover:scale-110 rounded-t-2xl border-b-2 border-[var(--accent-green)]"
-              />
-              <div className="absolute inset-0 bg-gradient-to-t from-black/60 to-transparent" />
-              <div className="absolute bottom-4 left-4 right-4">
-                <h2 className="text-2xl font-bold text-white mb-1">{exp.title}</h2>
-                <div className="flex items-center gap-4">
-                  <span className="px-3 py-1 bg-[var(--accent-green)]/20 rounded-full text-sm text-[var(--accent-green)] font-semibold backdrop-blur-sm border border-[var(--accent-green)]">
-                    {exp.role}
-                  </span>
-                  <span className="text-sm text-white/90">
-                    {exp.duration}
-                  </span>
+    <section className={styles.experienceSection} id="experience">
+      <div className={styles.container}>
+        <h2 className={styles.mainHeading}>Experience</h2>
+        <div className={styles.experiencesList}>
+          {experiences.map((exp, index) => {
+            const isExpanded = expandedItems[index];
+            const hasSocialLinks = exp.website || exp.twitter || exp.linkedin;
+            
+            return (
+              <motion.div
+                key={index}
+                className={styles.experienceCard}
+                initial={{ opacity: 0, y: 20 }}
+                whileInView={{ opacity: 1, y: 0 }}
+                viewport={{ once: true }}
+                transition={{ duration: 0.5, delay: index * 0.1 }}
+              >
+                {/* Header Section */}
+                <div className={styles.header}>
+                  <div className={styles.headerLeft}>
+                    <div 
+                      className={styles.logo}
+                      style={{ backgroundColor: exp.logoColor }}
+                    >
+                      <span className={styles.logoText}>{exp.logo}</span>
                 </div>
-              </div>
-            </div>
-            <div className="p-6 text-white">
-              <p className="text-white/90 mb-4">{exp.description}</p>
-              <div className="space-y-2 mb-6">
-                {exp.tasks.map((task, i) => (
-                  <div key={i} className="flex items-start gap-2">
-                    <span className="text-[var(--accent-green)]">•</span>
-                    <span className="text-white/90">{task}</span>
-                  </div>
-                ))}
-              </div>
+                    <div className={styles.companyInfo}>
+                      <div className={styles.companyNameRow}>
+                        <h2 className={styles.companyName}>{exp.company}</h2>
+                        <div className={styles.socialIcons}>
+                          {exp.website && (
+                            <a 
+                              href={exp.website} 
+                              target="_blank" 
+                              rel="noopener noreferrer"
+                              className={styles.socialIcon}
+                              title="Website"
+                            >
+                              <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2">
+                                <circle cx="12" cy="12" r="10"></circle>
+                                <path d="M2 12h20M12 2a15.3 15.3 0 0 1 4 10 15.3 15.3 0 0 1-4 10 15.3 15.3 0 0 1-4-10 15.3 15.3 0 0 1 4-10z"></path>
+                              </svg>
+                            </a>
+                          )}
+                          {exp.twitter && (
+                            <a 
+                              href={exp.twitter} 
+                              target="_blank" 
+                              rel="noopener noreferrer"
+                              className={styles.socialIcon}
+                              title="Twitter"
+                            >
+                              <svg width="16" height="16" viewBox="0 0 24 24" fill="currentColor">
+                                <path d="M23 3a10.9 10.9 0 01-3.14 1.53 4.48 4.48 0 00-7.86 3v1A10.66 10.66 0 013 4s-4 9 5 13a11.64 11.64 0 01-7 2c9 5 20 0 20-11.5a4.5 4.5 0 00-.08-.83A7.72 7.72 0 0023 3z"></path>
+                              </svg>
+                            </a>
+                          )}
+                          {exp.linkedin && (
               <a
-                href={exp.certificate}
+                              href={exp.linkedin} 
                 target="_blank"
                 rel="noopener noreferrer"
-                className="inline-block"
+                              className={styles.socialIcon}
+                              title="LinkedIn"
               >
-                <button className="rounded-full border-2 border-[var(--accent-green)] bg-black px-6 py-2 text-sm font-medium text-[var(--accent-green)] transition-all duration-300 hover:bg-[var(--accent-green)] hover:text-black hover:shadow-[0_0_16px_#00ffb2cc]">
-                  View Certificate
+                              <svg width="16" height="16" viewBox="0 0 24 24" fill="currentColor">
+                                <path d="M16 8a6 6 0 0 1 6 6v7h-4v-7a2 2 0 0 0-2-2 2 2 0 0 0-2 2v7h-4v-7a6 6 0 0 1 6-6zM2 9h4v12H2z"></path>
+                                <circle cx="4" cy="4" r="2"></circle>
+                              </svg>
+                            </a>
+                          )}
+                          <div className={styles.socialIcon} title="Contact">
+                            <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2">
+                              <path d="M20 21v-2a4 4 0 0 0-4-4H8a4 4 0 0 0-4 4v2"></path>
+                              <circle cx="12" cy="7" r="4"></circle>
+                            </svg>
+                          </div>
+                          <button
+                            className={styles.expandButton}
+                            onClick={() => toggleExpand(index)}
+                            aria-label={isExpanded ? "Collapse" : "Expand"}
+                          >
+                            <svg 
+                              width="16" 
+                              height="16" 
+                              viewBox="0 0 24 24" 
+                              fill="none" 
+                              stroke="currentColor" 
+                              strokeWidth="2"
+                              style={{ transform: isExpanded ? 'rotate(180deg)' : 'rotate(0deg)', transition: 'transform 0.3s ease' }}
+                            >
+                              <path d="M6 9l6 6 6-6"></path>
+                            </svg>
                 </button>
-              </a>
+                        </div>
+                      </div>
+                      <div className={styles.roleRow}>
+                        <span className={styles.role}>{exp.role}</span>
+                        <div className={styles.dateLocation}>
+                          <span className={styles.date}>{exp.startDate} - {exp.endDate}</span>
+                          <span className={styles.location}>{exp.location} ({exp.locationType})</span>
             </div>
           </div>
-        ))}
+        </div>
       </div>
     </div>
+
+                {/* Technologies & Tools */}
+                <div className={styles.techSection}>
+                  <span className={styles.techLabel}>Technologies & Tools</span>
+                  <div className={styles.techBadges}>
+                    {exp.technologies.map((tech, techIndex) => {
+                      const iconName = getTechIcon(tech);
+                      return (
+                        <div key={techIndex} className={styles.techBadge}>
+                          {iconName ? (
+                            <Image
+                              src={`/skills/${iconName}.svg`}
+                              alt={tech}
+                              width={20}
+                              height={20}
+                              className={styles.techBadgeIcon}
+                            />
+                          ) : null}
+                          <span className={styles.techBadgeText}>{tech}</span>
+                        </div>
+                      );
+                    })}
+                  </div>
+                </div>
+
+                {/* Description - Expandable */}
+                <AnimatePresence>
+                  {isExpanded && (
+                    <motion.div
+                      initial={{ height: 0, opacity: 0 }}
+                      animate={{ height: "auto", opacity: 1 }}
+                      exit={{ height: 0, opacity: 0 }}
+                      transition={{ duration: 0.3 }}
+                      className={styles.descriptionSection}
+                    >
+                      <ul className={styles.descriptionList}>
+                        {exp.description.map((item, descIndex) => (
+                          <li key={descIndex} className={styles.descriptionItem}>
+                            {item}
+                          </li>
+                        ))}
+                      </ul>
+                    </motion.div>
+                  )}
+                </AnimatePresence>
+              </motion.div>
+            );
+          })}
+        </div>
+      </div>
+    </section>
   );
 }
 

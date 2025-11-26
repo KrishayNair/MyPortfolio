@@ -1,11 +1,82 @@
 @import url("https://fonts.googleapis.com/css2?family=Poppins&family=Raleway&display=swap");
+
 .container {
-  padding: 0 2rem;
+  position: relative;
+  width: 100%;
 }
 
-.mainHeading{
-  font-family: "Poppins";
-  font-size: 50px;
+/* Section border - subtle white line on sides */
+.container {
+  position: relative;
+}
+
+.container::before {
+  content: '';
+  position: fixed;
+  left: 0;
+  top: 0;
+  bottom: 0;
+  width: 1px;
+  background: linear-gradient(180deg, transparent 0%, rgba(255, 255, 255, 0.12) 20%, rgba(255, 255, 255, 0.12) 80%, transparent 100%);
+  pointer-events: none;
+  z-index: 999;
+}
+
+.container::after {
+  content: '';
+  position: fixed;
+  right: 0;
+  top: 0;
+  bottom: 0;
+  width: 1px;
+  background: linear-gradient(180deg, transparent 0%, rgba(255, 255, 255, 0.12) 20%, rgba(255, 255, 255, 0.12) 80%, transparent 100%);
+  pointer-events: none;
+  z-index: 999;
+}
+
+.mainHeading {
+  font-family: var(--font-display);
+  font-size: var(--font-size-4xl);
+  font-weight: var(--font-weight-semibold);
   text-align: center;
-  margin-top: 2rem;
+  color: var(--primary-text) !important;
+  margin-top: var(--spacing-xl);
+  margin-bottom: var(--spacing-xl);
+  letter-spacing: var(--letter-spacing-wide);
+  line-height: var(--line-height-tight);
+}
+
+.main {
+  max-width: 1400px;
+  margin: 0 auto;
+  padding-left: 8rem;
+  padding-right: 8rem;
+}
+
+@media (max-width: 1600px) {
+  .main {
+    padding-left: 6rem;
+    padding-right: 6rem;
+  }
+}
+
+@media (max-width: 1200px) {
+  .main {
+    padding-left: 4rem;
+    padding-right: 4rem;
+  }
+}
+
+@media (max-width: 900px) {
+  .main {
+    padding-left: 2rem;
+    padding-right: 2rem;
+  }
+}
+
+@media (max-width: 600px) {
+  .main {
+    padding-left: 1.5rem;
+    padding-right: 1.5rem;
+  }
 }

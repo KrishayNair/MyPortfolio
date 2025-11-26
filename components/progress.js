@@ -1,5 +1,4 @@
 import React from "react";
-import "@fontsource/poppins";
 import styles from "./progress.module.css";
 function progress() {
   return (

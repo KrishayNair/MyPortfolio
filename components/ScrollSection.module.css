@@ -1,0 +1,395 @@
+.experienceSection {
+  width: 100%;
+  background: var(--bg-primary);
+  padding: 4rem 2rem;
+  min-height: 100vh;
+  transition: background 0.3s ease;
+}
+
+.container {
+  max-width: var(--max-width);
+  margin: 0 auto;
+  padding: 0 var(--content-padding-x);
+}
+
+@media (max-width: 1600px) {
+  .container {
+    padding: 0 8rem;
+  }
+}
+
+@media (max-width: 1400px) {
+  .container {
+    padding: 0 6rem;
+  }
+}
+
+@media (max-width: 1200px) {
+  .container {
+    padding: 0 4rem;
+  }
+}
+
+@media (max-width: 900px) {
+  .container {
+    padding: 0 2rem;
+  }
+}
+
+@media (max-width: 600px) {
+  .container {
+    padding: 0 1.5rem;
+  }
+}
+
+.mainHeading {
+  font-family: var(--font-display);
+  font-size: var(--font-size-3xl);
+  font-weight: var(--font-weight-bold);
+  line-height: var(--line-height-tight);
+  letter-spacing: var(--letter-spacing-tight);
+  color: var(--text-primary);
+  margin: 0 0 3rem 0;
+  text-align: center;
+  transition: color 0.3s ease;
+}
+
+.experiencesList {
+  display: flex;
+  flex-direction: column;
+  gap: 2rem;
+}
+
+.experienceCard {
+  background: var(--bg-secondary);
+  border: 1px solid var(--border-color);
+  border-radius: 1rem;
+  padding: 1.5rem;
+  transition: all 0.3s ease;
+}
+
+.experienceCard:hover {
+  border-color: var(--border-hover);
+  box-shadow: 0 4px 24px rgba(0, 0, 0, 0.1);
+  transform: translateY(-2px);
+}
+
+/* Header Section */
+.header {
+  margin-bottom: 1.5rem;
+}
+
+.headerLeft {
+  display: flex;
+  gap: 1rem;
+  align-items: flex-start;
+}
+
+.logo {
+  width: 56px;
+  height: 56px;
+  border-radius: 0.75rem;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-shrink: 0;
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.2);
+}
+
+.logoText {
+  font-size: 1.5rem;
+  font-weight: 700;
+  color: #fff;
+  font-family: var(--font-display);
+}
+
+.companyInfo {
+  flex: 1;
+  display: flex;
+  flex-direction: column;
+  gap: 0.5rem;
+}
+
+.companyNameRow {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 1rem;
+  flex-wrap: wrap;
+}
+
+.companyName {
+  font-size: 1.25rem;
+  font-weight: 600;
+  color: var(--text-primary);
+  margin: 0;
+  font-family: var(--font-sans);
+  transition: color 0.3s ease;
+}
+
+.socialIcons {
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+}
+
+.socialIcon {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 24px;
+  height: 24px;
+  color: var(--text-secondary);
+  transition: all 0.2s ease;
+  cursor: pointer;
+  border: none;
+  background: none;
+  padding: 0;
+}
+
+.socialIcon:hover {
+  color: var(--text-primary);
+  transform: translateY(-2px);
+}
+
+.socialIcon svg {
+  width: 16px;
+  height: 16px;
+}
+
+.expandButton {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 24px;
+  height: 24px;
+  color: var(--text-secondary);
+  transition: all 0.2s ease;
+  cursor: pointer;
+  border: none;
+  background: none;
+  padding: 0;
+}
+
+.expandButton:hover {
+  color: var(--text-primary);
+}
+
+.roleRow {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 1rem;
+  flex-wrap: wrap;
+}
+
+.role {
+  font-size: 1rem;
+  font-weight: 500;
+  color: var(--text-primary);
+  font-family: var(--font-sans);
+  transition: color 0.3s ease;
+}
+
+.dateLocation {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-end;
+  gap: 0.25rem;
+  text-align: right;
+}
+
+.date,
+.location {
+  font-size: 0.875rem;
+  color: var(--text-secondary);
+  font-family: var(--font-sans);
+  transition: color 0.3s ease;
+}
+
+/* Technologies Section */
+.techSection {
+  margin: 1.5rem 0;
+  padding-top: 1.5rem;
+  border-top: 1px solid var(--border-color);
+  transition: border-color 0.3s ease;
+}
+
+.techLabel {
+  display: block;
+  font-size: 0.875rem;
+  font-weight: 600;
+  color: var(--text-primary);
+  margin-bottom: 1rem;
+  font-family: var(--font-sans);
+  text-transform: uppercase;
+  letter-spacing: 0.5px;
+  transition: color 0.3s ease;
+}
+
+.techBadges {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.75rem;
+}
+
+.techBadge {
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+  padding: 0.5rem 0.75rem;
+  border-radius: 0.5rem;
+  background: var(--bg-secondary);
+  border: 1px solid var(--border-color);
+  transition: all 0.2s ease;
+  cursor: pointer;
+}
+
+.techBadge:hover {
+  background: var(--bg-hover);
+  border-color: var(--border-hover);
+  transform: translateY(-2px);
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+}
+
+.techBadgeIcon {
+  width: 20px;
+  height: 20px;
+  object-fit: contain;
+  filter: none;
+  flex-shrink: 0;
+}
+
+.techBadgeText {
+  font-size: 0.875rem;
+  font-weight: 500;
+  color: var(--text-primary);
+  font-family: var(--font-sans);
+  white-space: nowrap;
+  transition: color 0.3s ease;
+}
+
+/* Description Section */
+.descriptionSection {
+  margin-top: 1.5rem;
+  padding-top: 1.5rem;
+  border-top: 1px solid var(--border-color);
+  overflow: hidden;
+  transition: border-color 0.3s ease;
+}
+
+.descriptionList {
+  list-style: none;
+  padding: 0;
+  margin: 0;
+  display: flex;
+  flex-direction: column;
+  gap: 0.75rem;
+}
+
+.descriptionItem {
+  font-size: 0.9375rem;
+  line-height: 1.6;
+  color: var(--text-secondary);
+  font-family: var(--font-sans);
+  padding-left: 1.5rem;
+  position: relative;
+  transition: color 0.3s ease;
+}
+
+.descriptionItem::before {
+  content: '•';
+  position: absolute;
+  left: 0;
+  color: var(--text-primary);
+  font-weight: bold;
+  font-size: 1.2rem;
+  transition: color 0.3s ease;
+}
+
+/* Responsive Design */
+@media (max-width: 768px) {
+  .experienceSection {
+    padding: 3rem 1.5rem;
+  }
+
+  .mainHeading {
+    font-size: 2.5rem;
+  }
+
+  .headerLeft {
+    gap: 0.75rem;
+  }
+
+  .logo {
+    width: 48px;
+    height: 48px;
+  }
+
+  .logoText {
+    font-size: 1.25rem;
+  }
+
+  .companyName {
+    font-size: 1.125rem;
+  }
+
+  .roleRow {
+    flex-direction: column;
+    align-items: flex-start;
+  }
+
+  .dateLocation {
+    align-items: flex-start;
+    text-align: left;
+  }
+
+  .techBadges {
+    gap: 0.5rem;
+  }
+
+  .techBadge {
+    padding: 0.4rem 0.6rem;
+  }
+
+  .techBadgeText {
+    font-size: 0.8rem;
+  }
+}
+
+@media (max-width: 480px) {
+  .experienceSection {
+    padding: 2rem 1rem;
+  }
+
+  .mainHeading {
+    font-size: 2rem;
+  }
+
+  .experienceCard {
+    padding: 1rem;
+  }
+
+  .logo {
+    width: 40px;
+    height: 40px;
+  }
+
+  .logoText {
+    font-size: 1rem;
+  }
+
+  .companyName {
+    font-size: 1rem;
+  }
+
+  .role {
+    font-size: 0.9rem;
+  }
+
+  .date,
+  .location {
+    font-size: 0.8rem;
+  }
+}
+

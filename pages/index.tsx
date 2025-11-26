@@ -4,7 +4,6 @@ import Navbar from "../components/navbar"
 import Hero from "../components/hero"
 import Progress from "../components/progress"
 import Experiences from "../components/Experiences"
-import WhatIdo from "../components/whatIDo"
 import ScrollSection from "../components/ScrollSection"
 import RecentWorks from "../components/recentWorks"
 import Footer from "../components/footer"
@@ -17,6 +16,9 @@ import { useScroll } from 'framer-motion';
 import ScrollTrigger from "gsap/dist/ScrollTrigger";
 import Contact from "../components/contact"
 import Achievements from "../components/Achievements"
+import Blogs from "../components/Blogs"
+import GitHubContributions from "../components/GitHubContributions"
+import Certifications from "../components/Certifications"
 import { useEffect, useRef } from 'react';
 
 export default function Home() {
@@ -52,17 +54,20 @@ export default function Home() {
     };
   }, []);
 
-  // Handle scrolling to projects section when page loads with #projects hash
+  // Handle scrolling to sections when page loads with hash
   useEffect(() => {
     const handleHashNavigation = () => {
       const hash = window.location.hash;
-      if (hash === '#projects') {
+      const validHashes = ['#projects', '#blogs', '#about', '#experience', '#github-contributions', '#certifications'];
+      
+      if (hash && validHashes.includes(hash)) {
         // Multiple attempts to ensure scrolling works
-        const scrollToProjects = () => {
-          const projectsElement = document.getElementById('projects');
-          if (projectsElement) {
+        const scrollToSection = () => {
+          const sectionId = hash.substring(1); // Remove the #
+          const sectionElement = document.getElementById(sectionId);
+          if (sectionElement) {
             // Get the element's position relative to the viewport
-            const elementRect = projectsElement.getBoundingClientRect();
+            const elementRect = sectionElement.getBoundingClientRect();
             const absoluteElementTop = elementRect.top + window.pageYOffset;
             
             // Scroll to the element with some offset for better visibility
@@ -76,12 +81,12 @@ export default function Home() {
         };
 
         // Try immediately
-        if (!scrollToProjects()) {
+        if (!scrollToSection()) {
           // If not found, try after a short delay
           setTimeout(() => {
-            if (!scrollToProjects()) {
+            if (!scrollToSection()) {
               // If still not found, try after a longer delay
-              setTimeout(scrollToProjects, 1000);
+              setTimeout(scrollToSection, 1000);
             }
           }, 100);
         }
@@ -95,7 +100,7 @@ export default function Home() {
     window.addEventListener('hashchange', handleHashNavigation);
 
     // Also handle when the component mounts and hash is present
-    if (window.location.hash === '#projects') {
+    if (window.location.hash) {
       setTimeout(handleHashNavigation, 500);
     }
 
@@ -111,14 +116,16 @@ export default function Home() {
       </div>
      
       <Hero/>
-      <WhatIdo/>
-      <Skills/>
+      <ScrollSection/>
       <main ref={container} className={styles.main}>
         <h1 id="projects" className={styles.mainHeading}>Projects</h1>
         <BentoGrid projects={projects} />
       </main>
-
-      <ScrollSection/>
+      <Skills/>
+      <GitHubContributions/>
+      <Certifications/>
+      <Blogs/>
+      
       <Achievements/>
       {/* <Contact/> */}
       {/* <Progress/> */}

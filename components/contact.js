@@ -1,5 +1,4 @@
 import React, { useRef } from 'react';
-import "@fontsource/poppins";
 import emailjs from '@emailjs/browser';
 import styles from "./contact.module.css";
 function contact() {
