@@ -44,13 +44,6 @@ function footer() {
               alt="Instagram logo"
             />
           </Link>
-          <Link target="_blank" href="https://leetcode.com/KrishayNair/">
-            <img
-              className={styles.socialLogo}
-              src="./images/leetcode3.svg"
-              alt="leetcode logo"
-            />
-          </Link>
           </div>
         </div>
         <img

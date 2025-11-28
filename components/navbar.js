@@ -63,7 +63,7 @@ function navbar() {
           )}
         </button>
       <a
-        href="./pdf/krishaynairupdated.pdf"
+        href="./pdf/Krishay_Nair_Resume.pdf"
         className={styles.download}
         download="resume"
       >

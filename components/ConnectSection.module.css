@@ -1,0 +1,403 @@
+.container {
+  padding: var(--section-padding-y) 0;
+  max-width: var(--max-width);
+  margin: 0 auto;
+  padding-left: var(--content-padding-x);
+  padding-right: var(--content-padding-x);
+  background: var(--bg-primary);
+  transition: background 0.3s ease;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  min-height: 30vh;
+}
+
+@media (max-width: 1600px) {
+  .container {
+    padding-left: 8rem;
+    padding-right: 8rem;
+  }
+}
+
+@media (max-width: 1400px) {
+  .container {
+    padding-left: 6rem;
+    padding-right: 6rem;
+  }
+}
+
+@media (max-width: 1200px) {
+  .container {
+    padding-left: 4rem;
+    padding-right: 4rem;
+  }
+}
+
+@media (max-width: 900px) {
+  .container {
+    padding-left: 2rem;
+    padding-right: 2rem;
+    padding-top: var(--section-padding-y-mobile);
+    padding-bottom: var(--section-padding-y-mobile);
+  }
+}
+
+@media (max-width: 600px) {
+  .container {
+    padding-left: 1.5rem;
+    padding-right: 1.5rem;
+  }
+}
+
+.contentBox {
+  border: 2px dashed var(--border-color);
+  border-radius: 1rem;
+  padding: 3rem 2rem;
+  background: var(--bg-primary);
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 2rem;
+  max-width: 600px;
+  width: 100%;
+  transition: border-color 0.3s ease;
+}
+
+.contentBox:hover {
+  border-color: var(--border-hover);
+}
+
+.message {
+  font-family: var(--font-sans);
+  font-size: var(--font-size-lg);
+  color: var(--text-secondary);
+  text-align: center;
+  margin: 0;
+  font-weight: var(--font-weight-medium);
+  transition: color 0.3s ease;
+}
+
+.bookButton {
+  display: flex;
+  align-items: center;
+  gap: 0.75rem;
+  padding: 0.875rem 1.5rem;
+  background: var(--bg-secondary);
+  border: 1px solid var(--border-color);
+  border-radius: 0.5rem;
+  color: var(--text-primary);
+  font-family: var(--font-sans);
+  font-size: var(--font-size-base);
+  font-weight: var(--font-weight-medium);
+  cursor: pointer;
+  transition: all 0.3s ease;
+  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
+}
+
+.bookButton:hover {
+  background: var(--bg-hover);
+  border-color: var(--border-hover);
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.15);
+  transform: translateY(-2px);
+}
+
+.bookButton:active {
+  transform: translateY(0);
+}
+
+.chatIcon {
+  color: #4ade80;
+  flex-shrink: 0;
+}
+
+/* Modal Styles */
+.modalOverlay {
+  position: fixed;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background: rgba(0, 0, 0, 0.7);
+  backdrop-filter: blur(4px);
+  z-index: 9998;
+}
+
+.modal {
+  position: fixed;
+  top: 50%;
+  left: 50%;
+  background: var(--bg-primary);
+  border-radius: 1rem;
+  padding: 2rem;
+  max-width: 500px;
+  width: 90%;
+  max-height: 90vh;
+  overflow-y: auto;
+  z-index: 9999;
+  box-shadow: 0 20px 60px rgba(0, 0, 0, 0.3);
+  border: 1px solid var(--border-color);
+  margin: 0;
+}
+
+.modal.bookingModal {
+  max-width: 1200px;
+  width: 95%;
+  max-height: 95vh;
+  padding: 1.5rem;
+}
+
+.closeButton {
+  position: absolute;
+  top: 1rem;
+  right: 1rem;
+  background: transparent;
+  border: none;
+  color: var(--text-secondary);
+  cursor: pointer;
+  padding: 0.5rem;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  border-radius: 0.25rem;
+  transition: all 0.2s ease;
+}
+
+.closeButton:hover {
+  background: var(--bg-hover);
+  color: var(--text-primary);
+}
+
+.modalTitle {
+  font-family: var(--font-display);
+  font-size: var(--font-size-2xl);
+  font-weight: var(--font-weight-bold);
+  color: var(--text-primary);
+  margin-bottom: 0.5rem;
+  margin-top: 0;
+  transition: color 0.3s ease;
+}
+
+.modalSubtitle {
+  font-family: var(--font-sans);
+  font-size: var(--font-size-sm);
+  color: var(--text-secondary);
+  margin-bottom: 2rem;
+  transition: color 0.3s ease;
+}
+
+.formStep {
+  margin-bottom: 2rem;
+}
+
+.formField {
+  margin-bottom: 1.5rem;
+}
+
+.formField:last-child {
+  margin-bottom: 0;
+}
+
+.questionLabel {
+  display: block;
+  font-family: var(--font-sans);
+  font-size: var(--font-size-base);
+  font-weight: var(--font-weight-medium);
+  color: var(--text-primary);
+  margin-bottom: 0.75rem;
+  transition: color 0.3s ease;
+}
+
+.dropdownContainer {
+  position: relative;
+  width: 100%;
+}
+
+.dropdownButton {
+  width: 100%;
+  padding: 0.875rem 1rem;
+  background: var(--bg-primary);
+  border: 1px solid var(--border-color);
+  border-radius: 0.5rem;
+  color: var(--text-primary);
+  font-family: var(--font-sans);
+  font-size: var(--font-size-base);
+  cursor: pointer;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  transition: all 0.2s ease;
+}
+
+.dropdownButton:hover:not(:disabled) {
+  border-color: var(--border-hover);
+  background: var(--bg-hover);
+}
+
+.dropdownButton:disabled {
+  opacity: 0.6;
+  cursor: not-allowed;
+}
+
+.placeholder {
+  color: var(--text-secondary);
+}
+
+.selectedValue {
+  color: var(--text-primary);
+}
+
+.chevron {
+  color: var(--text-secondary);
+  transition: transform 0.2s ease;
+  flex-shrink: 0;
+}
+
+.chevronOpen {
+  transform: rotate(180deg);
+}
+
+.dropdownMenu {
+  position: absolute;
+  top: 100%;
+  left: 0;
+  right: 0;
+  margin-top: 0.25rem;
+  background: var(--bg-primary);
+  border: 1px solid var(--border-color);
+  border-radius: 0.5rem;
+  overflow: hidden;
+  z-index: 10;
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.15);
+}
+
+.dropdownOption {
+  width: 100%;
+  padding: 0.875rem 1rem;
+  background: var(--bg-primary);
+  border: none;
+  color: var(--text-primary);
+  font-family: var(--font-sans);
+  font-size: var(--font-size-base);
+  text-align: left;
+  cursor: pointer;
+  transition: all 0.2s ease;
+  border-bottom: 1px solid var(--border-color);
+}
+
+.dropdownOption:last-child {
+  border-bottom: none;
+}
+
+.dropdownOption:hover {
+  background: var(--bg-hover);
+}
+
+.dropdownOption.selected {
+  background: var(--bg-hover);
+  color: var(--text-primary);
+  font-weight: var(--font-weight-medium);
+}
+
+.continueButton {
+  width: 100%;
+  padding: 0.875rem 1.5rem;
+  background: var(--bg-secondary);
+  border: 1px solid var(--border-color);
+  border-radius: 0.5rem;
+  color: var(--text-primary);
+  font-family: var(--font-sans);
+  font-size: var(--font-size-base);
+  font-weight: var(--font-weight-medium);
+  cursor: pointer;
+  transition: all 0.2s ease;
+  margin-top: 1rem;
+}
+
+.continueButton:hover:not(.disabled) {
+  background: var(--bg-hover);
+  border-color: var(--border-hover);
+}
+
+.continueButton.disabled {
+  opacity: 0.5;
+  cursor: not-allowed;
+}
+
+.buttonGroup {
+  display: flex;
+  gap: 1rem;
+  margin-top: 1rem;
+}
+
+.backButton {
+  padding: 0.875rem 1.5rem;
+  background: transparent;
+  border: 1px solid var(--border-color);
+  border-radius: 0.5rem;
+  color: var(--text-primary);
+  font-family: var(--font-sans);
+  font-size: var(--font-size-base);
+  font-weight: var(--font-weight-medium);
+  cursor: pointer;
+  transition: all 0.2s ease;
+  flex: 1;
+}
+
+.backButton:hover {
+  background: var(--bg-hover);
+  border-color: var(--border-hover);
+}
+
+.continueButton {
+  flex: 1;
+}
+
+.bookingContainer {
+  display: flex;
+  flex-direction: column;
+  height: 100%;
+  min-height: 600px;
+}
+
+.calEmbed {
+  width: 100%;
+  height: 600px;
+  min-height: 600px;
+  margin-top: 1rem;
+  background: var(--bg-secondary);
+  border-radius: 0.5rem;
+  overflow: hidden;
+  border: 1px solid var(--border-color);
+}
+
+@media (max-width: 768px) {
+  .calEmbed {
+    height: 500px;
+    min-height: 500px;
+  }
+  
+  .modal.bookingModal {
+    width: 98%;
+    padding: 1rem;
+  }
+}
+
+@media (max-width: 600px) {
+  .modal {
+    padding: 1.5rem;
+    width: 95%;
+  }
+
+  .modalTitle {
+    font-size: var(--font-size-xl);
+  }
+
+  .contentBox {
+    padding: 2rem 1.5rem;
+  }
+
+  .message {
+    font-size: var(--font-size-base);
+  }
+}
+

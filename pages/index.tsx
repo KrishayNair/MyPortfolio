@@ -19,6 +19,7 @@ import Achievements from "../components/Achievements"
 import Blogs from "../components/Blogs"
 import GitHubContributions from "../components/GitHubContributions"
 import Certifications from "../components/Certifications"
+import ConnectSection from "../components/ConnectSection"
 import { useEffect, useRef } from 'react';
 
 export default function Home() {
@@ -124,6 +125,7 @@ export default function Home() {
       <Skills/>
       <GitHubContributions/>
       <Certifications/>
+      <ConnectSection/>
       <Blogs/>
       
       <Achievements/>

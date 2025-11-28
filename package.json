@@ -9,12 +9,13 @@
     "lint": "next lint"
   },
   "dependencies": {
+    "@calcom/embed-react": "^1.5.3",
     "@emailjs/browser": "^4.2.0",
-    "@fontsource/poppins": "^5.0.8",
-    "@mui/material": "^5.15.12",
-    "@mui/icons-material": "^5.15.12",
     "@emotion/react": "^11.11.4",
     "@emotion/styled": "^11.11.0",
+    "@fontsource/poppins": "^5.0.8",
+    "@mui/icons-material": "^5.15.12",
+    "@mui/material": "^5.15.12",
     "@next/font": "^14.1.0",
     "@tabler/icons-react": "^2.47.0",
     "@types/node": "18.11.13",
