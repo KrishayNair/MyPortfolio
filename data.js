@@ -121,6 +121,67 @@ export const projects = [
     ]
   },
   {
+    title: "HabitatForge",
+    slug: "habitatforge",
+    description: "HabitatForge is an AI-powered space habitat design platform that revolutionizes how engineers and mission planners create safe, efficient space habitats for Mars, Moon, and Gateway missions. By integrating NASA's rigorous safety standards (NASA-STD-3001, 3000, 8709.22, 5005) with cutting-edge artificial intelligence, the platform automatically generates compliant habitat layouts while providing real-time constraint validation and 3D visualization. The system uses agentic AI workflows with LangGraph orchestration to propose, evaluate, optimize, and render habitat designs that meet NASA's stringent requirements for crew safety, emergency egress, and life support systems.",
+    detailedDescription: {
+      overview: "HabitatForge is an AI-powered space habitat design platform that enables mission planners, engineers, and students to create, optimize, and visualize NASA-compliant space habitats efficiently and intelligently. The platform integrates AI-driven layout optimization, real-time constraint validation, and immersive visualization to streamline habitat design for future lunar and Martian missions. The system begins with a mission setup wizard that defines key parameters such as crew size, mission duration, and destination. Using this data, an AI optimization engine built on genetic algorithms generates optimal layouts that satisfy NASA's Net Habitable Volume (NHV) standards. The 2D deck planner allows intuitive drag-and-drop editing, while the 3D visualization module enables users to explore designs interactively. Real-time compliance scoring and automated recommendations ensure that every configuration aligns with NASA's safety and livability standards. HabitatForge makes NASA's complex engineering accessible to everyone—no aerospace background required. The project reduces habitat design time from months to hours, minimizes human error, and democratizes space planning for a wide audience.",
+      features: [
+        "🚀 AI-Powered Layout Generation: Agentic AI workflows with LangGraph orchestration automatically generate NASA-compliant habitat layouts using genetic algorithms and simulated annealing",
+        "📐 NASA Standards Integration: Full compliance with NASA-STD-3001 (human spaceflight requirements), NASA-STD-3000 (habitability), NASA-STD-8709.22 (safety), and NASA-STD-5005 (emergency egress)",
+        "🎨 Multi-Modal Visualization: Interactive 3D habitat viewer with React Three Fiber, 2D technical blueprint editor with Konva.js, and AI-rendered concept art for immersive design exploration",
+        "📊 Real-Time Constraint Validation: Live compliance scoring, Net Habitable Volume (NHV) calculations, adjacency validation, and automated recommendations for design improvements",
+        "🔄 Mission Setup Wizard: Guided workflow for defining crew size, mission duration, destination (Mars/Moon/Gateway), gravity mode, and transport vehicle specifications",
+        "🏗️ 2D Deck Planner: Intuitive drag-and-drop interface for designing multi-floor habitat layouts with NASA-compliant space modules and equipment placement",
+        "🤖 AI Space Assistant: Intelligent chatbot powered by LLMs for answering questions about space habitats, NASA standards, and design best practices",
+        "📈 Mission Analytics Dashboard: Real-time metrics including NHV per crew member, logistics volume, power requirements, plant growth schedules, and environmental constraints",
+        "🎯 Genetic Algorithm Optimization: Advanced optimization engine that proposes, evaluates, and optimizes layouts based on NASA constraints, crew needs, and mission parameters",
+        "🌍 Multi-Destination Support: Design habitats for Mars missions, lunar bases, Gateway stations, and other space destinations with destination-specific environmental parameters"
+      ],
+      technicalDetails: [
+        "🎨 Frontend: React with TypeScript, Vite for build tooling, Tailwind CSS for styling, React Three Fiber for 3D visualization, and Konva.js for 2D canvas editing",
+        "⚡ Backend: FastAPI with Python, Uvicorn ASGI server, Pydantic for data validation, and async/await patterns for high-performance API endpoints",
+        "🤖 AI/ML Stack: LangGraph for agentic workflow orchestration, genetic algorithms and simulated annealing for layout optimization, and LLM integration for AI assistant",
+        "📊 State Management: Zustand for global state management, React Hooks for component-level state, and optimized re-rendering for real-time updates",
+        "🗄️ Data Processing: NASA standards compliance engine, NHV calculation algorithms, constraint validation system, and layout optimization models",
+        "🎨 3D Visualization: React Three Fiber with Three.js for immersive 3D habitat rendering, orbit controls, zoom, and pan interactions",
+        "📐 2D Editing: Konva.js for interactive canvas-based deck planner with drag-and-drop, multi-floor support, and real-time layout updates",
+        "☁️ Deployment: Railway and Render for backend hosting, GitHub Actions for CI/CD, and scalable infrastructure for production workloads",
+        "🔒 NASA Compliance: Integration of NASA-STD-3001, 3000, 8709.22, and 5005 standards with automated validation and compliance scoring",
+        "🚀 Performance: Optimized rendering pipeline, efficient genetic algorithm implementation, and real-time constraint validation for responsive user experience"
+      ],
+      impact: "HabitatForge achieved recognition as a Global Nominee in the NASA Space Apps Challenge 2025, representing Team KARLVerse's innovative approach to space habitat design. The platform addresses the critical challenge of accelerating space habitat design while ensuring absolute compliance with NASA standards—a process that traditionally takes months of manual engineering work. HabitatForge democratizes access to professional-grade space architecture tools, supporting NASA's Artemis program and commercial space development by reducing design time from months to hours while eliminating human error in critical space systems. Judges praised the platform: 'A habitat layout platform that's functional and stays close to the challenge of defining volume and exploring layout options. It communicates very well, linking design steps to constraints, and is well informed by standards so could be useful for planners and students.' The platform's multi-modal approach combines 2D drag-and-drop editing, interactive 3D visualization, and AI-rendered concept art, making it accessible to both expert engineers and mission planners while maintaining the precision required for human spaceflight safety."
+    },
+    tech: "REACT, TYPESCRIPT, VITE, TAILWIND CSS, REACT THREE FIBER, KONVA.js, FASTAPI, PYTHON, UVICORN, PYDANTIC, ZUSTAND, LANGGRAPH, GENETIC ALGORITHMS, RAILWAY, RENDER, GITHUB ACTIONS",
+    src: "hf1.png",
+    images: ["hf1.png", "hf2.png", "hf3.png", "hf4.png"],
+    previewSrc: "hf1.png",
+    githubUrl: "",
+    detailsUrl: "/projects/habitatforge",
+    liveUrls: [
+      { title: "Live Platform", url: "https://www.habitatforge.earth/" },
+      { title: "Project Demo", url: "https://drive.google.com/drive/folders/1bRIR_X-uetCG07wD9yi7bMKdCgsh4Ci4?usp=sharing" }
+    ],
+    color: "#1E40AF",
+    achievements: [
+      {
+        title: "NASA Space Apps Global Nominee",
+        icon: "🏆",
+        description: "Recognized as Global Nominee in NASA Space Apps Challenge 2025 by Team KARLVerse, advancing to Global Judging phase"
+      },
+      {
+        title: "NASA Standards Compliance",
+        icon: "🚀",
+        description: "Full integration of NASA-STD-3001, 3000, 8709.22, and 5005 standards with automated validation and compliance scoring"
+      },
+      {
+        title: "Design Time Reduction",
+        icon: "⚡",
+        description: "Reduces habitat design time from months to hours while eliminating human error in critical space systems"
+      }
+    ]
+  },
+  {
     title: "Campus2Career",
     slug: "campus2career",
     description: "Campus2Career is a smart placement preparation and learning platform designed to streamline student upskilling through AI-powered features. It offers customized learning journeys, interactive DSA practice environments, real-time AI mock interviews, and intelligent job matching based on student profiles.",
