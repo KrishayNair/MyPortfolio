@@ -50,191 +50,270 @@
   font-weight: var(--font-weight-semibold);
   text-align: center;
   color: var(--text-primary) !important;
-  margin-bottom: 1.25rem;
+  margin-bottom: 0.35rem;
   letter-spacing: var(--letter-spacing-wide);
   line-height: var(--line-height-tight);
   transition: color 0.3s ease;
 }
 
-.achievementsContainer {
-  max-width: 1400px;
+.subHeading {
+  font-size: var(--font-size-sm);
+  color: var(--text-secondary);
+  text-align: center;
+  margin: 0 0 1.25rem;
+}
+
+/* Hall of Fame horizontal scroll – same width as rest of home */
+.hofScroll {
+  width: 100%;
+  max-width: var(--max-width);
+  min-width: 0; /* allow shrinking so overflow scroll works */
   margin: 0 auto;
-  padding: 0 2rem;
+  overflow-x: auto;
+  overflow-y: hidden;
+  scroll-behavior: auto;
+  scrollbar-width: thin;
+  cursor: grab;
+  -webkit-overflow-scrolling: touch;
 }
 
-/* Match Blogs section: same grid and card proportions */
-.achievementsGrid {
-  display: grid;
-  grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
-  gap: 1.5rem;
+.hofScroll:active {
+  cursor: grabbing;
 }
 
-.achievementCard {
+.hofScroll::-webkit-scrollbar {
+  height: 6px;
+}
+
+.hofScroll::-webkit-scrollbar-track {
+  background: var(--bg-secondary);
+  border-radius: 3px;
+}
+
+.hofScroll::-webkit-scrollbar-thumb {
+  background: var(--border-hover);
+  border-radius: 3px;
+}
+
+.hofList {
+  display: flex;
+  flex-direction: row;
+  gap: 1.25rem;
+  padding: 0.5rem 0 1.5rem;
+  width: max-content;
+}
+
+/* Hall of Fame card */
+.hofCard {
+  flex: 0 0 min(340px, 78vw);
+  position: relative;
   background: var(--bg-secondary);
   border: 1px solid var(--border-color);
   border-radius: 0.75rem;
-  padding: 1.5rem;
-  transition: all 0.3s ease;
-  position: relative;
+  padding: 1.5rem 1.75rem;
   overflow: hidden;
-  min-height: 160px;
+  transition: border-color 0.25s ease, box-shadow 0.25s ease;
+  min-height: 260px;
+  display: flex;
+  flex-direction: column;
 }
 
-.achievementCard::before {
-  content: '';
+.hofCard:hover {
+  border-color: var(--border-hover);
+  box-shadow: 0 12px 28px rgba(0, 0, 0, 0.12);
+}
+
+.hofCardGlow {
   position: absolute;
-  top: 0;
-  left: 0;
-  right: 0;
-  height: 2px;
-  background: linear-gradient(90deg, var(--text-primary) 0%, var(--bg-secondary) 100%);
+  top: -50%;
+  left: -50%;
+  width: 200%;
+  height: 200%;
+  background: radial-gradient(
+    circle at 30% 20%,
+    rgba(255, 255, 255, 0.04) 0%,
+    transparent 50%
+  );
+  pointer-events: none;
   opacity: 0;
   transition: opacity 0.3s ease;
 }
 
-.achievementCard:hover {
-  border-color: var(--border-hover);
-  transform: translateY(-5px);
-  box-shadow: 0 10px 30px rgba(0, 0, 0, 0.1);
-  background: var(--bg-hover);
-}
-
-.achievementCard:hover::before {
+.hofCard:hover .hofCardGlow {
   opacity: 1;
 }
 
-.achievementHeader {
+.hofCardInner {
+  position: relative;
+  z-index: 1;
   display: flex;
-  align-items: flex-start;
+  flex-direction: column;
+  flex: 1;
+  min-height: 0;
+}
+
+.hofCardHeader {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
   gap: 0.75rem;
   margin-bottom: 1rem;
 }
 
-.achievementIcon {
-  font-size: 1.75rem;
+.hofCardIconWrap {
+  width: 44px;
+  height: 44px;
+  border-radius: 10px;
+  background: var(--bg-hover);
+  border: 1px solid var(--border-color);
+  display: flex;
+  align-items: center;
+  justify-content: center;
   flex-shrink: 0;
-  margin-top: 0.1rem;
+  transition: background 0.2s, border-color 0.2s;
 }
 
-.achievementInfo {
-  flex: 1;
-  min-width: 0;
+.hofCard:hover .hofCardIconWrap {
+  background: rgba(255, 255, 255, 0.08);
+  border-color: var(--border-hover);
 }
 
-.achievementTitle {
-  font-family: var(--font-display);
-  font-size: var(--font-size-lg);
+.hofCardIcon {
+  font-size: 1.4rem;
+  line-height: 1;
+}
+
+.hofCardMeta {
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+}
+
+.hofCardCategory {
+  font-size: 0.65rem;
+  font-weight: 700;
+  text-transform: uppercase;
+  letter-spacing: 0.08em;
+  color: var(--text-secondary);
+}
+
+.hofCardYear {
+  font-size: 0.8rem;
+  font-weight: 600;
   color: var(--text-primary);
-  font-weight: 500;
-  margin-bottom: 0.35rem;
-  line-height: 1.3;
+  padding: 0.2rem 0.5rem;
+  background: var(--bg-hover);
+  border-radius: 4px;
+}
+
+.hofCardTitle {
+  font-family: var(--font-display);
+  font-size: 1.1rem;
+  font-weight: 600;
+  color: var(--text-primary);
+  margin: 0 0 0.5rem;
+  line-height: 1.35;
   display: -webkit-box;
   -webkit-line-clamp: 2;
   -webkit-box-orient: vertical;
   overflow: hidden;
-  transition: color 0.3s ease;
 }
 
-.achievementCategory {
-  font-family: var(--font-sans);
-  font-size: 0.75rem;
-  color: var(--text-primary);
-  font-weight: 600;
-  text-transform: uppercase;
-  letter-spacing: 0.5px;
-  transition: color 0.3s ease;
-}
-
-.achievementYear {
-  font-family: var(--font-sans);
-  font-size: 0.85rem;
-  color: var(--text-secondary);
-  font-weight: 500;
-  flex-shrink: 0;
-  transition: color 0.3s ease;
-}
-
-.achievementDescription {
-  font-family: var(--font-sans);
+.hofCardDescription {
   font-size: var(--font-size-sm);
   color: var(--text-secondary);
-  line-height: 1.6;
-  margin: 0;
+  line-height: 1.55;
+  margin: 0 0 0.75rem;
+  flex: 1;
   display: -webkit-box;
   -webkit-line-clamp: 2;
   -webkit-box-orient: vertical;
   overflow: hidden;
-  transition: color 0.3s ease;
 }
 
-.seeMoreButton {
-  display: block;
-  margin: 2rem auto 0;
-  padding: 0.6rem 1.5rem;
+.hofCardHighlight {
+  font-size: 0.8rem;
+  color: var(--text-secondary);
+  line-height: 1.5;
+  margin: 0;
+  padding: 0.6rem 0.75rem;
+  background: rgba(255, 255, 255, 0.03);
+  border-radius: 0.5rem;
+  border-left: 2px solid var(--border-hover);
+  font-style: italic;
+  display: -webkit-box;
+  -webkit-line-clamp: 2;
+  -webkit-box-orient: vertical;
+  overflow: hidden;
+}
+
+.viewAllWrap {
+  display: flex;
+  justify-content: center;
+  margin-top: 1.5rem;
+}
+
+.viewAllButton {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.5rem;
+  padding: 0.75rem 1.5rem;
   font-family: var(--font-sans);
-  font-size: 0.9rem;
+  font-size: 0.95rem;
   font-weight: 600;
   color: var(--text-primary);
   background: var(--bg-secondary);
   border: 1px solid var(--border-color);
   border-radius: 0.5rem;
-  cursor: pointer;
-  transition: all 0.2s ease;
+  text-decoration: none;
+  transition: all 0.25s ease;
 }
 
-.seeMoreButton:hover {
+.viewAllButton:hover {
   background: var(--bg-hover);
   border-color: var(--border-hover);
   transform: translateY(-2px);
+  box-shadow: 0 6px 20px rgba(0, 0, 0, 0.08);
+}
+
+.viewAllButton svg {
+  transition: transform 0.2s ease;
+}
+
+.viewAllButton:hover svg {
+  transform: translateX(4px);
 }
 
 @media only screen and (max-width: 768px) {
   .mainContainer {
     padding: 2rem 0;
   }
-  
+
   .mainHeading {
     font-size: 1.5rem;
-    margin-bottom: 1.25rem;
   }
-  
-  .achievementsContainer {
-    padding: 0 1rem;
-  }
-  
-  .achievementsGrid {
-    grid-template-columns: 1fr;
+
+  .hofList {
     gap: 1rem;
   }
-  
-  .achievementCard {
-    padding: 1.5rem;
-    min-height: auto;
+
+  .hofCard {
+    flex: 0 0 min(300px, 85vw);
+    padding: 1.25rem 1.5rem;
+    min-height: 240px;
   }
-  
-  .achievementHeader {
-    gap: 0.75rem;
-    margin-bottom: 1rem;
+
+  .hofCardIconWrap {
+    width: 40px;
+    height: 40px;
   }
-  
-  .achievementIcon {
-    font-size: 1.5rem;
+
+  .hofCardIcon {
+    font-size: 1.25rem;
   }
-  
-  .achievementTitle {
-    font-size: 1.125rem;
-  }
-  
-  .achievementDescription {
-    font-size: var(--font-size-sm);
-  }
-  
-  .achievementCategory {
-    font-size: 0.7rem;
-  }
-  
-  .achievementYear {
-    font-size: 0.8rem;
+
+  .hofCardTitle {
+    font-size: 1rem;
   }
 }
 
@@ -242,16 +321,9 @@
   .mainHeading {
     font-size: 1.35rem;
   }
-  
-  .achievementCard {
-    padding: 1.25rem;
-  }
-  
-  .achievementTitle {
-    font-size: 1.05rem;
-  }
-  
-  .achievementDescription {
-    font-size: 0.875rem;
+
+  .hofCard {
+    flex: 0 0 min(280px, 90vw);
+    min-height: 220px;
   }
 }

@@ -13,12 +13,12 @@ const Skills = () => {
     return skill.toLowerCase().replace(/\s+/g, '-').replace(/[^a-z0-9-]/g, '');
   };
 
-  // Combine all skills into one array
+  // Combine all skills: SRE/cloud/networking first, then rest
   const allSkills = [
+    ...(SKILLS.sreCloudNetworking || []),
     ...SKILLS.languagesAndTools,
     ...SKILLS.librariesAndFrameworks,
     ...SKILLS.databases,
-    ...SKILLS.hosting,
     ...SKILLS.other,
   ];
 

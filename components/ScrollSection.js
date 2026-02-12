@@ -5,42 +5,31 @@ import Image from "next/image";
 import { motion, AnimatePresence } from "framer-motion";
 import styles from "./ScrollSection.module.css";
 
-// Technology name to icon mapping
+// Technology name to icon filename (must match public/skills/*.svg exactly)
 const getTechIcon = (techName) => {
+  const s = techName.toLowerCase().trim();
   const techMap = {
-    'next.js': 'nextjs',
-    'nextjs': 'nextjs',
-    'react': 'react',
-    'typescript': 'typescript',
-    'javascript': 'javascript',
-    'node.js': 'nodejs',
-    'nodejs': 'nodejs',
-    'tailwind': 'tailwindcss',
-    'tailwind css': 'tailwindcss',
-    'postgresql': 'postgresql',
-    'mongodb': 'mongodb',
-    'python': 'python',
-    'fastapi': 'fastapi',
-    'django': 'django',
-    'flutter': 'flutter',
-    'electron': 'electron',
-    'supabase': 'supabase',
-    'firebase': 'firebase',
-    'aws': 'amazonaws',
-    'docker': 'docker',
-    'redis': 'redis',
-    'openai': 'openai',
-    'vercel': 'vercel',
-    'express': 'express',
-    'nestjs': 'nestjs',
-    'postman': 'postman',
-    'html': 'html',
-    'css': 'css',
-    'sass': 'sass',
+    'next.js': 'nextjs', nextjs: 'nextjs',
+    react: 'react', 'react.js': 'react', 'reactjs': 'react',
+    typescript: 'typescript',
+    javascript: 'javascript',
+    'node.js': 'nodejs', nodejs: 'nodejs',
+    tailwind: 'tailwindcss', 'tailwind css': 'tailwindcss', tailwindcss: 'tailwindcss',
+    postgresql: 'PostgreSQL',
+    mongodb: 'mongodb',
+    python: 'python',
+    firebase: 'firebase',
+    aws: 'AWS',
+    docker: 'Docker',
+    redis: 'redis',
+    kubernetes: 'Kubernetes',
+    vite: 'vite',
+    html: 'html', css: 'css', sass: 'sass',
+    java: 'java', cpp: 'cpp',
+    redux: 'redux', mysql: 'mysql', webpack: 'webpack', git: 'git',
+    figma: 'figma', 'chakra ui': 'chakra-ui', 'ant design': 'antdesign',
   };
-  
-  const normalized = techName.toLowerCase().trim();
-  return techMap[normalized] || null;
+  return techMap[s] ?? null;
 };
 
 function ScrollSection() {

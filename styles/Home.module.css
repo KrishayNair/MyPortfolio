@@ -22,13 +22,20 @@
 }
 
 .main {
-  max-width: 1400px;
+  max-width: var(--max-width);
   margin: 0 auto;
-  padding-left: 8rem;
-  padding-right: 8rem;
+  padding-left: var(--content-padding-x);
+  padding-right: var(--content-padding-x);
 }
 
 @media (max-width: 1600px) {
+  .main {
+    padding-left: 8rem;
+    padding-right: 8rem;
+  }
+}
+
+@media (max-width: 1400px) {
   .main {
     padding-left: 6rem;
     padding-right: 6rem;

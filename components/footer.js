@@ -6,7 +6,7 @@ import { motion } from "framer-motion";
 
 function footer() {
   return (
-    <motion.div 
+    <motion.footer
       className={styles.mainContainer}
       initial={{ opacity: 0 }}
       whileInView={{ opacity: 1 }}
@@ -19,40 +19,26 @@ function footer() {
           src="./images/footerleft.svg"
           alt=""
         />
-        <div >
-          <h1 className={styles.socialHeading}>Follow Me</h1>
+        <div className={styles.socialBlock}>
+          <h2 className={styles.socialHeading}>Follow Me</h2>
           <div className={styles.socials}>
-          <Link
-            target="_blank"
-            href="https://www.linkedin.com/in/krishay-nair-667313233/"
-          >
-            <img
-              className={styles.socialLogo}
-              src="./images/Linkedin.svg"
-              alt="linkedin logo"
-            />
-          </Link>
-          <Link target="_blank" href="https://github.com/KrishayNair">
-            <img
-              className={styles.socialLogo}
-              src="./images/GitHub.svg"
-              alt="GitHub logo"
-            />
-          </Link>
-          <Link href="mailto:krishay958@gmail.com">
-            <img
-              className={styles.socialLogo}
-              src="./images/Gmail.svg"
-              alt="Gmail logo"
-            />
-          </Link>
-          <Link target="_blank" href="https://www.instagram.com/krishay_nair/">
-            <img
-              className={styles.socialLogo}
-              src="./images/Instagram.svg"
-              alt="Instagram logo"
-            />
-          </Link>
+            <Link
+              target="_blank"
+              href="https://www.linkedin.com/in/krishay-nair-667313233/"
+              className={styles.socialLink}
+              aria-label="LinkedIn"
+            >
+              <img className={styles.socialLogo} src="./images/Linkedin.svg" alt="LinkedIn" />
+            </Link>
+            <Link target="_blank" href="https://github.com/KrishayNair" className={styles.socialLink} aria-label="GitHub">
+              <img className={styles.socialLogo} src="./images/GitHub.svg" alt="GitHub" />
+            </Link>
+            <Link href="mailto:krishay958@gmail.com" className={styles.socialLink} aria-label="Email">
+              <img className={styles.socialLogo} src="./images/Gmail.svg" alt="Gmail" />
+            </Link>
+            <Link target="_blank" href="https://www.instagram.com/krishay_nair/" className={styles.socialLink} aria-label="Instagram">
+              <img className={styles.socialLogo} src="./images/Instagram.svg" alt="Instagram" />
+            </Link>
           </div>
         </div>
         <img
@@ -61,16 +47,11 @@ function footer() {
           alt=""
         />
       </div>
-      <motion.h1 
-        className={styles.heading}
-        initial={{ opacity: 0, y: 8 }}
-        whileInView={{ opacity: 1, y: 0 }}
-        viewport={{ once: true }}
-        transition={{ duration: 0.4 }}
-      >
-        Designed and created by Krishay Nair
-      </motion.h1>
-    </motion.div>
+      <div className={styles.signatureBlock}>
+        <p className={styles.credit}>Designed and created by</p>
+        <p className={styles.signature}>Krishay Nair</p>
+      </div>
+    </motion.footer>
   );
 }
 

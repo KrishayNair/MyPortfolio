@@ -1,142 +1,92 @@
 'use client';
 
-import React, { useState } from "react";
+import React, { useRef, useEffect, useState } from "react";
+import Link from "next/link";
 import styles from "./Achievements.module.css";
-import { motion, AnimatePresence } from "framer-motion";
+import { motion } from "framer-motion";
+import { achievements } from "../data/achievements";
 
-const VISIBLE_COUNT = 4;
+const AUTO_SCROLL_SPEED = 1;
+const AUTO_SCROLL_INTERVAL_MS = 25;
 
 function Achievements() {
-  const [showAll, setShowAll] = useState(false);
-  const achievements = [
-    {
-      title: "Smart India Hackathon 2024 Winner",
-      icon: "🏆",
-      description: "Recognized as the winning project in the prestigious Smart India Hackathon 2024",
-      category: "National Competition",
-      year: "2024"
-    },
-    {
-      title: "Government Adoption",
-      icon: "🏛️",
-      description: "Officially being adapted by Government of India, Department of Post for nationwide implementation",
-      category: "Government Recognition",
-      year: "2024"
-    },
-    {
-      title: "Quasar 2.0 Winner",
-      icon: "🎓",
-      description: "Secured 2nd place in the Smart Education domain at the Quasar 2.0 national-level competition",
-      category: "Education Tech",
-      year: "2024"
-    },
-    {
-      title: "Move AI Hackathon GameFi Winner",
-      icon: "💰🏅",
-      description: "Won 1st prize in the GameFi Track of the Move AI Hackathon, receiving a $13,000 award",
-      category: "Blockchain & AI",
-      year: "2024"
-    },
-    {
-      title: "Legal Tech Hackathon Winner",
-      icon: "⚖️",
-      description: "Recognized as the winning project in the Legal Tech Hackathon",
-      category: "Legal Technology",
-      year: "2024"
-    },
-    {
-      title: "Adopted by Legal Professionals",
-      icon: "⚖️",
-      description: "Used and recommended by High Court and Supreme Court lawyers",
-      category: "Professional Adoption",
-      year: "2024"
-    },
-    {
-      title: "Top 10 in IIIT Pune Ideathon",
-      icon: "🏆",
-      description: "Recognized for significantly reducing complaint resolution time",
-      category: "Innovation",
-      year: "2024"
-    },
-    {
-      title: "Best Social Impact Award",
-      icon: "🏆",
-      description: "Recognized for innovative use of blockchain in philanthropy",
-      category: "Social Impact",
-      year: "2024"
-    },
-    {
-      title: "AI Innovation Award",
-      icon: "🤖",
-      description: "Recognized for innovative use of AI in traditional medicine",
-      category: "Healthcare AI",
-      year: "2024"
-    },
-    {
-      title: "Community Excellence",
-      icon: "👥",
-      description: "Recognized as one of the most active GDSC chapters",
-      category: "Community Leadership",
-      year: "2023"
-    },
-    {
-      title: "Design Award",
-      icon: "🎨",
-      description: "Awarded for outstanding UI/UX design",
-      category: "Design Excellence",
-      year: "2023"
-    },
-    {
-      title: "Cultural Preservation Initiative",
-      icon: "🎨",
-      description: "Promoted the preservation of Indian traditional crafts by providing artisans with a global platform",
-      category: "Cultural Impact",
-      year: "2024"
-    }
-  ];
+  const scrollRef = useRef(null);
+  const [isPaused, setIsPaused] = useState(false);
 
-  const visibleAchievements = showAll ? achievements : achievements.slice(0, VISIBLE_COUNT);
-  const hasMore = achievements.length > VISIBLE_COUNT;
+  useEffect(() => {
+    let intervalId = null;
+    const tick = () => {
+      const el = scrollRef.current;
+      if (!el || isPaused) return;
+      const maxScroll = el.scrollWidth - el.clientWidth;
+      if (maxScroll <= 1) return;
+      el.scrollLeft += AUTO_SCROLL_SPEED;
+      if (el.scrollLeft >= maxScroll - 5) {
+        el.scrollLeft = 0;
+      }
+    };
+
+    const startAfterLayout = setTimeout(() => {
+      intervalId = setInterval(tick, AUTO_SCROLL_INTERVAL_MS);
+    }, 400);
+
+    return () => {
+      clearTimeout(startAfterLayout);
+      if (intervalId) clearInterval(intervalId);
+    };
+  }, [isPaused]);
 
   return (
     <div id="achievements" className={styles.mainContainer}>
-      <h2 className={styles.mainHeading}>Extra Curricular & Achievements</h2>
-      <div className={styles.achievementsContainer}>
-        <div className={styles.achievementsGrid}>
-          <AnimatePresence mode="popLayout">
-            {visibleAchievements.map((achievement, index) => (
-              <motion.div
-                key={`${achievement.title}-${achievement.category}-${achievement.year}`}
-                className={styles.achievementCard}
-                initial={{ opacity: 0, y: 12 }}
-                animate={{ opacity: 1, y: 0 }}
-                exit={{ opacity: 0 }}
-                transition={{ duration: 0.25, delay: index * 0.03 }}
-              >
-                <div className={styles.achievementHeader}>
-                  <div className={styles.achievementIcon}>{achievement.icon}</div>
-                  <div className={styles.achievementInfo}>
-                    <h3 className={styles.achievementTitle}>{achievement.title}</h3>
-                    <span className={styles.achievementCategory}>{achievement.category}</span>
+      <h2 className={styles.mainHeading}>Hall of Fame</h2>
+      <p className={styles.subHeading}>Extra curricular & achievements — hover to pause</p>
+      <div
+        ref={scrollRef}
+        className={styles.hofScroll}
+        onMouseEnter={() => setIsPaused(true)}
+        onMouseLeave={() => setIsPaused(false)}
+        onTouchStart={() => setIsPaused(true)}
+        onTouchEnd={() => setIsPaused(false)}
+      >
+        <div className={styles.hofList}>
+          {achievements.map((achievement, index) => (
+            <motion.article
+              key={`${achievement.id}-${index}`}
+              className={styles.hofCard}
+              initial={{ opacity: 0, y: 12 }}
+              whileInView={{ opacity: 1, y: 0 }}
+              viewport={{ once: true, margin: "-20px" }}
+              transition={{ duration: 0.3, delay: index * 0.03 }}
+              whileHover={{ y: -3 }}
+            >
+              <div className={styles.hofCardGlow} />
+              <div className={styles.hofCardInner}>
+                <div className={styles.hofCardHeader}>
+                  <div className={styles.hofCardIconWrap}>
+                    <span className={styles.hofCardIcon}>{achievement.icon}</span>
                   </div>
-                  <span className={styles.achievementYear}>{achievement.year}</span>
+                  <div className={styles.hofCardMeta}>
+                    <span className={styles.hofCardCategory}>{achievement.category}</span>
+                    <span className={styles.hofCardYear}>{achievement.year}</span>
+                  </div>
                 </div>
-                <p className={styles.achievementDescription}>{achievement.description}</p>
-              </motion.div>
-            ))}
-          </AnimatePresence>
+                <h3 className={styles.hofCardTitle}>{achievement.title}</h3>
+                <p className={styles.hofCardDescription}>{achievement.description}</p>
+                {achievement.highlight && (
+                  <p className={styles.hofCardHighlight}>{achievement.highlight}</p>
+                )}
+              </div>
+            </motion.article>
+          ))}
         </div>
-        {hasMore && (
-          <motion.button
-            type="button"
-            className={styles.seeMoreButton}
-            onClick={() => setShowAll((prev) => !prev)}
-            whileHover={{ scale: 1.02 }}
-            whileTap={{ scale: 0.98 }}
-          >
-            {showAll ? "See less" : `See more (+${achievements.length - VISIBLE_COUNT})`}
-          </motion.button>
-        )}
+      </div>
+      <div className={styles.viewAllWrap}>
+        <Link href="/achievements" className={styles.viewAllButton}>
+          View all on dedicated page
+          <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2">
+            <path d="M5 12h14M12 5l7 7-7 7" />
+          </svg>
+        </Link>
       </div>
     </div>
   );

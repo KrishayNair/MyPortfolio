@@ -2,6 +2,7 @@
 @tailwind components;
 @tailwind utilities;
 @import url("https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap");
+@import url("https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400;0,600;1,400;1,600&display=swap");
 
 :root {
   --max-width: 1200px;
@@ -9,6 +10,7 @@
   --border-radius: 12px;
   --font-display: "Poppins", sans-serif;
   --font-sans: "Poppins", sans-serif;
+  --font-serif: "Playfair Display", serif;
   
   /* Dark Theme (Default) */
   --bg-primary: #000;
@@ -100,14 +102,22 @@ html {
   -moz-osx-font-smoothing: grayscale;
 }
 
-/* Enhanced smooth scrolling */
+/* Smooth scroll throughout the site */
 @media (prefers-reduced-motion: no-preference) {
   html {
     scroll-behavior: smooth;
   }
-  
+  body {
+    scroll-behavior: smooth;
+  }
   * {
     scroll-behavior: inherit;
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  html, body {
+    scroll-behavior: auto;
   }
 }
 

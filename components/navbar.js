@@ -24,7 +24,16 @@ function navbar() {
       animate={{ opacity: 1, y: 0 }}
       transition={{ duration: 0.5 }}
     >
-      <h1 className={styles.headerLogo}>Krishay Nair</h1>
+      <Link href="/" className={styles.logoLink}>
+        <motion.div 
+          className={styles.headerLogo}
+          whileHover={{ scale: 1.05 }}
+          whileTap={{ scale: 0.95 }}
+          transition={{ type: 'spring', stiffness: 400, damping: 17 }}
+        >
+          <span className={styles.logoInitials}>KN</span>
+        </motion.div>
+      </Link>
       <div className={styles.navMain}>
         <nav className={styles.navMid} aria-label="Main Navigation">
           <ul>

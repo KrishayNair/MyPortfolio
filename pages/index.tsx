@@ -123,15 +123,14 @@ export default function Home() {
         >
           Projects
         </motion.h1>
-        <BentoGrid projects={projects} />
+        <BentoGrid projects={projects} singleColumn={true} />
       </main>
       <Skills/>
       <GitHubContributions/>
       <Certifications/>
       <ConnectSection/>
-      <Blogs/>
-      
       <Achievements/>
+      <Blogs/>
       {/* <Contact/> */}
       {/* <Progress/> */}
       {/* <Timeline/> */}

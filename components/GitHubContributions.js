@@ -26,15 +26,32 @@ function GitHubContributions() {
 
   useEffect(() => {
     let cancelled = false;
+    const headers = {
+      "Content-Type": "application/json",
+      ...(process.env.NEXT_PUBLIC_GITHUB_TOKEN && {
+        Authorization: `Bearer ${process.env.NEXT_PUBLIC_GITHUB_TOKEN}`,
+      }),
+    };
+
+    async function ghGraphql(query, variables) {
+      const res = await fetch("https://api.github.com/graphql", {
+        method: "POST",
+        headers,
+        body: JSON.stringify({ query, variables: { username: GITHUB_USERNAME, ...variables } }),
+      });
+      const json = await res.json();
+      if (json.errors) throw new Error(json.errors[0]?.message || "GraphQL error");
+      return json.data;
+    }
 
     async function fetchContributions() {
       const to = new Date();
-      const from = new Date(to);
-      from.setDate(from.getDate() - 364);
-      const fromStr = from.toISOString().slice(0, 10) + "T00:00:00Z";
+      const fromCalendar = new Date(to);
+      fromCalendar.setDate(fromCalendar.getDate() - 364);
+      const fromStr = fromCalendar.toISOString().slice(0, 10) + "T00:00:00Z";
       const toStr = to.toISOString().slice(0, 10) + "T23:59:59Z";
 
-      const query = `
+      const calendarQuery = `
         query($username: String!, $from: DateTime!, $to: DateTime!) {
           user(login: $username) {
             contributionsCollection(from: $from, to: $to) {
@@ -52,41 +69,28 @@ function GitHubContributions() {
         }
       `;
 
-      try {
-        const res = await fetch("https://api.github.com/graphql", {
-          method: "POST",
-          headers: {
-            "Content-Type": "application/json",
-            ...(process.env.NEXT_PUBLIC_GITHUB_TOKEN && {
-              Authorization: `Bearer ${process.env.NEXT_PUBLIC_GITHUB_TOKEN}`,
-            }),
-          },
-          body: JSON.stringify({
-            query,
-            variables: {
-              username: GITHUB_USERNAME,
-              from: fromStr,
-              to: toStr,
-            },
-          }),
-        });
+      const totalOnlyQuery = `
+        query($username: String!, $from: DateTime!, $to: DateTime!) {
+          user(login: $username) {
+            contributionsCollection(from: $from, to: $to) {
+              contributionCalendar { totalContributions }
+            }
+          }
+        }
+      `;
 
-        const json = await res.json();
+      try {
+        const data = await ghGraphql(calendarQuery, { from: fromStr, to: toStr });
         if (cancelled) return;
 
-        if (json.errors) {
-          setError(json.errors[0]?.message || "Failed to load contributions");
-          setLoading(false);
-          return;
-        }
-
-        const calendar = json?.data?.user?.contributionsCollection?.contributionCalendar;
-        if (!calendar) {
+        const user = data?.user;
+        if (!user?.contributionsCollection?.contributionCalendar) {
           setError("User not found or no contribution data");
           setLoading(false);
           return;
         }
 
+        const calendar = user.contributionsCollection.contributionCalendar;
         const countByDate = {};
         for (const week of calendar.weeks || []) {
           for (const day of week.contributionDays || []) {
@@ -108,35 +112,38 @@ function GitHubContributions() {
           ...d,
           level: getLevel(d.count, maxInList),
         }));
-
         setContributions(normalized);
 
-        const total = calendar.totalContributions ?? normalized.reduce((s, d) => s + d.count, 0);
-        const currentYear = normalized
-          .filter((d) => new Date(d.date).getFullYear() === new Date().getFullYear())
-          .reduce((s, d) => s + d.count, 0);
+        let allTimeTotal = 0;
+        const createdAtRes = await ghGraphql(
+          `query($username: String!) { user(login: $username) { createdAt } }`,
+          {}
+        );
+        if (cancelled) return;
 
-        let longestStreak = 0;
-        let currentStreak = 0;
-        let tempStreak = 0;
-        for (let i = normalized.length - 1; i >= 0; i--) {
-          if (normalized[i].count > 0) {
-            tempStreak++;
-            if (i === normalized.length - 1) currentStreak++;
-          } else {
-            longestStreak = Math.max(longestStreak, tempStreak);
-            tempStreak = 0;
-            if (i < normalized.length - 1) currentStreak = 0;
-          }
+        const createdAt = createdAtRes?.user?.createdAt;
+        const currentYear = to.getFullYear();
+        const startYear = createdAt ? new Date(createdAt).getFullYear() : currentYear - 10;
+
+        for (let year = startYear; year < currentYear; year++) {
+          const yFrom = `${year}-01-01T00:00:00Z`;
+          const yTo = `${year}-12-31T23:59:59Z`;
+          const yearData = await ghGraphql(totalOnlyQuery, { from: yFrom, to: yTo });
+          if (cancelled) return;
+          const yearTotal = yearData?.user?.contributionsCollection?.contributionCalendar?.totalContributions ?? 0;
+          allTimeTotal += yearTotal;
         }
-        longestStreak = Math.max(longestStreak, tempStreak);
+        const currentYearFrom = `${currentYear}-01-01T00:00:00Z`;
+        const currentYearData = await ghGraphql(totalOnlyQuery, { from: currentYearFrom, to: toStr });
+        if (!cancelled) {
+          const currentYearTotal = currentYearData?.user?.contributionsCollection?.contributionCalendar?.totalContributions ?? 0;
+          allTimeTotal += currentYearTotal;
+        }
 
-        setStats({
-          total,
-          currentYear,
-          longestStreak,
-          currentStreak,
-        });
+        setStats((prev) => ({
+          ...prev,
+          total: allTimeTotal,
+        }));
       } catch (err) {
         if (!cancelled) {
           setError(err.message || "Failed to load contributions");
@@ -214,19 +221,7 @@ function GitHubContributions() {
       >
         <div className={styles.statCard}>
           <div className={styles.statValue}>{stats.total.toLocaleString()}</div>
-          <div className={styles.statLabel}>Total Contributions</div>
-        </div>
-        <div className={styles.statCard}>
-          <div className={styles.statValue}>{stats.currentYear.toLocaleString()}</div>
-          <div className={styles.statLabel}>This Year</div>
-        </div>
-        <div className={styles.statCard}>
-          <div className={styles.statValue}>{stats.longestStreak}</div>
-          <div className={styles.statLabel}>Longest Streak (days)</div>
-        </div>
-        <div className={styles.statCard}>
-          <div className={styles.statValue}>{stats.currentStreak}</div>
-          <div className={styles.statLabel}>Current Streak (days)</div>
+          <div className={styles.statLabel}>Total contributions (all time)</div>
         </div>
       </motion.div>
 

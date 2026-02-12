@@ -1,12 +1,19 @@
-import React, { useEffect } from "react";
-import { motion, AnimatePresence, useMotionValue, useSpring } from 'framer-motion';
+import React, { useEffect, useState } from "react";
+import { motion, useMotionValue, useSpring } from 'framer-motion';
 import Image from 'next/image';
 import styles from "./hero.module.css";
 import Link from "next/link";
+import PixelGrid from "./PixelGrid";
 
 function Hero() {
+  const [hasMounted, setHasMounted] = useState(false);
   const mouseX = useSpring(useMotionValue(0), { stiffness: 150, damping: 15 });
   const mouseY = useSpring(useMotionValue(0), { stiffness: 150, damping: 15 });
+
+  useEffect(() => {
+    const t = requestAnimationFrame(() => setHasMounted(true));
+    return () => cancelAnimationFrame(t);
+  }, []);
 
   useEffect(() => {
     const handleMouseMove = (e) => {
@@ -38,34 +45,34 @@ function Hero() {
     <section className={styles.hero} id="home">
       {/* Animated background elements */}
       <div className={styles.heroBackground}>
-        <motion.div 
-          className={styles.gridPattern}
-          style={{ x: mouseX, y: mouseY }}
-        />
+        <PixelGrid />
       </div>
 
       <div className={styles.heroContainer}>
+        {!hasMounted ? (
+          <div className={`${styles.heroContent} ${styles.heroContentPlaceholder}`} aria-hidden="true" />
+        ) : (
         <motion.div
           className={styles.heroContent}
-          initial={{ opacity: 0, y: 20 }}
-          animate={{ opacity: 1, y: 0 }}
-          transition={{ duration: 0.6, ease: "easeOut" }}
+          initial={{ opacity: 0, y: 28, filter: 'blur(6px)' }}
+          animate={{ opacity: 1, y: 0, filter: 'blur(0px)' }}
+          transition={{ duration: 0.85, ease: [0.22, 1, 0.36, 1] }}
         >
           <motion.h1 
             className={styles.heroTitle}
-            initial={{ opacity: 0 }}
-            animate={{ opacity: 1 }}
-            transition={{ duration: 0.6, delay: 0.1 }}
+            initial={{ opacity: 0, y: 16 }}
+            animate={{ opacity: 1, y: 0 }}
+            transition={{ duration: 0.7, delay: 0.15, ease: [0.22, 1, 0.36, 1] }}
           >
             {titleWords.map((word, index) => (
               <motion.span
                 key={index}
                 className={word === 'Krishay' || word === 'Nair' ? styles.nameHighlight : ''}
-                initial={{ opacity: 0, y: 10 }}
+                initial={{ opacity: 0, y: 12 }}
                 animate={{ opacity: 1, y: 0 }}
                 transition={{ 
-                  duration: 0.4, 
-                  delay: 0.1 + index * 0.05,
+                  duration: 0.5, 
+                  delay: 0.2 + index * 0.045,
                   ease: [0.22, 1, 0.36, 1]
                 }}
                 whileHover={word === 'Krishay' || word === 'Nair' ? { 
@@ -94,7 +101,7 @@ function Hero() {
             className={styles.heroDescription}
             initial={{ opacity: 0, y: 20 }}
             animate={{ opacity: 1, y: 0 }}
-            transition={{ duration: 0.6, delay: 0.2 }}
+            transition={{ duration: 0.7, delay: 0.5, ease: [0.22, 1, 0.36, 1] }}
           >
             I build reliable systems at scale — from container orchestration and service mesh to observability and secure networking. Working with{' '}
             {techStack.map((tech, index) => (
@@ -104,10 +111,11 @@ function Hero() {
                 initial={{ opacity: 0, scale: 0.8 }}
                 animate={{ opacity: 1, scale: 1 }}
                 transition={{ 
-                  duration: 0.3, 
-                  delay: 0.3 + index * 0.03,
+                  duration: 0.45, 
+                  delay: 0.55 + index * 0.035,
                   type: 'spring',
-                  stiffness: 200
+                  stiffness: 180,
+                  damping: 18
                 }}
                 whileHover={{ 
                   scale: 1.1, 
@@ -125,17 +133,17 @@ function Hero() {
           {/* Tech Stack Badges */}
           <motion.div 
             className={styles.techStackContainer}
-              initial={{ opacity: 0, y: 20 }}
-              animate={{ opacity: 1, y: 0 }}
-            transition={{ duration: 0.6, delay: 0.3 }}
-            >
+            initial={{ opacity: 0, y: 18 }}
+            animate={{ opacity: 1, y: 0 }}
+            transition={{ duration: 0.7, delay: 0.65, ease: [0.22, 1, 0.36, 1] }}
+          >
             {techStack.map((tech, index) => (
               <motion.div
                 key={tech.name}
                 className={styles.techBadgeItem}
                 initial={{ opacity: 0, scale: 0.8 }}
                 animate={{ opacity: 1, scale: 1 }}
-                transition={{ type: 'spring', stiffness: 400, damping: 17, delay: 0.4 + index * 0.05 }}
+                transition={{ type: 'spring', stiffness: 360, damping: 20, delay: 0.7 + index * 0.04 }}
                 whileHover={{ scale: 1.08, y: -3 }}
                 whileTap={{ scale: 0.95 }}
               >
@@ -156,7 +164,7 @@ function Hero() {
             className={styles.ctaButtonsRow}
             initial={{ opacity: 0, y: 20 }}
             animate={{ opacity: 1, y: 0 }}
-            transition={{ duration: 0.6, delay: 0.5 }}
+            transition={{ duration: 0.7, delay: 0.9, ease: [0.22, 1, 0.36, 1] }}
           >
             <motion.a 
               href="./pdf/Krishay_Nair_Resume.pdf"
@@ -221,9 +229,9 @@ function Hero() {
           {/* Social Links */}
           <motion.div 
             className={styles.socialLinksRow}
-            initial={{ opacity: 0, y: 20 }}
+            initial={{ opacity: 0, y: 16 }}
             animate={{ opacity: 1, y: 0 }}
-            transition={{ duration: 0.6, delay: 0.6 }}
+            transition={{ duration: 0.7, delay: 1.05, ease: [0.22, 1, 0.36, 1] }}
           >
             <motion.a 
               target="_blank" 
@@ -270,22 +278,22 @@ function Hero() {
             </motion.a>
             <motion.a 
               target="_blank" 
-              href="https://www.instagram.com/krishay_nair/" 
+              rel="noopener noreferrer"
+              href="https://medium.com/@krishay958" 
               className={styles.socialLink} 
-              aria-label="Instagram"
-              whileHover={{ scale: 1.2, y: -4, rotate: 5 }}
+              aria-label="Medium"
+              whileHover={{ scale: 1.2, y: -4 }}
               whileTap={{ scale: 0.9 }}
               transition={{ type: 'spring', stiffness: 400, damping: 17 }}
             >
               <motion.div className={styles.socialGlow} whileHover={{ opacity: 1 }} />
-              <motion.svg width="20" height="20" viewBox="0 0 24 24" fill="currentColor" whileHover={{ scale: [1, 1.1, 1] }} transition={{ duration: 0.3 }}>
-                <rect x="2" y="2" width="20" height="20" rx="5" ry="5"></rect>
-                <path d="M16 11.37A4 4 0 1 1 12.63 8 4 4 0 0 1 16 11.37z"></path>
-                <line x1="17.5" y1="6.5" x2="17.51" y2="6.5"></line>
+              <motion.svg width="20" height="20" viewBox="0 0 24 24" fill="currentColor" whileHover={{ rotate: 360 }} transition={{ duration: 0.5 }}>
+                <path d="M13.54 12l-5.27-5.27L13.54 1.46 18.81 6.73 13.54 12zm-1.08 0L1.46 22.54l1.27 1.27L13.46 13.27l-1-1.27zm1.08 0l5.27 5.27L13.46 22.54 8.19 17.27l4.27-5.27zm-1.08 0l-1 1.27L2.73 1.46l1.27-1.27L12.46 12z"/>
               </motion.svg>
             </motion.a>
           </motion.div>
         </motion.div>
+        )}
       </div>
     </section>
   );

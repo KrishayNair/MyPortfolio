@@ -2,7 +2,7 @@ export const projects = [
   {
     "title": "LegAIly",
     "slug": "legaily",
-    "description": "LegAIly is a comprehensive AI-powered legal ecosystem revolutionizing the Indian judiciary system. Built specifically for lawyers, judges, and legal professionals, it combines cutting-edge artificial intelligence with blockchain technology to streamline complex legal workflows. The platform offers intelligent document translation across 22+ Indian languages, automated legal drafting, case law research, blockchain-based document verification, and comprehensive case management tools. With its advanced RAG-based LLM integration and real-time vector search capabilities, LegAIly reduces legal research time by 70% and has been successfully adopted by High Court and Supreme Court advocates, making it a game-changing solution for modern legal practice.",
+    "description": "AI legal platform for Indian judiciary: translation, drafting, blockchain.",
     "detailedDescription": {
       "overview": "LegAIly represents a paradigm shift in legal technology, specifically designed to address the unique challenges faced by the Indian legal system. The platform serves as a comprehensive digital ecosystem that empowers legal professionals with AI-driven tools for document management, multilingual communication, and intelligent case analysis. By integrating advanced natural language processing with blockchain verification, LegAIly ensures both efficiency and authenticity in legal proceedings. The system has been meticulously crafted to handle the complexity of Indian legal documentation, supporting 22+ regional languages and providing seamless translation between English and vernacular languages. With its intuitive interface and powerful backend processing, LegAIly transforms traditional legal workflows into streamlined, technology-enhanced processes that save time, reduce errors, and improve case outcomes.",
       "features": [
@@ -31,7 +31,7 @@ export const projects = [
       ],
       "impact": "LegAIly has achieved remarkable success in the legal technology space, with validation from High Court and Supreme Court advocates across India. The platform has demonstrated a 70% reduction in legal research time and 85% improvement in document processing efficiency. Over 500+ legal professionals have adopted the system, with 15+ law firms requesting dedicated deployments. The platform has processed over 10,000 legal documents and facilitated 2,000+ case law searches. LegAIly won the prestigious SynTechXathon 2024 and has been featured in legal technology conferences. The system's success has led to partnerships with judicial institutions and requests for integration with existing court management systems, positioning it as a transformative solution for India's digital legal infrastructure."
     },
-    "tech": "NEXT.js, FASTAPI, LLAMA 3, FLUTTER, ELECTRON, SUPABASE, PINECONE, DOC.ai, TAILWIND CSS",
+    "tech": "NEXT.js, FASTAPI, LLAMA 3, SUPABASE, PINECONE, TAILWIND CSS, FLUTTER",
     "src": "legaily_main.png",
     "images": [
       "legaily_main.png",
@@ -74,7 +74,7 @@ export const projects = [
   {
     title: "BugScout AI",
     slug: "bugscout-ai",
-    description: "BugScout AI is an agent-based LLM system that continuously monitors production behavior using PostHog session replays, detects UX friction (rage clicks, dead clicks, exceptions), classifies issues with PostHog taxonomy, and delivers actionable code-level fix suggestions. A four-agent architecture—Issue Monitoring, Solution, Self Learning, and Codebase Crawler—powers real-time detection, vector-backed retrieval of similar past fixes, and a self-improving knowledge base from developer ratings.",
+    description: "LLM agents detect UX issues from replays, suggest code fixes.",
     detailedDescription: {
       overview: "BugScout AI is an intelligent issue detection and resolution system that uses a four-agent LLM architecture to automatically identify, classify, and suggest fixes for web application issues from real-time user session data. The system ingests live session replay data from PostHog, cleans and stores it in NeonDB, vectorizes it in ChromaDB, and runs an Issue Monitoring Agent to detect exceptions, rage clicks, dead clicks, and UX friction. The Solution Agent retrieves category summaries from the Self Learning Agent and similar past solutions via vector search, then generates step-by-step fixes with code snippets. The Codebase Crawler Agent provides accurate code locations for large codebases. Developer ratings create a feedback loop that improves future suggestions.",
       features: [
@@ -99,7 +99,7 @@ export const projects = [
       ],
       impact: "BugScout AI delivers measurable gains over manual review and generic LLM baselines: +31% issue detection, +93% code location accuracy, +50% developer satisfaction, 99% reduction in time to resolution. The system is in MVP stage, testing with a partner startup; multiple startups have expressed interest. Roadmap includes onboarding 5–10 early adopters, automated fix application via GitHub PRs, and expansion to mobile (React Native, Flutter) and enterprise features (SSO, custom taxonomies)."
     },
-    tech: "NEXT.js, REACT, TYPESCRIPT, TAILWIND CSS, OPENAI GPT-4o-mini, POSTHOG, CHROMADB, NEON POSTGRESQL, CLERK, VERCEL",
+    tech: "NEXT.js, REACT, TYPESCRIPT, TAILWIND CSS, OPENAI, POSTHOG, CHROMADB",
     src: "bs1.png",
     images: ["bs1.png", "bs2.png", "bs3.png", "bs4.png", "bs5.png", "bs6.png"],
     previewSrc: "bs1.png",
@@ -123,7 +123,7 @@ export const projects = [
   {
     title: "HabitatForge",
     slug: "habitatforge",
-    description: "HabitatForge is an AI-powered space habitat design platform that revolutionizes how engineers and mission planners create safe, efficient space habitats for Mars, Moon, and Gateway missions. By integrating NASA's rigorous safety standards (NASA-STD-3001, 3000, 8709.22, 5005) with cutting-edge artificial intelligence, the platform automatically generates compliant habitat layouts while providing real-time constraint validation and 3D visualization. The system uses agentic AI workflows with LangGraph orchestration to propose, evaluate, optimize, and render habitat designs that meet NASA's stringent requirements for crew safety, emergency egress, and life support systems.",
+    description: "AI platform for NASA-compliant space habitat design and 3D visualization.",
     detailedDescription: {
       overview: "HabitatForge is an AI-powered space habitat design platform that enables mission planners, engineers, and students to create, optimize, and visualize NASA-compliant space habitats efficiently and intelligently. The platform integrates AI-driven layout optimization, real-time constraint validation, and immersive visualization to streamline habitat design for future lunar and Martian missions. The system begins with a mission setup wizard that defines key parameters such as crew size, mission duration, and destination. Using this data, an AI optimization engine built on genetic algorithms generates optimal layouts that satisfy NASA's Net Habitable Volume (NHV) standards. The 2D deck planner allows intuitive drag-and-drop editing, while the 3D visualization module enables users to explore designs interactively. Real-time compliance scoring and automated recommendations ensure that every configuration aligns with NASA's safety and livability standards. HabitatForge makes NASA's complex engineering accessible to everyone—no aerospace background required. The project reduces habitat design time from months to hours, minimizes human error, and democratizes space planning for a wide audience.",
       features: [
@@ -152,7 +152,7 @@ export const projects = [
       ],
       impact: "HabitatForge achieved recognition as a Global Nominee in the NASA Space Apps Challenge 2025, representing Team KARLVerse's innovative approach to space habitat design. The platform addresses the critical challenge of accelerating space habitat design while ensuring absolute compliance with NASA standards—a process that traditionally takes months of manual engineering work. HabitatForge democratizes access to professional-grade space architecture tools, supporting NASA's Artemis program and commercial space development by reducing design time from months to hours while eliminating human error in critical space systems. Judges praised the platform: 'A habitat layout platform that's functional and stays close to the challenge of defining volume and exploring layout options. It communicates very well, linking design steps to constraints, and is well informed by standards so could be useful for planners and students.' The platform's multi-modal approach combines 2D drag-and-drop editing, interactive 3D visualization, and AI-rendered concept art, making it accessible to both expert engineers and mission planners while maintaining the precision required for human spaceflight safety."
     },
-    tech: "REACT, TYPESCRIPT, VITE, TAILWIND CSS, REACT THREE FIBER, KONVA.js, FASTAPI, PYTHON, UVICORN, PYDANTIC, ZUSTAND, LANGGRAPH, GENETIC ALGORITHMS, RAILWAY, RENDER, GITHUB ACTIONS",
+    tech: "REACT, TYPESCRIPT, REACT THREE FIBER, KONVA.js, FASTAPI, LANGGRAPH, TAILWIND CSS",
     src: "hf1.png",
     images: ["hf1.png", "hf2.png", "hf3.png", "hf4.png"],
     previewSrc: "hf1.png",
@@ -184,7 +184,7 @@ export const projects = [
   {
     title: "Campus2Career",
     slug: "campus2career",
-    description: "Campus2Career is a smart placement preparation and learning platform designed to streamline student upskilling through AI-powered features. It offers customized learning journeys, interactive DSA practice environments, real-time AI mock interviews, and intelligent job matching based on student profiles.",
+    description: "AI placement prep: learning paths, DSA practice, mock interviews, job matching.",
     detailedDescription: {
       overview: "Campus2Career represents a comprehensive transformation of the placement preparation landscape, specifically designed to address the critical gap between academic learning and industry requirements. The platform serves as an intelligent, end-to-end ecosystem that empowers students with personalized learning paths, real-time skill assessment, and AI-powered career guidance. By integrating advanced artificial intelligence with interactive learning tools, Campus2Career creates a dynamic environment where students can practice coding, prepare for interviews, build professional resumes, and receive intelligent job recommendations—all within a unified, user-friendly interface. The system leverages cutting-edge AI models to provide realistic mock interview experiences, detailed performance analytics, and personalized feedback that adapts to each student's learning pace and skill level. With its comprehensive approach to placement preparation, Campus2Career has become the go-to platform for students across top engineering colleges, helping them bridge the gap between education and employment through data-driven insights and AI-enhanced learning experiences.",
       features: [
@@ -213,7 +213,7 @@ export const projects = [
       ],
       impact: "Campus2Career has achieved remarkable success in transforming placement preparation for engineering students across India. The platform won the prestigious Quasar 2.0 competition, securing 2nd place in the Smart Education domain, validating its innovative approach to AI-powered learning. With over 2,000+ registered students from top engineering colleges, Campus2Career has facilitated 5,000+ mock interviews and processed 10,000+ coding practice sessions. The platform has demonstrated a 65% improvement in student interview performance and 80% increase in placement success rates among active users. Over 50+ companies have expressed interest in partnering with Campus2Career for campus recruitment, and the platform has been adopted by 15+ engineering colleges as an official placement preparation tool. The system's success has led to recognition at national-level tech conferences and has been featured in educational technology publications, positioning Campus2Career as a leading solution for bridging the gap between academic education and industry requirements in the Indian tech ecosystem."
     },
-    tech: "NEXT.js, DRIZZLE ORM, TAILWIND CSS, POSTGRESQL, OPENAI",
+    tech: "NEXT.js, DRIZZLE ORM, TAILWIND CSS, POSTGRESQL, OPENAI, FASTAPI",
     src: "learn.png",
     images: ["learn.png", "learnify_dashboard.png", "learnify_mentoring.png", "learnify_feedback.png", "learnify_visualize.png"],
     certificates: [

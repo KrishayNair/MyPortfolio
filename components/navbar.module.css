@@ -27,14 +27,58 @@
   pointer-events: none;
 }
 
+.logoLink {
+  text-decoration: none;
+  display: inline-block;
+}
+
 .headerLogo {
-  font-size: 1.5rem;
-  font-weight: 700;
-  letter-spacing: 0.04em;
-  font-family: var(--font-sans);
-  color: var(--text-primary);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 48px;
+  height: 48px;
+  border-radius: 12px;
+  background: linear-gradient(135deg, var(--accent-blue, #3b82f6), #2563eb);
+  border: 1px solid rgba(59, 130, 246, 0.3);
+  box-shadow: 
+    0 2px 8px rgba(59, 130, 246, 0.2),
+    inset 0 1px 0 rgba(255, 255, 255, 0.1);
   margin: 0;
-  transition: color 0.3s ease;
+  transition: all 0.3s ease;
+  position: relative;
+  overflow: hidden;
+}
+
+.headerLogo::before {
+  content: '';
+  position: absolute;
+  inset: 0;
+  background: linear-gradient(135deg, rgba(255, 255, 255, 0.1), transparent);
+  opacity: 0;
+  transition: opacity 0.3s ease;
+}
+
+.headerLogo:hover::before {
+  opacity: 1;
+}
+
+.headerLogo:hover {
+  box-shadow: 
+    0 4px 16px rgba(59, 130, 246, 0.35),
+    inset 0 1px 0 rgba(255, 255, 255, 0.15);
+  border-color: rgba(59, 130, 246, 0.5);
+}
+
+.logoInitials {
+  font-size: 1.25rem;
+  font-weight: 700;
+  letter-spacing: 0.02em;
+  font-family: var(--font-display);
+  color: #ffffff;
+  text-shadow: 0 1px 2px rgba(0, 0, 0, 0.2);
+  position: relative;
+  z-index: 1;
 }
 
 .navMain {
@@ -136,7 +180,12 @@
 
 @media only screen and (max-width: 768px) {
   .headerLogo {
-    font-size: 1.2rem;
+    width: 42px;
+    height: 42px;
+  }
+  
+  .logoInitials {
+    font-size: 1.1rem;
   }
   .navMain {
     display: flex;

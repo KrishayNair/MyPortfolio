@@ -74,33 +74,36 @@ export const SOCIAL_LINKS = [
 ];
 
 export const SKILLS = {
+  // SRE, Cloud & Networking first
+  sreCloudNetworking: [
+    "Docker",
+    "Kubernetes",
+    "AWS",
+    "Heroku",
+    "git",
+    "redis",
+  ],
   languagesAndTools: [
-    "cpp",
-    // "java",
     "python",
     "javascript",
     "typescript",
+    "cpp",
     "html",
     "css",
     "sass",
     "nodejs",
     "vite",
-    "firebase",
-    "Wordpress",
-    "stripe",
-    "figma",
   ],
   librariesAndFrameworks: [
     "react",
-    "redux",
     "nextjs",
     "tailwindcss",
+    "redux",
     "styledcomponents",
     "chakra-ui",
   ],
-  databases: ["mysql", "mongodb","PostgreSQL","redis"],
-  hosting: ["AWS", "Heroku"],
-  other: ["git", "Kubernetes", "Docker" , "Arduino" , "Raspberry-pi"],
+  databases: ["PostgreSQL", "mongodb", "mysql"],
+  other: ["firebase", "figma", "stripe", "Wordpress", "Arduino", "Raspberry-pi"],
 };
 
 export const PROJECTS = [
