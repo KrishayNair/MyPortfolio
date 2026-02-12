@@ -109,6 +109,7 @@ export default function ProjectDetail() {
     : [];
 
   return (
+    <div className={styles.pageWrapper}>
     <div className={styles.container}>
       <motion.button
         className={styles.backButton}
@@ -204,7 +205,7 @@ export default function ProjectDetail() {
                     alt={`${project.title} screenshot ${currentImageIndex + 1}`}
                     fill
                     className={styles.carouselImage}
-                    style={{ objectFit: 'contain' }}
+                    style={{ objectFit: 'contain', objectPosition: 'center center' }}
                     priority={currentImageIndex === 0}
                   />
                 </motion.div>
@@ -511,6 +512,7 @@ export default function ProjectDetail() {
           View All Projects
         </Link>
       </section>
+    </div>
     </div>
   );
 }

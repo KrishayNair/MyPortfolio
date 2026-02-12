@@ -1,16 +1,23 @@
+.pageWrapper {
+  min-height: 100vh;
+  background: var(--bg-primary);
+  transition: background 0.3s ease;
+}
+
 .container {
   min-height: 100vh;
   padding: 2rem;
-  background: #000;
-  color: #fff;
+  background: var(--bg-primary);
+  color: var(--text-primary);
   max-width: 1400px;
   margin: 0 auto;
+  transition: background 0.3s ease, color 0.3s ease;
 }
 
 .backButton {
   background: none;
   border: none;
-  color: var(--accent-green);
+  color: var(--accent-blue, #3b82f6);
   font-size: 1rem;
   cursor: pointer;
   padding: 0.5rem 1rem;
@@ -21,7 +28,7 @@
 }
 
 .backButton:hover {
-  background: rgba(0, 255, 178, 0.1);
+  background: rgba(59, 130, 246, 0.1);
 }
 
 /* Hero Section */
@@ -78,12 +85,12 @@
 
 .statusBadge {
   padding: 0.25rem 0.75rem;
-  background: rgba(0, 255, 178, 0.1);
-  color: var(--accent-green);
+  background: rgba(59, 130, 246, 0.12);
+  color: var(--accent-blue, #3b82f6);
   border-radius: 9999px;
   font-size: 0.85rem;
   font-weight: 600;
-  border: 1px solid rgba(0, 255, 178, 0.3);
+  border: 1px solid rgba(59, 130, 246, 0.3);
 }
 
 .actionButtons {
@@ -94,13 +101,13 @@
 
 .actionButton {
   padding: 0.75rem 1.5rem;
-  background: #000;
-  color: #fff;
+  background: var(--text-primary);
+  color: var(--bg-primary);
   text-decoration: none;
   border-radius: 0.5rem;
   font-weight: 600;
   transition: all 0.3s ease;
-  border: 1px solid rgba(255, 255, 255, 0.2);
+  border: 1px solid var(--border-color);
   display: inline-flex;
   align-items: center;
   gap: 0.5rem;
@@ -108,20 +115,21 @@
 }
 
 .actionButton:hover {
-  background: #fff;
-  color: #000;
+  background: var(--accent-blue, #3b82f6);
+  color: #fff;
+  border-color: var(--accent-blue, #3b82f6);
   transform: translateY(-2px);
 }
 
 .actionButtonSecondary {
   padding: 0.75rem 1.5rem;
   background: transparent;
-  color: #fff;
+  color: var(--text-primary);
   text-decoration: none;
   border-radius: 0.5rem;
   font-weight: 600;
   transition: all 0.3s ease;
-  border: 1px solid rgba(255, 255, 255, 0.2);
+  border: 1px solid var(--border-color);
   display: inline-flex;
   align-items: center;
   gap: 0.5rem;
@@ -129,8 +137,8 @@
 }
 
 .actionButtonSecondary:hover {
-  border-color: var(--accent-green);
-  color: var(--accent-green);
+  border-color: var(--accent-blue, #3b82f6);
+  color: var(--accent-blue, #3b82f6);
   transform: translateY(-2px);
 }
 
@@ -141,7 +149,7 @@
 }
 
 .carouselSection:focus-visible {
-  outline: 2px solid var(--accent-green);
+  outline: 2px solid var(--accent-blue, #3b82f6);
   outline-offset: 8px;
   border-radius: 1rem;
 }
@@ -160,9 +168,9 @@
   height: 600px;
   border-radius: 1rem;
   overflow: hidden;
-  border: 1px solid rgba(255, 255, 255, 0.1);
-  background: rgba(0, 255, 178, 0.02);
-  box-shadow: 0 20px 60px rgba(0, 0, 0, 0.3);
+  border: 1px solid var(--border-color);
+  background: var(--bg-secondary);
+  box-shadow: 0 20px 60px rgba(0, 0, 0, 0.15);
 }
 
 .carouselImageContainer {
@@ -173,13 +181,13 @@
 
 .carouselImage {
   object-fit: contain !important;
-  padding: 2rem;
+  object-position: center center;
 }
 
 .carouselButton {
-  background: rgba(0, 255, 178, 0.1);
-  border: 1px solid rgba(0, 255, 178, 0.3);
-  color: var(--accent-green);
+  background: rgba(59, 130, 246, 0.12);
+  border: 1px solid rgba(59, 130, 246, 0.3);
+  color: var(--accent-blue, #3b82f6);
   font-size: 1.5rem;
   width: 50px;
   height: 50px;
@@ -194,10 +202,10 @@
 }
 
 .carouselButton:hover {
-  background: var(--accent-green);
-  color: #000;
+  background: var(--accent-blue, #3b82f6);
+  color: #fff;
   transform: scale(1.1);
-  box-shadow: 0 0 20px rgba(0, 255, 178, 0.4);
+  box-shadow: 0 0 20px rgba(59, 130, 246, 0.4);
 }
 
 .carouselButton:active {
@@ -216,7 +224,7 @@
   width: 10px;
   height: 10px;
   border-radius: 50%;
-  background: rgba(255, 255, 255, 0.2);
+  background: var(--border-color);
   border: none;
   cursor: pointer;
   transition: all 0.3s ease;
@@ -224,20 +232,20 @@
 }
 
 .carouselDot:focus {
-  outline: 2px solid var(--accent-green);
+  outline: 2px solid var(--accent-blue, #3b82f6);
   outline-offset: 2px;
 }
 
 .carouselDot:hover {
-  background: rgba(0, 255, 178, 0.5);
+  background: rgba(59, 130, 246, 0.5);
   transform: scale(1.2);
 }
 
 .carouselDotActive {
-  background: var(--accent-green);
+  background: var(--accent-blue, #3b82f6);
   width: 12px;
   height: 12px;
-  box-shadow: 0 0 10px rgba(0, 255, 178, 0.5);
+  box-shadow: 0 0 10px rgba(59, 130, 246, 0.5);
 }
 
 /* Technology Stack */
@@ -261,11 +269,11 @@
 
 .techTag {
   padding: 0.5rem 1rem;
-  background: rgba(255, 255, 255, 0.05);
-  color: var(--primary-text);
+  background: var(--bg-secondary);
+  color: var(--text-primary);
   border-radius: 0.5rem;
   font-size: 0.9rem;
-  border: 1px solid rgba(255, 255, 255, 0.1);
+  border: 1px solid var(--border-color);
   font-family: var(--font-sans);
 }
 
@@ -294,7 +302,7 @@
 .expandButton {
   background: none;
   border: none;
-  color: var(--accent-green);
+  color: var(--accent-blue, #3b82f6);
   cursor: pointer;
   padding: 0.5rem 0;
   margin-top: 1rem;
@@ -321,8 +329,8 @@
 .featureItem,
 .techItem {
   padding: 0.75rem 0;
-  border-bottom: 1px solid rgba(255, 255, 255, 0.05);
-  color: var(--secondary-text);
+  border-bottom: 1px solid var(--border-color);
+  color: var(--text-secondary);
   line-height: 1.6;
 }
 
@@ -343,16 +351,17 @@
   display: flex;
   gap: 1rem;
   padding: 1.5rem;
-  background: rgba(0, 255, 178, 0.03);
-  border: 1px solid rgba(0, 255, 178, 0.1);
+  background: rgba(59, 130, 246, 0.04);
+  border: 1px solid rgba(59, 130, 246, 0.15);
   border-radius: 0.75rem;
   transition: all 0.3s ease;
 }
 
 .achievementCard:hover {
-  border-color: var(--accent-green);
-  background: rgba(0, 255, 178, 0.05);
+  border-color: var(--accent-blue, #3b82f6);
+  background: rgba(59, 130, 246, 0.08);
   transform: translateY(-2px);
+  box-shadow: 0 10px 30px rgba(59, 130, 246, 0.12);
 }
 
 .achievementIcon {
@@ -396,8 +405,8 @@
 .certificate {
   display: flex;
   gap: 2rem;
-  background: rgba(0, 255, 178, 0.03);
-  border: 1px solid rgba(0, 255, 178, 0.1);
+  background: rgba(59, 130, 246, 0.04);
+  border: 1px solid rgba(59, 130, 246, 0.15);
   border-radius: 1rem;
   overflow: hidden;
   padding: 1.5rem;
@@ -405,9 +414,9 @@
 }
 
 .certificate:hover {
-  border-color: var(--accent-green);
+  border-color: var(--accent-blue, #3b82f6);
   transform: translateY(-2px);
-  box-shadow: 0 10px 30px rgba(0, 255, 178, 0.1);
+  box-shadow: 0 10px 30px rgba(59, 130, 246, 0.12);
 }
 
 .certificateImage {
@@ -417,7 +426,7 @@
   flex-shrink: 0;
   border-radius: 0.5rem;
   overflow: hidden;
-  border: 1px solid rgba(0, 255, 178, 0.2);
+  border: 1px solid rgba(59, 130, 246, 0.2);
 }
 
 .certificateContent {
@@ -437,7 +446,7 @@
 }
 
 .certificateLink {
-  color: var(--accent-green);
+  color: var(--accent-blue, #3b82f6);
   text-decoration: none;
   font-weight: 600;
   display: inline-flex;
@@ -474,12 +483,12 @@
 }
 
 .relatedCard {
-  background: rgba(255, 255, 255, 0.03);
-  border: 1px solid rgba(255, 255, 255, 0.1);
+  background: var(--bg-secondary);
+  border: 1px solid var(--border-color);
   border-radius: 0.75rem;
   overflow: hidden;
   text-decoration: none;
-  color: #fff;
+  color: var(--text-primary);
   transition: all 0.3s ease;
   display: flex;
   flex-direction: column;
@@ -487,15 +496,15 @@
 
 .relatedCard:hover {
   transform: translateY(-4px);
-  border-color: var(--accent-green);
-  box-shadow: 0 10px 30px rgba(0, 255, 178, 0.1);
+  border-color: var(--accent-blue, #3b82f6);
+  box-shadow: 0 10px 30px rgba(59, 130, 246, 0.12);
 }
 
 .relatedImage {
   position: relative;
   width: 100%;
   height: 200px;
-  background: rgba(0, 255, 178, 0.02);
+  background: var(--bg-secondary);
 }
 
 .relatedCardContent {
@@ -530,32 +539,33 @@
 
 .relatedTechTag {
   padding: 0.25rem 0.75rem;
-  background: rgba(255, 255, 255, 0.05);
-  color: var(--secondary-text);
+  background: var(--bg-secondary);
+  color: var(--text-secondary);
   border-radius: 0.5rem;
   font-size: 0.8rem;
-  border: 1px solid rgba(255, 255, 255, 0.1);
+  border: 1px solid var(--border-color);
 }
 
 .viewAllButton {
   display: block;
   text-align: center;
   padding: 1rem 2rem;
-  background: #000;
-  color: #fff;
+  background: var(--text-primary);
+  color: var(--bg-primary);
   text-decoration: none;
   border-radius: 0.5rem;
   font-weight: 600;
   transition: all 0.3s ease;
-  border: 1px solid rgba(255, 255, 255, 0.2);
+  border: 1px solid var(--border-color);
   max-width: 300px;
   margin: 0 auto;
   font-family: var(--font-sans);
 }
 
 .viewAllButton:hover {
-  background: #fff;
-  color: #000;
+  background: var(--accent-blue, #3b82f6);
+  color: #fff;
+  border-color: var(--accent-blue, #3b82f6);
   transform: translateY(-2px);
 }
 

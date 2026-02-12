@@ -72,6 +72,55 @@ export const projects = [
     ]
   },
   {
+    title: "BugScout AI",
+    slug: "bugscout-ai",
+    description: "BugScout AI is an agent-based LLM system that continuously monitors production behavior using PostHog session replays, detects UX friction (rage clicks, dead clicks, exceptions), classifies issues with PostHog taxonomy, and delivers actionable code-level fix suggestions. A four-agent architecture—Issue Monitoring, Solution, Self Learning, and Codebase Crawler—powers real-time detection, vector-backed retrieval of similar past fixes, and a self-improving knowledge base from developer ratings.",
+    detailedDescription: {
+      overview: "BugScout AI is an intelligent issue detection and resolution system that uses a four-agent LLM architecture to automatically identify, classify, and suggest fixes for web application issues from real-time user session data. The system ingests live session replay data from PostHog, cleans and stores it in NeonDB, vectorizes it in ChromaDB, and runs an Issue Monitoring Agent to detect exceptions, rage clicks, dead clicks, and UX friction. The Solution Agent retrieves category summaries from the Self Learning Agent and similar past solutions via vector search, then generates step-by-step fixes with code snippets. The Codebase Crawler Agent provides accurate code locations for large codebases. Developer ratings create a feedback loop that improves future suggestions.",
+      features: [
+        "🔍 Real-Time Issue Detection: Automatically detects issues from PostHog session replays—exceptions, rage clicks, dead clicks, UX friction—and classifies them using PostHog taxonomy",
+        "🤖 Multi-Agent LLM System: Four specialized agents (Issue Monitoring, Solution, Self Learning, Codebase Crawler) work together for detection, fix generation, knowledge summarization, and code location",
+        "📧 Instant Notifications: Sends email and Slack alerts the moment high-friction UX issues are detected, with confidence scores and links to view/fix",
+        "📚 Self-Learning Knowledge Base: Developer ratings (1–5) on fixes feed category-specific summaries and boost confidence for similar future issues",
+        "🔎 Vector Similarity Retrieval: ChromaDB + OpenAI embeddings enable semantic search over past solutions so the Solution Agent suggests fixes aligned with high-rated resolutions",
+        "🗂️ Codebase-Aware Fixes: CODEBASE_MAP.json and Codebase Crawler Agent map URLs and selectors to file paths for accurate, actionable code-level suggestions",
+        "📊 Measured Improvement: 92% issue detection (vs 70% baseline), 87% code location accuracy (vs 45%), 4.2/5 developer rating (vs 2.8/5), under 30s time to suggestion (vs 2–4 hours manual)",
+        "☁️ Production-Ready Stack: Next.js 14, Neon PostgreSQL, ChromaDB Cloud, Clerk auth, PostHog analytics, Vercel deployment with cron-based sync"
+      ],
+      technicalDetails: [
+        "🎨 Frontend: Next.js 14 with React, TypeScript, Tailwind CSS; dashboard for issues, fix suggestions, and developer ratings",
+        "🤖 LLM: OpenAI GPT-4o-mini for all four agents (Issue Monitoring, Solution, Self Learning, Codebase Crawler) with JSON mode and tuned token limits",
+        "📐 Embeddings: OpenAI text-embedding-3-small (1536-dim), batch processing; used for monitoring, issues, logs, and posthog_events in ChromaDB",
+        "🗄️ Data: Neon PostgreSQL as source of truth (monitoring, issues, logs, posthog_events); automatic sync to ChromaDB for vector search",
+        "🔗 Integrations: PostHog API for session recordings and events; Slack/email for alerts; optional GitHub for future automated PRs",
+        "🔄 Pipeline: Ingestion → cleaning/dedup → NeonDB → vector sync → Issue Monitoring Agent → (Codebase Crawler, Self Learning) → Solution Agent → developer review → knowledge update",
+        "📈 Evaluation: Tested on 50 real PostHog sessions; metrics include detection rate, false positive rate, code location accuracy, developer rating, time to resolution, confidence correlation",
+        "🚀 Hosting: Vercel (serverless), Neon (serverless Postgres), ChromaDB Cloud; cron jobs for periodic vector sync"
+      ],
+      impact: "BugScout AI delivers measurable gains over manual review and generic LLM baselines: +31% issue detection, +93% code location accuracy, +50% developer satisfaction, 99% reduction in time to resolution. The system is in MVP stage, testing with a partner startup; multiple startups have expressed interest. Roadmap includes onboarding 5–10 early adopters, automated fix application via GitHub PRs, and expansion to mobile (React Native, Flutter) and enterprise features (SSO, custom taxonomies)."
+    },
+    tech: "NEXT.js, REACT, TYPESCRIPT, TAILWIND CSS, OPENAI GPT-4o-mini, POSTHOG, CHROMADB, NEON POSTGRESQL, CLERK, VERCEL",
+    src: "bs1.png",
+    images: ["bs1.png", "bs2.png", "bs3.png", "bs4.png", "bs5.png", "bs6.png"],
+    previewSrc: "bs1.png",
+    githubUrl: "",
+    detailsUrl: "/projects/bugscout-ai",
+    liveUrls: [{ title: "Live Demo", url: "https://bugscoutai.vercel.app/" }],
+    color: "#8B5CF6",
+    achievements: [
+      {
+        title: "Real-Time UX Detection",
+        icon: "🎯",
+        description: "92% issue detection rate and 87% code location accuracy vs baseline; under 30s from detection to fix suggestion"
+      },
+      {
+        title: "Self-Learning System",
+        icon: "🧠",
+        description: "Four-agent LLM architecture with developer feedback loop and category-specific knowledge summarization"
+      }
+    ]
+  },
+  {
     title: "Campus2Career",
     slug: "campus2career",
     description: "Campus2Career is a smart placement preparation and learning platform designed to streamline student upskilling through AI-powered features. It offers customized learning journeys, interactive DSA practice environments, real-time AI mock interviews, and intelligent job matching based on student profiles.",

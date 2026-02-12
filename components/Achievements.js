@@ -1,7 +1,13 @@
-import React from "react";
+'use client';
+
+import React, { useState } from "react";
 import styles from "./Achievements.module.css";
+import { motion, AnimatePresence } from "framer-motion";
+
+const VISIBLE_COUNT = 4;
 
 function Achievements() {
+  const [showAll, setShowAll] = useState(false);
   const achievements = [
     {
       title: "Smart India Hackathon 2024 Winner",
@@ -89,27 +95,48 @@ function Achievements() {
     }
   ];
 
-  const categories = [...new Set(achievements.map(achievement => achievement.category))];
+  const visibleAchievements = showAll ? achievements : achievements.slice(0, VISIBLE_COUNT);
+  const hasMore = achievements.length > VISIBLE_COUNT;
 
   return (
     <div id="achievements" className={styles.mainContainer}>
-      <h1 className={styles.mainHeading}>Extra Curricular Activities & Achievements</h1>
+      <h2 className={styles.mainHeading}>Extra Curricular & Achievements</h2>
       <div className={styles.achievementsContainer}>
         <div className={styles.achievementsGrid}>
-          {achievements.map((achievement, index) => (
-            <div key={index} className={styles.achievementCard}>
-              <div className={styles.achievementHeader}>
-                <div className={styles.achievementIcon}>{achievement.icon}</div>
-                <div className={styles.achievementInfo}>
-                  <h3 className={styles.achievementTitle}>{achievement.title}</h3>
-                  <span className={styles.achievementCategory}>{achievement.category}</span>
+          <AnimatePresence mode="popLayout">
+            {visibleAchievements.map((achievement, index) => (
+              <motion.div
+                key={`${achievement.title}-${achievement.category}-${achievement.year}`}
+                className={styles.achievementCard}
+                initial={{ opacity: 0, y: 12 }}
+                animate={{ opacity: 1, y: 0 }}
+                exit={{ opacity: 0 }}
+                transition={{ duration: 0.25, delay: index * 0.03 }}
+              >
+                <div className={styles.achievementHeader}>
+                  <div className={styles.achievementIcon}>{achievement.icon}</div>
+                  <div className={styles.achievementInfo}>
+                    <h3 className={styles.achievementTitle}>{achievement.title}</h3>
+                    <span className={styles.achievementCategory}>{achievement.category}</span>
+                  </div>
+                  <span className={styles.achievementYear}>{achievement.year}</span>
                 </div>
-                <span className={styles.achievementYear}>{achievement.year}</span>
-              </div>
-              <p className={styles.achievementDescription}>{achievement.description}</p>
-            </div>
-          ))}
+                <p className={styles.achievementDescription}>{achievement.description}</p>
+              </motion.div>
+            ))}
+          </AnimatePresence>
         </div>
+        {hasMore && (
+          <motion.button
+            type="button"
+            className={styles.seeMoreButton}
+            onClick={() => setShowAll((prev) => !prev)}
+            whileHover={{ scale: 1.02 }}
+            whileTap={{ scale: 0.98 }}
+          >
+            {showAll ? "See less" : `See more (+${achievements.length - VISIBLE_COUNT})`}
+          </motion.button>
+        )}
       </div>
     </div>
   );

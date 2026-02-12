@@ -91,9 +91,11 @@ const BentoGrid = ({ projects }) => {
           <motion.div
             key={index}
             className={`${styles.gridItem} ${styles[`item${index + 1}`]}`}
-            initial={{ opacity: 0, y: 20 }}
-            animate={{ opacity: 1, y: 0 }}
-            transition={{ duration: 0.5, delay: index * 0.1 }}
+            initial={{ opacity: 0, y: 24 }}
+            whileInView={{ opacity: 1, y: 0 }}
+            viewport={{ once: true, margin: '-30px' }}
+            transition={{ type: 'spring', stiffness: 120, damping: 24, delay: index * 0.06 }}
+            whileHover={{ y: -4 }}
           >
             {/* Image/Preview Section */}
             <div className={styles.imageContainer}>
@@ -120,7 +122,7 @@ const BentoGrid = ({ projects }) => {
                           src={`/images/${image}`}
                           alt={`${project.title} preview ${imgIndex + 1}`}
                           fill
-                          style={{ objectFit: 'contain' }}
+                          style={{ objectFit: 'contain', objectPosition: 'center center' }}
                           className={styles.carouselImage}
                         />
                       </div>
@@ -257,26 +259,32 @@ const BentoGrid = ({ projects }) => {
               </div>
 
               {/* View Details Button */}
-              <Link href={project.detailsUrl} className={styles.viewDetailsLink}>
-                <span className={styles.viewDetailsText}>View Details</span>
-                <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2">
-                  <path d="M5 12h14M12 5l7 7-7 7"/>
-                </svg>
-              </Link>
+              <motion.div whileHover={{ x: 4 }} transition={{ type: 'spring', stiffness: 400, damping: 17 }}>
+                <Link href={project.detailsUrl} className={styles.viewDetailsLink}>
+                  <span className={styles.viewDetailsText}>View Details</span>
+                  <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2">
+                    <path d="M5 12h14M12 5l7 7-7 7"/>
+                  </svg>
+                </Link>
+              </motion.div>
             </div>
           </motion.div>
         );
         })}
       </div>
+
       {projects.length > 4 && !showAll && (
-        <div className={styles.viewAllContainer}>
-          <button 
+        <motion.div className={styles.viewAllContainer} initial={{ opacity: 0 }} whileInView={{ opacity: 1 }} viewport={{ once: true }}>
+          <motion.button 
             className={styles.viewAllButton}
             onClick={() => setShowAll(true)}
+            whileHover={{ scale: 1.03, y: -2 }}
+            whileTap={{ scale: 0.98 }}
+            transition={{ type: 'spring', stiffness: 400, damping: 17 }}
           >
             Show all projects
-          </button>
-        </div>
+          </motion.button>
+        </motion.div>
       )}
     </>
   );

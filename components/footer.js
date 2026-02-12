@@ -1,9 +1,18 @@
+'use client';
 import React from "react";
 import styles from "./footer.module.css";
 import Link from "next/link";
+import { motion } from "framer-motion";
+
 function footer() {
   return (
-    <div className={styles.mainContainer}>
+    <motion.div 
+      className={styles.mainContainer}
+      initial={{ opacity: 0 }}
+      whileInView={{ opacity: 1 }}
+      viewport={{ once: true }}
+      transition={{ duration: 0.5 }}
+    >
       <div className={styles.mainDiv}>
         <img
           className={styles.footerImg1}
@@ -52,8 +61,16 @@ function footer() {
           alt=""
         />
       </div>
-      <h1 className={styles.heading}>Designed and created by Krishay Nair</h1>
-    </div>
+      <motion.h1 
+        className={styles.heading}
+        initial={{ opacity: 0, y: 8 }}
+        whileInView={{ opacity: 1, y: 0 }}
+        viewport={{ once: true }}
+        transition={{ duration: 0.4 }}
+      >
+        Designed and created by Krishay Nair
+      </motion.h1>
+    </motion.div>
   );
 }
 

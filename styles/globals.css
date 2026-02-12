@@ -62,9 +62,13 @@
   /* Section Spacing */
   --section-padding-y: 6rem;
   --section-padding-y-mobile: 4rem;
+
+  /* Accent - dark theme: black and blue */
+  --accent-green: #00ffb2;
+  --accent-blue: #3b82f6;
 }
 
-/* Light Theme */
+/* Light Theme - white and blue */
 [data-theme="light"] {
   --bg-primary: #fff;
   --bg-secondary: rgba(0, 0, 0, 0.05);
@@ -76,6 +80,7 @@
   --background-main: #fff;
   --primary-text: #000;
   --secondary-text: rgba(0, 0, 0, 0.8);
+  --accent-blue: #2563eb;
 }
 
 * {
@@ -103,6 +108,16 @@ html {
   
   * {
     scroll-behavior: inherit;
+  }
+}
+
+/* Scroll progress bar (Framer Motion) */
+.scroll-progress-bar {
+  will-change: transform;
+}
+@media (prefers-reduced-motion: reduce) {
+  .scroll-progress-bar {
+    display: none;
   }
 }
 

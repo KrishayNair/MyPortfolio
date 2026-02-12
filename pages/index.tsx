@@ -8,26 +8,20 @@ import ScrollSection from "../components/ScrollSection"
 import RecentWorks from "../components/recentWorks"
 import Footer from "../components/footer"
 import styles from '../styles/Home.module.css'
-import { url } from 'inspector'
 import { projects } from '../data';
 import BentoGrid from '../components/BentoGrid';
 import Skills from "../components/Skills/Skills"
-import { useScroll } from 'framer-motion';
-import ScrollTrigger from "gsap/dist/ScrollTrigger";
 import Contact from "../components/contact"
 import Achievements from "../components/Achievements"
 import Blogs from "../components/Blogs"
 import GitHubContributions from "../components/GitHubContributions"
 import Certifications from "../components/Certifications"
 import ConnectSection from "../components/ConnectSection"
-import { useEffect, useRef } from 'react';
+import { useEffect, useRef } from 'react'
+import { motion } from 'framer-motion'
 
 export default function Home() {
-  const container = useRef(null);
-  const { scrollYProgress } = useScroll({
-    target: container,
-    offset: ['start start', 'end end']
-  })
+  const container = useRef(null)
 
   // Clean up double hashes on page load and hash changes
   useEffect(() => {
@@ -119,7 +113,16 @@ export default function Home() {
       <Hero/>
       <ScrollSection/>
       <main ref={container} className={styles.main}>
-        <h1 id="projects" className={styles.mainHeading}>Projects</h1>
+        <motion.h1
+          id="projects"
+          className={styles.mainHeading}
+          initial={{ opacity: 0, y: 24 }}
+          whileInView={{ opacity: 1, y: 0 }}
+          viewport={{ once: true, margin: '-50px' }}
+          transition={{ duration: 0.5, ease: [0.22, 1, 0.36, 1] }}
+        >
+          Projects
+        </motion.h1>
         <BentoGrid projects={projects} />
       </main>
       <Skills/>

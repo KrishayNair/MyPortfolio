@@ -8,9 +8,31 @@
   padding: 4rem 2rem;
   background: var(--bg-primary);
   transition: background 0.3s ease;
+  overflow: hidden;
+}
+
+.heroBackground {
+  position: absolute;
+  inset: 0;
+  width: 100%;
+  height: 100%;
+  pointer-events: none;
+  z-index: 0;
+}
+
+.gridPattern {
+  position: absolute;
+  inset: 0;
+  background-image: 
+    linear-gradient(rgba(255, 255, 255, 0.02) 1px, transparent 1px),
+    linear-gradient(90deg, rgba(255, 255, 255, 0.02) 1px, transparent 1px);
+  background-size: 50px 50px;
+  opacity: 0.4;
+  will-change: transform;
 }
 
 .heroContainer {
+  position: relative;
   width: 100%;
   max-width: var(--max-width);
   margin: 0 auto;
@@ -18,6 +40,7 @@
   display: flex;
   align-items: center;
   justify-content: center;
+  z-index: 1;
 }
 
 @media (max-width: 1600px) {
@@ -70,8 +93,18 @@
 }
 
 .nameHighlight {
-  color: var(--text-primary);
+  position: relative;
+  display: inline-block;
   font-weight: 700;
+  cursor: default;
+}
+
+.nameHighlightFirst,
+.nameHighlightLast {
+  color: var(--accent-blue, #3b82f6);
+  position: relative;
+  display: inline-block;
+  filter: drop-shadow(0 0 8px rgba(59, 130, 246, 0.35));
 }
 
 .heroDescription {
@@ -93,13 +126,23 @@
   font-size: 0.875rem;
   font-weight: 500;
   color: var(--text-primary);
-  transition: all 0.2s ease;
+  transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
   cursor: pointer;
+  position: relative;
+  overflow: hidden;
 }
 
-.techBadge:hover {
-  background: var(--bg-hover);
-  transform: translateY(-2px);
+.techBadge::before {
+  content: '';
+  position: absolute;
+  inset: 0;
+  background: linear-gradient(135deg, rgba(59, 130, 246, 0.15), rgba(37, 99, 235, 0.1));
+  opacity: 0;
+  transition: opacity 0.3s ease;
+}
+
+.techBadge:hover::before {
+  opacity: 1;
 }
 
 .techStackContainer {
@@ -126,8 +169,10 @@
 
 .techBadgeItem:hover {
   background: var(--bg-hover);
-  border-color: var(--border-hover);
-  transform: translateY(-2px);
+  border-color: var(--accent-blue, #3b82f6);
+  box-shadow: 
+    0 4px 12px rgba(59, 130, 246, 0.25),
+    0 0 0 1px rgba(59, 130, 246, 0.15);
 }
 
 .techBadgeIcon {
@@ -150,6 +195,7 @@
 }
 
 .ctaButtonResume {
+  position: relative;
   display: flex;
   align-items: center;
   gap: 0.5rem;
@@ -161,14 +207,43 @@
   font-size: 0.9375rem;
   font-weight: 500;
   text-decoration: none;
-  transition: all 0.2s ease;
+  transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
   cursor: pointer;
+  overflow: hidden;
+  z-index: 1;
+}
+
+.ctaButtonResume::before {
+  content: '';
+  position: absolute;
+  inset: 0;
+  background: linear-gradient(135deg, rgba(59, 130, 246, 0.12), rgba(37, 99, 235, 0.08));
+  opacity: 0;
+  transition: opacity 0.3s ease;
+}
+
+.ctaButtonResume:hover::before {
+  opacity: 1;
 }
 
 .ctaButtonResume:hover {
   background: var(--bg-hover);
-  border-color: var(--border-hover);
-  transform: translateY(-2px);
+  border-color: var(--accent-blue, #3b82f6);
+  box-shadow: 
+    0 4px 16px rgba(59, 130, 246, 0.25),
+    0 0 0 1px rgba(59, 130, 246, 0.15);
+}
+
+.buttonGlow {
+  position: absolute;
+  inset: -4px;
+  border-radius: 0.5rem;
+  background: radial-gradient(circle, rgba(59, 130, 246, 0.3) 0%, transparent 70%);
+  opacity: 0;
+  transition: opacity 0.3s ease;
+  pointer-events: none;
+  z-index: -1;
+  filter: blur(8px);
 }
 
 .ctaButtonResume svg {
@@ -178,6 +253,7 @@
 }
 
 .ctaButtonContact {
+  position: relative;
   display: flex;
   align-items: center;
   gap: 0.5rem;
@@ -189,15 +265,32 @@
   font-size: 0.9375rem;
   font-weight: 500;
   text-decoration: none;
-  transition: all 0.2s ease;
+  transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
   cursor: pointer;
+  overflow: hidden;
+  z-index: 1;
+}
+
+.ctaButtonContact::before {
+  content: '';
+  position: absolute;
+  inset: 0;
+  background: linear-gradient(135deg, rgba(59, 130, 246, 0.2), rgba(37, 99, 235, 0.2));
+  opacity: 0;
+  transition: opacity 0.3s ease;
+}
+
+.ctaButtonContact:hover::before {
+  opacity: 1;
 }
 
 .ctaButtonContact:hover {
-  background: var(--bg-hover);
-  color: var(--text-primary);
-  border-color: var(--border-hover);
-  transform: translateY(-2px);
+  background: linear-gradient(135deg, var(--accent-blue, #3b82f6), #2563eb);
+  color: var(--bg-primary);
+  border-color: var(--accent-blue, #3b82f6);
+  box-shadow: 
+    0 4px 16px rgba(59, 130, 246, 0.35),
+    0 0 0 1px rgba(59, 130, 246, 0.2);
 }
 
 .ctaButtonContact svg {
@@ -226,9 +319,11 @@
   }
 
 .socialLink:hover {
-  color: var(--text-primary);
+  color: var(--accent-blue, #3b82f6);
   background: var(--bg-hover);
-  transform: translateY(-2px);
+  box-shadow: 
+    0 4px 12px rgba(59, 130, 246, 0.3),
+    0 0 0 1px rgba(59, 130, 246, 0.15);
 }
 
 .socialLink svg {
@@ -261,7 +356,7 @@
   .ctaButtonResume,
   .ctaButtonContact {
     width: 100%;
-  justify-content: center;
+    justify-content: center;
   }
 
   .techStackContainer {
@@ -271,5 +366,9 @@
   .techBadgeItem {
     padding: 0.4rem 0.75rem;
     font-size: 0.8rem;
+  }
+
+  .gridPattern {
+    background-size: 30px 30px;
   }
 }

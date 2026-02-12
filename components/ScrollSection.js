@@ -55,25 +55,24 @@ function ScrollSection() {
 
   const experiences = [
     {
-      company: "Irish Student Consulting Group (ISCG)",
-      logo: "ISCG",
-      logoColor: "#10B981", // Green
-      role: "Data Analytics Intern",
-      startDate: "Sep 2025",
-      endDate: "Nov 2025",
-      location: "Dublin, Ireland",
-      locationType: "On-Site",
+      company: "Communicore FiberInfra Pvt Ltd",
+      logo: "CFPL",
+      logoColor: "#06B6D4", // Cyan
+      role: "Site Reliability Intern",
+      startDate: "May 2024",
+      endDate: "Nov 2024",
+      location: "Mumbai Metropolitan Region, India",
+      locationType: "Hybrid",
       website: "",
       twitter: "",
       linkedin: "",
-      technologies: ["Power BI", "Tableau", "Excel", "Data Analytics", "CRM", "Market Research", "Python"],
+      technologies: ["Docker", "Docker Swarm", "Kubernetes", "Istio", "mTLS", "React.js", "GitHub Actions", "CI/CD", "Load Balancing"],
       description: [
-        "Engineered automated market research tools for TheCleaningCompany.ie, creating targeted sales strategies that increased sales efficiency by 25%.",
-        "Implemented advanced CRM practices that improved customer engagement metrics by 30% and drove strategic decision-making.",
-        "Developed comprehensive data visualization dashboards using Power BI and Tableau, enabling real-time insights into market trends and customer behavior patterns.",
-        "Conducted in-depth data analysis on customer demographics and purchasing patterns, identifying key market segments that led to a 20% increase in conversion rates.",
-        "Collaborated with cross-functional teams to design and execute data-driven marketing campaigns, resulting in improved ROI across multiple channels.",
-        "Created automated reporting systems using Excel and Python, reducing manual reporting time by 60% and ensuring data accuracy and consistency."
+        "Designed and deployed containerized microservices using Docker and Docker Swarm, improving application portability and simplifying environment consistency across development and staging.",
+        "Worked with Kubernetes to deploy and manage scalable workloads, configuring services, ingress, health checks, and resource limits to ensure high availability and performance.",
+        "Implemented Istio-based traffic management concepts including routing rules, mTLS, and service-to-service communication monitoring to improve observability and secure east-west traffic.",
+        "Applied core computer networking principles (L3/L4/L7, load balancing, reverse proxy concepts) while configuring ingress controllers and traffic policies for microservices.",
+        "Developed 20+ reusable React.js components (Hooks & Context API) and streamlined CI/CD pipelines using GitHub Actions, reducing deployment time by 40% and improving release reliability."
       ]
     },
     {
@@ -97,29 +96,6 @@ function ScrollSection() {
         "Implemented comprehensive monitoring and alerting systems using AWS CloudWatch, enabling proactive issue detection and reducing mean time to resolution (MTTR) by 40%.",
         "Optimized database queries and implemented caching strategies, resulting in a 50% reduction in database response times and improved overall system performance.",
         "Collaborated with the development team to establish best practices for code reviews, testing, and deployment processes, improving code quality and reducing production bugs by 35%."
-      ]
-    },
-    {
-      company: "Communicore Fiberinfra Private Limited (CFPL)",
-      logo: "CFPL",
-      logoColor: "#06B6D4", // Cyan
-      role: "Infrastructure Automation & Reliability Intern",
-      startDate: "Feb 2023",
-      endDate: "Aug 2023",
-      location: "Mumbai, IN",
-      locationType: "On-Site",
-      website: "",
-      twitter: "",
-      linkedin: "",
-      technologies: ["React", "JavaScript", "API Integration", "Automation"],
-      description: [
-        "Designed and implemented a React-based provisioning platform with client-side caching, pagination, and secure API integrations across 10+ services, cutting load times by 30% and improving performance in low-connectivity regions.",
-        "Introduced automated workflows that increased provisioning efficiency by 50%, translating infrastructure needs into automation workflows in collaboration with network engineers and field technicians.",
-        "Developed RESTful APIs and integrated them with multiple backend services, ensuring seamless data flow and real-time updates across the provisioning system.",
-        "Implemented error handling and retry mechanisms for API calls, improving system reliability and reducing failed provisioning requests by 45%.",
-        "Created comprehensive documentation and training materials for the provisioning platform, enabling smooth adoption by network engineers and reducing onboarding time by 50%.",
-        "Optimized database queries and implemented efficient data structures, reducing API response times by 40% and supporting concurrent user operations without performance degradation.",
-        "Worked closely with field technicians to gather requirements and feedback, iteratively improving the platform's usability and adding features that increased user satisfaction by 60%."
       ]
     },
     {
@@ -150,7 +126,15 @@ function ScrollSection() {
   return (
     <section className={styles.experienceSection} id="experience">
       <div className={styles.container}>
-        <h2 className={styles.mainHeading}>Experience</h2>
+        <motion.h2 
+          className={styles.mainHeading} 
+          initial={{ opacity: 0, y: 20 }} 
+          whileInView={{ opacity: 1, y: 0 }} 
+          viewport={{ once: true }} 
+          transition={{ duration: 0.5 }}
+        >
+          Experience
+        </motion.h2>
         <div className={styles.experiencesList}>
           {experiences.map((exp, index) => {
             const isExpanded = expandedItems[index];
@@ -160,10 +144,11 @@ function ScrollSection() {
               <motion.div
                 key={index}
                 className={styles.experienceCard}
-                initial={{ opacity: 0, y: 20 }}
+                initial={{ opacity: 0, y: 24 }}
                 whileInView={{ opacity: 1, y: 0 }}
-                viewport={{ once: true }}
-                transition={{ duration: 0.5, delay: index * 0.1 }}
+                viewport={{ once: true, margin: '-20px' }}
+                transition={{ type: 'spring', stiffness: 120, damping: 24, delay: index * 0.08 }}
+                whileHover={{ y: -2 }}
               >
                 {/* Header Section */}
                 <div className={styles.header}>

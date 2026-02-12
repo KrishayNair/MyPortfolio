@@ -2,9 +2,21 @@ import React, { useState, useEffect } from "react";
 import styles from "./GitHubContributions.module.css";
 import { motion } from "framer-motion";
 
+const GITHUB_USERNAME = "KrishayNair";
+
+function getLevel(count, maxCount) {
+  if (count === 0) return 0;
+  if (maxCount <= 0) return 1;
+  const ratio = count / maxCount;
+  if (ratio <= 0.25) return 1;
+  if (ratio <= 0.5) return 2;
+  return 3;
+}
+
 function GitHubContributions() {
   const [contributions, setContributions] = useState([]);
   const [loading, setLoading] = useState(true);
+  const [error, setError] = useState(null);
   const [stats, setStats] = useState({
     total: 0,
     currentYear: 0,
@@ -12,67 +24,130 @@ function GitHubContributions() {
     currentStreak: 0
   });
 
-  // Generate mock contribution data (you can replace this with actual GitHub API integration)
   useEffect(() => {
-    // Simulate API call
-    setTimeout(() => {
-      // Generate 365 days of contribution data
-      const mockContributions = [];
-      const today = new Date();
-      
-      for (let i = 364; i >= 0; i--) {
-        const date = new Date(today);
-        date.setDate(date.getDate() - i);
-        
-        // Random contribution count (0-10) with some pattern
-        const dayOfWeek = date.getDay();
-        const count = dayOfWeek === 0 || dayOfWeek === 6 
-          ? Math.floor(Math.random() * 5) // Fewer on weekends
-          : Math.floor(Math.random() * 10);
-        
-        mockContributions.push({
-          date: date.toISOString().split('T')[0],
-          count: count,
-          level: count === 0 ? 0 : count <= 3 ? 1 : count <= 6 ? 2 : 3
-        });
-      }
+    let cancelled = false;
 
-      setContributions(mockContributions);
-      
-      // Calculate stats
-      const total = mockContributions.reduce((sum, day) => sum + day.count, 0);
-      const currentYear = mockContributions
-        .filter(day => new Date(day.date).getFullYear() === new Date().getFullYear())
-        .reduce((sum, day) => sum + day.count, 0);
-      
-      // Calculate streaks (simplified)
-      let currentStreak = 0;
-      let longestStreak = 0;
-      let tempStreak = 0;
-      
-      for (let i = mockContributions.length - 1; i >= 0; i--) {
-        if (mockContributions[i].count > 0) {
-          tempStreak++;
-          if (i === mockContributions.length - 1) {
-            currentStreak++;
-          }
-        } else {
-          longestStreak = Math.max(longestStreak, tempStreak);
-          tempStreak = 0;
-          if (i < mockContributions.length - 1) {
-            break;
+    async function fetchContributions() {
+      const to = new Date();
+      const from = new Date(to);
+      from.setDate(from.getDate() - 364);
+      const fromStr = from.toISOString().slice(0, 10) + "T00:00:00Z";
+      const toStr = to.toISOString().slice(0, 10) + "T23:59:59Z";
+
+      const query = `
+        query($username: String!, $from: DateTime!, $to: DateTime!) {
+          user(login: $username) {
+            contributionsCollection(from: $from, to: $to) {
+              contributionCalendar {
+                totalContributions
+                weeks {
+                  contributionDays {
+                    date
+                    contributionCount
+                  }
+                }
+              }
+            }
           }
         }
+      `;
+
+      try {
+        const res = await fetch("https://api.github.com/graphql", {
+          method: "POST",
+          headers: {
+            "Content-Type": "application/json",
+            ...(process.env.NEXT_PUBLIC_GITHUB_TOKEN && {
+              Authorization: `Bearer ${process.env.NEXT_PUBLIC_GITHUB_TOKEN}`,
+            }),
+          },
+          body: JSON.stringify({
+            query,
+            variables: {
+              username: GITHUB_USERNAME,
+              from: fromStr,
+              to: toStr,
+            },
+          }),
+        });
+
+        const json = await res.json();
+        if (cancelled) return;
+
+        if (json.errors) {
+          setError(json.errors[0]?.message || "Failed to load contributions");
+          setLoading(false);
+          return;
+        }
+
+        const calendar = json?.data?.user?.contributionsCollection?.contributionCalendar;
+        if (!calendar) {
+          setError("User not found or no contribution data");
+          setLoading(false);
+          return;
+        }
+
+        const countByDate = {};
+        for (const week of calendar.weeks || []) {
+          for (const day of week.contributionDays || []) {
+            countByDate[day.date] = day.contributionCount;
+          }
+        }
+
+        const list = [];
+        for (let i = 364; i >= 0; i--) {
+          const d = new Date(to);
+          d.setDate(d.getDate() - i);
+          const dateStr = d.toISOString().slice(0, 10);
+          const count = countByDate[dateStr] ?? 0;
+          list.push({ date: dateStr, count });
+        }
+
+        const maxInList = Math.max(...list.map((d) => d.count), 1);
+        const normalized = list.map((d) => ({
+          ...d,
+          level: getLevel(d.count, maxInList),
+        }));
+
+        setContributions(normalized);
+
+        const total = calendar.totalContributions ?? normalized.reduce((s, d) => s + d.count, 0);
+        const currentYear = normalized
+          .filter((d) => new Date(d.date).getFullYear() === new Date().getFullYear())
+          .reduce((s, d) => s + d.count, 0);
+
+        let longestStreak = 0;
+        let currentStreak = 0;
+        let tempStreak = 0;
+        for (let i = normalized.length - 1; i >= 0; i--) {
+          if (normalized[i].count > 0) {
+            tempStreak++;
+            if (i === normalized.length - 1) currentStreak++;
+          } else {
+            longestStreak = Math.max(longestStreak, tempStreak);
+            tempStreak = 0;
+            if (i < normalized.length - 1) currentStreak = 0;
+          }
+        }
+        longestStreak = Math.max(longestStreak, tempStreak);
+
+        setStats({
+          total,
+          currentYear,
+          longestStreak,
+          currentStreak,
+        });
+      } catch (err) {
+        if (!cancelled) {
+          setError(err.message || "Failed to load contributions");
+        }
+      } finally {
+        if (!cancelled) setLoading(false);
       }
-      
-      setStats({
-        total,
-        currentYear,
-        longestStreak: Math.max(longestStreak, tempStreak),
-        currentStreak
-      });
-      setLoading(false);
-    }, 500);
+    }
+
+    fetchContributions();
+    return () => { cancelled = true; };
   }, []);
 
   const getMonthLabels = () => {
@@ -95,8 +170,25 @@ function GitHubContributions() {
   if (loading) {
     return (
       <div id="github-contributions" className={styles.mainContainer}>
-        <h1 className={styles.mainHeading}>GitHub Contributions</h1>
+        <h1 className={styles.mainHeading}><span className="heading-cursive">GitHub</span><span className="heading-normal"> Contributions</span></h1>
         <div className={styles.loading}>Loading contributions...</div>
+      </div>
+    );
+  }
+
+  if (error) {
+    return (
+      <div id="github-contributions" className={styles.mainContainer}>
+        <h1 className={styles.mainHeading}><span className="heading-cursive">GitHub</span><span className="heading-normal"> Contributions</span></h1>
+        <div className={styles.loading}>
+          <p>{error}</p>
+          <p className={styles.errorHint}>
+            Unauthenticated requests are limited. Add <code>NEXT_PUBLIC_GITHUB_TOKEN</code> in <code>.env.local</code> for reliable access, or try again later.
+          </p>
+          <a href="https://github.com/KrishayNair" target="_blank" rel="noopener noreferrer" className={styles.link}>
+            View on GitHub →
+          </a>
+        </div>
       </div>
     );
   }

@@ -1,7 +1,7 @@
 
 .mainContainer {
   background: var(--bg-primary);
-  padding: var(--section-padding-y) 0;
+  padding: 3rem 0;
   max-width: var(--max-width);
   margin: 0 auto;
   padding-left: var(--content-padding-x);
@@ -46,11 +46,11 @@
 
 .mainHeading {
   font-family: var(--font-display);
-  font-size: var(--font-size-3xl);
+  font-size: var(--font-size-2xl);
   font-weight: var(--font-weight-semibold);
   text-align: center;
   color: var(--text-primary) !important;
-  margin-bottom: var(--spacing-xl);
+  margin-bottom: 1.25rem;
   letter-spacing: var(--letter-spacing-wide);
   line-height: var(--line-height-tight);
   transition: color 0.3s ease;
@@ -62,21 +62,22 @@
   padding: 0 2rem;
 }
 
+/* Match Blogs section: same grid and card proportions */
 .achievementsGrid {
   display: grid;
-  grid-template-columns: repeat(auto-fit, minmax(400px, 1fr));
-  gap: 1.2rem;
+  grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
+  gap: 1.5rem;
 }
 
 .achievementCard {
   background: var(--bg-secondary);
-  border: 1.5px solid var(--border-color);
-  border-radius: 0.8rem;
-  padding: 1.2rem;
+  border: 1px solid var(--border-color);
+  border-radius: 0.75rem;
+  padding: 1.5rem;
   transition: all 0.3s ease;
   position: relative;
   overflow: hidden;
-  height: fit-content;
+  min-height: 160px;
 }
 
 .achievementCard::before {
@@ -93,8 +94,8 @@
 
 .achievementCard:hover {
   border-color: var(--border-hover);
-  transform: translateY(-3px);
-  box-shadow: 0 8px 25px rgba(0, 0, 0, 0.1);
+  transform: translateY(-5px);
+  box-shadow: 0 10px 30px rgba(0, 0, 0, 0.1);
   background: var(--bg-hover);
 }
 
@@ -105,12 +106,12 @@
 .achievementHeader {
   display: flex;
   align-items: flex-start;
-  gap: 0.8rem;
-  margin-bottom: 0.8rem;
+  gap: 0.75rem;
+  margin-bottom: 1rem;
 }
 
 .achievementIcon {
-  font-size: 1.8rem;
+  font-size: 1.75rem;
   flex-shrink: 0;
   margin-top: 0.1rem;
 }
@@ -121,11 +122,11 @@
 }
 
 .achievementTitle {
-  font-family: var(--font-sans);
-  font-size: 1.1rem;
+  font-family: var(--font-display);
+  font-size: var(--font-size-lg);
   color: var(--text-primary);
-  font-weight: 600;
-  margin-bottom: 0.3rem;
+  font-weight: 500;
+  margin-bottom: 0.35rem;
   line-height: 1.3;
   display: -webkit-box;
   -webkit-line-clamp: 2;
@@ -138,33 +139,26 @@
   font-family: var(--font-sans);
   font-size: 0.75rem;
   color: var(--text-primary);
-  font-weight: 500;
-  background: var(--bg-hover);
-  padding: 0.2rem 0.6rem;
-  border-radius: 0.8rem;
-  border: 1px solid var(--border-color);
-  display: inline-block;
-  transition: all 0.3s ease;
+  font-weight: 600;
+  text-transform: uppercase;
+  letter-spacing: 0.5px;
+  transition: color 0.3s ease;
 }
 
 .achievementYear {
   font-family: var(--font-sans);
-  font-size: 0.75rem;
+  font-size: 0.85rem;
   color: var(--text-secondary);
   font-weight: 500;
-  background: var(--bg-secondary);
-  padding: 0.2rem 0.6rem;
-  border-radius: 0.8rem;
-  border: 1px solid var(--border-color);
   flex-shrink: 0;
-  transition: all 0.3s ease;
+  transition: color 0.3s ease;
 }
 
 .achievementDescription {
   font-family: var(--font-sans);
-  font-size: 0.85rem;
+  font-size: var(--font-size-sm);
   color: var(--text-secondary);
-  line-height: 1.4;
+  line-height: 1.6;
   margin: 0;
   display: -webkit-box;
   -webkit-line-clamp: 2;
@@ -173,14 +167,35 @@
   transition: color 0.3s ease;
 }
 
+.seeMoreButton {
+  display: block;
+  margin: 2rem auto 0;
+  padding: 0.6rem 1.5rem;
+  font-family: var(--font-sans);
+  font-size: 0.9rem;
+  font-weight: 600;
+  color: var(--text-primary);
+  background: var(--bg-secondary);
+  border: 1px solid var(--border-color);
+  border-radius: 0.5rem;
+  cursor: pointer;
+  transition: all 0.2s ease;
+}
+
+.seeMoreButton:hover {
+  background: var(--bg-hover);
+  border-color: var(--border-hover);
+  transform: translateY(-2px);
+}
+
 @media only screen and (max-width: 768px) {
   .mainContainer {
     padding: 2rem 0;
   }
   
   .mainHeading {
-    font-size: 2rem;
-    margin-bottom: 2rem;
+    font-size: 1.5rem;
+    margin-bottom: 1.25rem;
   }
   
   .achievementsContainer {
@@ -193,11 +208,13 @@
   }
   
   .achievementCard {
-    padding: 1rem;
+    padding: 1.5rem;
+    min-height: auto;
   }
   
   .achievementHeader {
-    gap: 0.6rem;
+    gap: 0.75rem;
+    margin-bottom: 1rem;
   }
   
   .achievementIcon {
@@ -205,38 +222,36 @@
   }
   
   .achievementTitle {
-    font-size: 1rem;
+    font-size: 1.125rem;
   }
   
   .achievementDescription {
-    font-size: 0.8rem;
+    font-size: var(--font-size-sm);
   }
   
   .achievementCategory {
     font-size: 0.7rem;
-    padding: 0.15rem 0.5rem;
   }
   
   .achievementYear {
-    font-size: 0.7rem;
-    padding: 0.15rem 0.5rem;
+    font-size: 0.8rem;
   }
 }
 
 @media only screen and (max-width: 480px) {
   .mainHeading {
-    font-size: 1.6rem;
+    font-size: 1.35rem;
   }
   
   .achievementCard {
-    padding: 0.8rem;
+    padding: 1.25rem;
   }
   
   .achievementTitle {
-    font-size: 0.95rem;
+    font-size: 1.05rem;
   }
   
   .achievementDescription {
-    font-size: 0.75rem;
+    font-size: 0.875rem;
   }
 }

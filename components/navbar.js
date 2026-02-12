@@ -28,21 +28,24 @@ function navbar() {
       <div className={styles.navMain}>
         <nav className={styles.navMid} aria-label="Main Navigation">
           <ul>
-            <li><Link className={styles.navElement} href="/">Home</Link></li>
-            <li><a className={styles.navElement} href="/#about" onClick={(e) => handleNavigation(e, '/#about')}>About</a></li>
-            <li><a className={styles.navElement} href="/#projects" onClick={(e) => handleNavigation(e, '/#projects')}>Projects</a></li>
-            <li><a className={styles.navElement} href="/#experience" onClick={(e) => handleNavigation(e, '/#experience')}>Experience</a></li>
-            <li><a className={styles.navElement} href="/#certifications" onClick={(e) => handleNavigation(e, '/#certifications')}>Certifications</a></li>
-            <li><a className={styles.navElement} href="/#blogs" onClick={(e) => handleNavigation(e, '/#blogs')}>Blog</a></li>
+            <li><motion.div whileHover={{ y: -1 }} whileTap={{ scale: 0.98 }}><Link className={styles.navElement} href="/">Home</Link></motion.div></li>
+            <li><motion.a className={styles.navElement} href="/#about" onClick={(e) => handleNavigation(e, '/#about')} whileHover={{ y: -1 }} whileTap={{ scale: 0.98 }}>About</motion.a></li>
+            <li><motion.a className={styles.navElement} href="/#projects" onClick={(e) => handleNavigation(e, '/#projects')} whileHover={{ y: -1 }} whileTap={{ scale: 0.98 }}>Projects</motion.a></li>
+            <li><motion.a className={styles.navElement} href="/#experience" onClick={(e) => handleNavigation(e, '/#experience')} whileHover={{ y: -1 }} whileTap={{ scale: 0.98 }}>Experience</motion.a></li>
+            <li><motion.a className={styles.navElement} href="/#certifications" onClick={(e) => handleNavigation(e, '/#certifications')} whileHover={{ y: -1 }} whileTap={{ scale: 0.98 }}>Certifications</motion.a></li>
+            <li><motion.a className={styles.navElement} href="/#blogs" onClick={(e) => handleNavigation(e, '/#blogs')} whileHover={{ y: -1 }} whileTap={{ scale: 0.98 }}>Blog</motion.a></li>
           </ul>
         </nav>
       </div>
      
       <div className={styles.headerActions}>
-        <button 
+        <motion.button 
           className={styles.themeToggle}
           onClick={toggleTheme}
           aria-label="Toggle theme"
+          whileHover={{ scale: 1.08, rotate: 12 }}
+          whileTap={{ scale: 0.92 }}
+          transition={{ type: 'spring', stiffness: 400, damping: 17 }}
         >
           {theme === 'dark' ? (
             <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2">
@@ -61,16 +64,19 @@ function navbar() {
               <path d="M21 12.79A9 9 0 1 1 11.21 3 7 7 0 0 0 21 12.79z"></path>
             </svg>
           )}
-        </button>
-      <a
+        </motion.button>
+      <motion.a
         href="./pdf/Krishay_Nair_Resume.pdf"
         className={styles.download}
         download="resume"
+        whileHover={{ scale: 1.03 }}
+        whileTap={{ scale: 0.98 }}
+        transition={{ type: 'spring', stiffness: 400, damping: 17 }}
       >
         <Button className={styles.downloadBtn} variant="light">
           Download CV
         </Button>
-      </a>
+      </motion.a>
     </div>
     </motion.div>
   );

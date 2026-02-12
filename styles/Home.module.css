@@ -5,33 +5,8 @@
   width: 100%;
 }
 
-/* Section border - subtle white line on sides */
 .container {
   position: relative;
-}
-
-.container::before {
-  content: '';
-  position: fixed;
-  left: 0;
-  top: 0;
-  bottom: 0;
-  width: 1px;
-  background: linear-gradient(180deg, transparent 0%, rgba(255, 255, 255, 0.12) 20%, rgba(255, 255, 255, 0.12) 80%, transparent 100%);
-  pointer-events: none;
-  z-index: 999;
-}
-
-.container::after {
-  content: '';
-  position: fixed;
-  right: 0;
-  top: 0;
-  bottom: 0;
-  width: 1px;
-  background: linear-gradient(180deg, transparent 0%, rgba(255, 255, 255, 0.12) 20%, rgba(255, 255, 255, 0.12) 80%, transparent 100%);
-  pointer-events: none;
-  z-index: 999;
 }
 
 .mainHeading {

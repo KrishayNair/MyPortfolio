@@ -72,9 +72,25 @@
 
 .loading {
   text-align: center;
-  color: var(--secondary-text);
+  color: var(--text-secondary);
   font-size: 1.2rem;
   padding: 4rem;
+}
+
+.loading code {
+  background: var(--bg-secondary);
+  padding: 0.2rem 0.4rem;
+  border-radius: 4px;
+  font-size: 0.85em;
+}
+
+.errorHint {
+  font-size: 0.9rem;
+  margin-top: 1rem;
+  max-width: 420px;
+  margin-left: auto;
+  margin-right: auto;
+  line-height: 1.5;
 }
 
 .statsGrid {
@@ -133,16 +149,22 @@
 
 .monthLabels {
   display: flex;
-  gap: 3px;
+  flex-wrap: nowrap;
+  justify-content: space-between;
+  gap: 0.25rem;
   margin-bottom: 0.5rem;
   padding-left: 30px;
+  min-width: 0;
 }
 
 .monthLabel {
   color: var(--text-secondary);
-  font-size: 0.75rem;
-  width: calc(100% / 53);
-  text-align: center;
+  font-size: 0.7rem;
+  font-weight: 500;
+  white-space: nowrap;
+  flex: 1;
+  min-width: 0;
+  text-align: left;
   transition: color 0.3s ease;
 }
 
@@ -164,51 +186,59 @@
   background-color: var(--bg-secondary);
 }
 
-/* Contribution level colors - Dark theme */
+/* Contribution level colors - Blue theme (dark) */
 .contributionCell.level0,
 .legendCell.level0 {
-  background-color: rgba(255, 255, 255, 0.05);
+  background-color: var(--bg-secondary);
+  border-color: var(--border-color);
 }
 
 .contributionCell.level1,
 .legendCell.level1 {
-  background-color: rgba(255, 255, 255, 0.15);
+  background-color: rgba(59, 130, 246, 0.35);
+  border-color: rgba(59, 130, 246, 0.4);
 }
 
 .contributionCell.level2,
 .legendCell.level2 {
-  background-color: rgba(255, 255, 255, 0.3);
+  background-color: rgba(59, 130, 246, 0.6);
+  border-color: rgba(59, 130, 246, 0.65);
 }
 
 .contributionCell.level3,
 .legendCell.level3 {
-  background-color: rgba(255, 255, 255, 0.5);
+  background-color: var(--accent-blue, #3b82f6);
+  border-color: rgba(59, 130, 246, 0.9);
 }
 
-/* Light theme contribution colors */
+/* Light theme contribution colors - blue */
 [data-theme="light"] .contributionCell.level0,
 [data-theme="light"] .legendCell.level0 {
-  background-color: rgba(0, 0, 0, 0.05);
+  background-color: rgba(0, 0, 0, 0.06);
+  border-color: rgba(0, 0, 0, 0.1);
 }
 
 [data-theme="light"] .contributionCell.level1,
 [data-theme="light"] .legendCell.level1 {
-  background-color: rgba(0, 0, 0, 0.15);
+  background-color: rgba(37, 99, 235, 0.25);
+  border-color: rgba(37, 99, 235, 0.35);
 }
 
 [data-theme="light"] .contributionCell.level2,
 [data-theme="light"] .legendCell.level2 {
-  background-color: rgba(0, 0, 0, 0.3);
+  background-color: rgba(37, 99, 235, 0.5);
+  border-color: rgba(37, 99, 235, 0.6);
 }
 
 [data-theme="light"] .contributionCell.level3,
 [data-theme="light"] .legendCell.level3 {
-  background-color: rgba(0, 0, 0, 0.5);
+  background-color: var(--accent-blue, #2563eb);
+  border-color: rgba(37, 99, 235, 0.9);
 }
 
 .contributionCell:hover {
-  box-shadow: 0 0 10px rgba(0, 0, 0, 0.2);
-  border-color: var(--border-hover);
+  box-shadow: 0 0 12px rgba(59, 130, 246, 0.4);
+  border-color: var(--accent-blue, #3b82f6);
 }
 
 .legend {
@@ -253,7 +283,7 @@
 }
 
 .link:hover {
-  color: var(--text-secondary);
+  color: var(--accent-blue, #3b82f6);
   transform: translateX(5px);
 }
 
