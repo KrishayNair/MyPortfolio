@@ -554,7 +554,9 @@ export default function ProjectDetail({ project: projectFromProps }) {
 }
 
 export async function getStaticPaths() {
-  const paths = projects.map((p) => ({ params: { id: p.slug } }));
+  const paths = projects
+    .filter((p) => p.slug != null && String(p.slug).trim() !== '')
+    .map((p) => ({ params: { id: String(p.slug) } }));
   return { paths, fallback: false };
 }
 
