@@ -1,14 +1,26 @@
-import { useState } from 'react';
+import { useState, useMemo } from 'react';
 import { useRouter } from 'next/router';
+import Head from 'next/head';
 import Image from 'next/image';
 import Link from 'next/link';
 import { motion, AnimatePresence } from 'framer-motion';
 import { projects } from '../../data';
 import styles from './project.module.css';
 
-export default function ProjectDetail() {
+// Helpers (pure, safe for empty text)
+function getBriefText(text) {
+  if (!text || typeof text !== 'string') return '';
+  const sentences = text.split(/[.!?]+/).filter(s => s.trim());
+  return sentences.slice(0, 2).join('. ') + (sentences.length > 2 ? '.' : '');
+}
+function getBriefAchievement(text) {
+  if (!text || typeof text !== 'string') return '';
+  const words = text.split(' ');
+  return words.slice(0, 10).join(' ') + (words.length > 10 ? '...' : '');
+}
+
+export default function ProjectDetail({ project: projectFromProps }) {
   const router = useRouter();
-  const { id } = router.query;
   const [currentImageIndex, setCurrentImageIndex] = useState(0);
   const [touchStart, setTouchStart] = useState(null);
   const [touchEnd, setTouchEnd] = useState(null);
@@ -19,14 +31,51 @@ export default function ProjectDetail() {
     impact: false,
     achievements: false
   });
-  
-  const project = projects.find(p => p.slug === id);
-  const relatedProjects = projects
-    .filter(p => p.slug !== id)
-    .slice(0, 3);
+
+  // Prefer props (SSG) so page loads correctly on direct hit / refresh; fallback to client lookup for client nav
+  const project = useMemo(() => {
+    if (projectFromProps) return projectFromProps;
+    const id = router.query.id;
+    if (!id) return null;
+    return projects.find(p => p.slug === id) || null;
+  }, [projectFromProps, router.query.id]);
+
+  const relatedProjects = useMemo(() => {
+    if (!project) return [];
+    return projects.filter(p => p.slug !== project.slug).slice(0, 3);
+  }, [project]);
+
+  const techStack = useMemo(() => {
+    if (!project?.tech) return [];
+    return project.tech.split(',').map(t => t.trim().replace(/\./g, ''));
+  }, [project]);
+
+  // Loading: no project yet and router not ready (avoids flash of "not found" on first paint)
+  if (!project && !router.isReady) {
+    return (
+      <div className={styles.pageWrapper}>
+        <div className={styles.container}>
+          <div className={styles.loadingSkeleton}>
+            <div className={styles.skeletonLine} style={{ width: '120px', marginBottom: '2rem' }} />
+            <div className={styles.skeletonLine} style={{ width: '70%', height: '2.5rem', marginBottom: '1rem' }} />
+            <div className={styles.skeletonLine} style={{ width: '90%', height: '1.25rem', marginBottom: '2rem' }} />
+            <div className={styles.skeletonLine} style={{ width: '100%', height: '400px', marginBottom: '2rem' }} />
+          </div>
+        </div>
+      </div>
+    );
+  }
 
   if (!project) {
-    return <div>Project not found</div>;
+    return (
+      <div className={styles.pageWrapper}>
+        <div className={styles.container}>
+          <Head><title>Project not found</title></Head>
+          <p className={styles.notFound}>Project not found.</p>
+          <Link href="/#projects" className={styles.backLink}>← Back to Projects</Link>
+        </div>
+      </div>
+    );
   }
 
   const handleBack = () => {
@@ -91,25 +140,12 @@ export default function ProjectDetail() {
     }
   };
 
-  // Get brief descriptions (first 2 sentences)
-  const getBriefText = (text) => {
-    const sentences = text.split(/[.!?]+/).filter(s => s.trim());
-    return sentences.slice(0, 2).join('. ') + (sentences.length > 2 ? '.' : '');
-  };
-
-  // Get brief achievement description
-  const getBriefAchievement = (text) => {
-    const words = text.split(' ');
-    return words.slice(0, 10).join(' ') + (words.length > 10 ? '...' : '');
-  };
-
-  // Extract tech stack from project.tech
-  const techStack = project.tech 
-    ? project.tech.split(',').map(t => t.trim().replace(/\./g, '')) 
-    : [];
-
   return (
     <div className={styles.pageWrapper}>
+    <Head>
+      <title>{project.title} | Projects</title>
+      <meta name="description" content={getBriefText(project.description)} />
+    </Head>
     <div className={styles.container}>
       <motion.button
         className={styles.backButton}
@@ -515,4 +551,15 @@ export default function ProjectDetail() {
     </div>
     </div>
   );
+}
+
+export async function getStaticPaths() {
+  const paths = projects.map((p) => ({ params: { id: p.slug } }));
+  return { paths, fallback: false };
+}
+
+export async function getStaticProps({ params }) {
+  const project = projects.find((p) => p.slug === params.id) || null;
+  if (!project) return { notFound: true };
+  return { props: { project } };
 }
