@@ -123,6 +123,14 @@
   font-weight: var(--font-weight-normal);
 }
 
+.credentialId {
+  font-family: var(--font-sans);
+  font-size: var(--font-size-xs);
+  color: var(--text-secondary);
+  opacity: 0.9;
+  letter-spacing: 0.02em;
+}
+
 .arrowLink {
   width: 32px;
   height: 32px;

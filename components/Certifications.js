@@ -6,6 +6,17 @@ import styles from './Certifications.module.css';
 const Certifications = () => {
   const certifications = [
     {
+      id: 'cka',
+      title: 'CKA: Certified Kubernetes Administrator',
+      issuer: 'The Linux Foundation',
+      date: 'Issued Apr 2026',
+      expires: 'Apr 2028',
+      credentialId: 'LF-erz3raamov',
+      icon: 'kubernetes',
+      skills: ['Kubernetes', 'Cluster administration', 'Container orchestration', 'Linux'],
+      url: 'https://www.credly.com/badges/747a88db-75e0-479b-8777-364881262ab4/linked_in_profile'
+    },
+    {
       id: 1,
       title: 'Oracle Cloud Infrastructure 2025 Certified Foundations Associate',
       issuer: 'Oracle',
@@ -69,6 +80,22 @@ const Certifications = () => {
           <path d="M12 6L8 10L12 14L16 10L12 6Z" fill="currentColor" opacity="0.8"/>
         </svg>
       );
+    } else if (iconName === 'kubernetes') {
+      return (
+        <svg width="24" height="24" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg" aria-hidden="true">
+          <rect width="24" height="24" rx="4" fill="currentColor" opacity="0.1"/>
+          <path
+            d="M12 4.5l7 4v9l-7 4-7-4v-9l7-4z"
+            stroke="currentColor"
+            strokeWidth="1.25"
+            strokeLinejoin="round"
+            fill="none"
+            opacity="0.85"
+          />
+          <circle cx="12" cy="12" r="2.25" fill="currentColor" opacity="0.9"/>
+          <path d="M12 7v3M12 14v3M8.2 9.5l2.6 1.5M13.2 13l2.6 1.5M8.2 14.5l2.6-1.5M13.2 11l2.6-1.5" stroke="currentColor" strokeWidth="1" strokeLinecap="round" opacity="0.75"/>
+        </svg>
+      );
     }
     return (
       <div className={styles.defaultIcon}>
@@ -119,6 +146,9 @@ const Certifications = () => {
                       {cert.expires && ` · Expires ${cert.expires}`}
                     </span>
                   </div>
+                  {cert.credentialId && (
+                    <span className={styles.credentialId}>Credential ID · {cert.credentialId}</span>
+                  )}
                 </div>
 
                 <a 

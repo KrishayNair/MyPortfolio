@@ -39,7 +39,8 @@ function Hero() {
     { name: 'Kubernetes', icon: 'Kubernetes' },
   ];
 
-  const titleWords = "Hi, I'm Krishay Nair — Site Reliability Engineer".split(' ');
+  const titleWords =
+    "Hi, I'm Krishay Nair — Site Reliability Engineer, CKA Certified".split(' ');
 
   return (
     <section className={styles.hero} id="home">

@@ -8,18 +8,16 @@ function Experiences() {
       <div className={styles.mainDiv}>
         <div className={styles.contentDiv}>
           <h1 className={styles.title}>
-            IIT Bombay (Education Technology Department)
+            Indian Institute of Technology Bombay · Education Technology
           </h1>
           <p className={styles.subtitle}>
-            {" "}
-            We built a Student Query Driven Learning under the guidance of
-            Asst.Professor Sumitra Sadhukhan. This SQDL App has been designed to
-            enable some degree of self-directed learning in classroom
-            environments{" "}
+            Software Development & Research Intern on the Student Query-Driven
+            Learning (SQDL) app—supporting self-directed learning in classroom
+            environments (Education Technology Department).
           </p>
-          <p className={styles.subtitle}>Role : Web Developer</p>
+          <p className={styles.subtitle}>Role : Software Development & Research Intern</p>
           <p className={styles.subtitle}>
-            Duration : 3 months (Aug 2023 - Present)
+            Duration : Aug 2023 – Feb 2024 · 7 months · Hybrid · Mumbai, Maharashtra
           </p>
 
           <img
@@ -30,9 +28,10 @@ function Experiences() {
           <img className={styles.cardImg} src="./images/sqdl2.png" alt="img" />
           <img className={styles.cardImg} src="./images/sqdl3.png" alt="img" />
           <p className={styles.contentDetails}>
-            Some Tasks :- <br /> 1. Completing the remaining work of the
-            Backend. <br /> 2 SQDL front-end development. <br />
-            3. Modification of SQDL (Backend and Frontend) post beta testing
+            Highlights : <br /> 1. Frontend with React.js—responsive, accessible UI from concept toward deployment. <br />
+            2. API integration and real-time socket-based features for interactive learning. <br />
+            3. Collaboration with backend on architecture fit and performance. <br />
+            4. Live testing with 15 students; iterated on usability and engagement.
           </p>
           {/* <a
             href="https://youtu.be/BFtGloHww98?feature=shared"

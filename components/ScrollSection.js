@@ -26,8 +26,9 @@ const getTechIcon = (techName) => {
     vite: 'vite',
     html: 'html', css: 'css', sass: 'sass',
     java: 'java', cpp: 'cpp',
-    redux: 'redux', mysql: 'mysql', webpack: 'webpack', git: 'git',
+    redux: 'redux', mysql: 'mysql',     webpack: 'webpack', git: 'git',
     figma: 'figma', 'chakra ui': 'chakra-ui', 'ant design': 'antdesign',
+    'c++': 'C++1', cpp: 'C++1',
   };
   return techMap[s] ?? null;
 };
@@ -44,8 +45,28 @@ function ScrollSection() {
 
   const experiences = [
     {
+      company: "eBay",
+      logo: "eBay",
+      logoSrc: "/experience-logos/ebay.svg",
+      logoColor: "#E53238",
+      role: "Software Engineering Intern, Network Traffic",
+      startDate: "May 2026",
+      endDate: "Oct 2026",
+      location: "Dublin, Ireland",
+      locationType: "On-site",
+      website: "",
+      twitter: "",
+      linkedin: "",
+      technologies: ["C++", "Go", "Kubernetes", "Service mesh", "Observability", "CI/CD"],
+      description: [
+        "Incoming role (May 2026, 6 months) with Traffic Engineering—expected focus on large-scale edge traffic (proxying, service mesh, observability) with hands-on work in C++ and Go and Kubernetes-based deployments.",
+        "Planned scope: supporting reliability and performance work alongside senior engineers—protocol and PoP configuration, caching, monitoring and triage from production signals, and contributions to tooling or open source as assigned."
+      ]
+    },
+    {
       company: "Communicore FiberInfra Pvt Ltd",
       logo: "CFPL",
+      logoSrc: "/experience-logos/communicore.svg",
       logoColor: "#06B6D4", // Cyan
       role: "Site Reliability Intern",
       startDate: "May 2024",
@@ -65,31 +86,32 @@ function ScrollSection() {
       ]
     },
     {
-      company: "IIT Bombay (Education Technology Department)",
+      company: "Indian Institute of Technology Bombay · Education Technology",
       logo: "IIT",
+      logoSrc: "/experience-logos/iit-bombay.svg",
       logoColor: "#8B5CF6", // Purple
-      role: "Site Reliability & Systems Engineering Intern",
+      role: "Software Development & Research Intern",
       startDate: "Aug 2023",
       endDate: "Feb 2024",
-      location: "Mumbai, IN",
-      locationType: "On-Site",
+      location: "Mumbai, Maharashtra, India",
+      locationType: "Hybrid",
       website: "",
       twitter: "",
       linkedin: "",
-      technologies: ["AWS", "Docker", "GitHub Actions", "React", "Postman", "CI/CD"],
+      technologies: ["React.js", "JavaScript", "REST APIs", "WebSockets", "Git"],
       description: [
-        "Established distributed systems infrastructure supporting 100+ simultaneous users, achieving 99.9% uptime via intelligent health checks and load balancing in the AWS Mumbai region.",
-        "Devised optimized API calls and state management strategies using React Developer Tools, Chrome Lighthouse and Web Vitals, Postman and Swagger, achieving 30% improvement in page load performance.",
-        "Initiated and implemented a CI/CD pipeline with GitHub Actions, AWS CodeDeploy, and Docker, reducing deployment time from 30-40 minutes to under 10 minutes.",
-        "Designed and deployed containerized applications using Docker, ensuring consistent environments across development, staging, and production, which eliminated 95% of environment-related issues.",
-        "Implemented comprehensive monitoring and alerting systems using AWS CloudWatch, enabling proactive issue detection and reducing mean time to resolution (MTTR) by 40%.",
-        "Optimized database queries and implemented caching strategies, resulting in a 50% reduction in database response times and improved overall system performance.",
-        "Collaborated with the development team to establish best practices for code reviews, testing, and deployment processes, improving code quality and reducing production bugs by 35%."
+        "Key contributor to IIT Bombay’s Student Query-Driven Learning (SQDL) app—owned the frontend from early concept through user-tested deployment.",
+        "Built the interface with React.js, focusing on responsive layouts, clear UX, and a polished visual design for classroom and self-directed learning flows.",
+        "Integrated backend APIs and implemented real-time, socket-based features so learners and instructors could interact without page refreshes or awkward delays.",
+        "Worked closely with the backend team on contracts, data shapes, and performance so the stack stayed compatible as features shipped.",
+        "Ran live sessions with 15 students for usability testing and iterated on feedback, improving clarity and engagement in the product.",
+        "Strengthened practical skills in React, state management, and structuring a frontend that could grow with new SQDL features."
       ]
     },
     {
       company: "EasyCompany",
       logo: "EC",
+      logoSrc: "/experience-logos/easycompany.svg",
       logoColor: "#3B82F6", // Blue
       role: "Software Developer (SDE) Intern",
       startDate: "Nov 2022",
@@ -142,11 +164,22 @@ function ScrollSection() {
                 {/* Header Section */}
                 <div className={styles.header}>
                   <div className={styles.headerLeft}>
-                    <div 
-                      className={styles.logo}
-                      style={{ backgroundColor: exp.logoColor }}
+                    <div
+                      className={`${styles.logo} ${exp.logoSrc ? styles.logoWithImage : ''}`}
+                      style={exp.logoSrc ? undefined : { backgroundColor: exp.logoColor }}
                     >
-                      <span className={styles.logoText}>{exp.logo}</span>
+                      {exp.logoSrc ? (
+                        <Image
+                          src={exp.logoSrc}
+                          alt={`${exp.company} logo`}
+                          width={44}
+                          height={44}
+                          className={styles.logoImg}
+                          unoptimized
+                        />
+                      ) : (
+                        <span className={styles.logoText}>{exp.logo}</span>
+                      )}
                 </div>
                     <div className={styles.companyInfo}>
                       <div className={styles.companyNameRow}>
