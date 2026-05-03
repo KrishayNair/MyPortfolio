@@ -53,7 +53,7 @@ export default function Home() {
   useEffect(() => {
     const handleHashNavigation = () => {
       const hash = window.location.hash;
-      const validHashes = ['#projects', '#blogs', '#about', '#experience', '#github-contributions', '#certifications'];
+      const validHashes = ['#projects', '#blogs', '#about', '#experience', '#github-contributions', '#certifications', '#contact'];
       
       if (hash && validHashes.includes(hash)) {
         // Multiple attempts to ensure scrolling works

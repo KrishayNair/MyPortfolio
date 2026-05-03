@@ -2,7 +2,6 @@ import React, { useEffect, useState } from "react";
 import { motion, useMotionValue, useSpring } from 'framer-motion';
 import Image from 'next/image';
 import styles from "./hero.module.css";
-import Link from "next/link";
 import PixelGrid from "./PixelGrid";
 
 function Hero() {
@@ -203,7 +202,19 @@ function Hero() {
               whileTap={{ scale: 0.97 }} 
               transition={{ type: 'spring', stiffness: 400, damping: 17 }}
             >
-              <Link href="mailto:krishay958@gmail.com" className={styles.ctaButtonContact}>
+              <motion.a
+                href="/#contact"
+                className={styles.ctaButtonContact}
+                onClick={(e) => {
+                  if (typeof window === 'undefined') return;
+                  const el = document.getElementById('contact');
+                  if (el && window.location.pathname === '/') {
+                    e.preventDefault();
+                    el.scrollIntoView({ behavior: 'smooth', block: 'start' });
+                    window.history.replaceState(null, '', '/#contact');
+                  }
+                }}
+              >
                 <motion.div
                   className={styles.buttonGlow}
                   whileHover={{ opacity: 1, scale: 1.1 }}
@@ -223,7 +234,7 @@ function Hero() {
                   <polyline points="22,6 12,13 2,6"></polyline>
                 </motion.svg>
                 <span>Get in touch</span>
-              </Link>
+              </motion.a>
             </motion.div>
           </motion.div>
 

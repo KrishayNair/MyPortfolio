@@ -19,6 +19,7 @@ function ConnectSection() {
   
   // TODO: Replace 'your-username' with your actual cal.com username
   const calComUsername = 'krishaynair';
+  const contactEmail = 'krishay958@gmail.com';
 
   useEffect(() => {
     (async function () {
@@ -94,6 +95,7 @@ function ConnectSection() {
 
   return (
     <>
+      <section id="contact" className={styles.connectSection}>
       <div className={styles.container}>
         <motion.div
           className={styles.contentBox}
@@ -103,6 +105,7 @@ function ConnectSection() {
           transition={{ duration: 0.6 }}
         >
           <p className={styles.message}>Hey, you scrolled this far, let's talk.</p>
+          <div className={styles.ctaRow}>
           <motion.button
             className={styles.bookButton}
             onClick={handleButtonClick}
@@ -123,8 +126,32 @@ function ConnectSection() {
             </svg>
             <span>Book a Free Call</span>
           </motion.button>
+          <motion.a
+            href={`mailto:${contactEmail}`}
+            className={styles.emailButton}
+            whileHover={{ scale: 1.05, y: -2 }}
+            whileTap={{ scale: 0.96 }}
+            transition={{ type: 'spring', stiffness: 400, damping: 17 }}
+          >
+            <svg
+              className={styles.chatIcon}
+              width="20"
+              height="20"
+              viewBox="0 0 24 24"
+              fill="none"
+              stroke="currentColor"
+              strokeWidth="2"
+              aria-hidden
+            >
+              <path d="M4 4h16c1.1 0 2 .9 2 2v12c0 1.1-.9 2-2 2H4c-1.1 0-2-.9-2-2V6c0-1.1.9-2 2-2z" />
+              <polyline points="22,6 12,13 2,6" />
+            </svg>
+            <span>Email me</span>
+          </motion.a>
+          </div>
         </motion.div>
       </div>
+      </section>
 
       <AnimatePresence>
         {isModalOpen && (
